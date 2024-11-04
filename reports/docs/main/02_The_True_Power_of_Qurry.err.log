@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# BackendManager.save_account('your_token')
+backend = BackendManager(hub='ibm-q', group='open', project='main')
+
+------------------
+
+----- stdout -----
+| Provider by 'qiskit_ibm_runtime'.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+File [0;32m~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/backend_manager.py:486[0m, in [0;36mBackendManager.__init__[0;34m(self, hub, group, project, instance, real_provider_source, fake_version)[0m
+[1;32m    485[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 486[0m     [38;5;28;01mfrom[39;00m [38;5;21;01mqiskit_ibm_runtime[39;00m [38;5;28;01mimport[39;00m QiskitRuntimeService
+[1;32m    488[0m     new_provider [38;5;241m=[39m QiskitRuntimeService(instance[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39minstance)
+
+[0;31mModuleNotFoundError[0m: No module named 'qiskit_ibm_runtime'
+
+The above exception was the direct cause of the following exception:
+
+[0;31mImportError[0m                               Traceback (most recent call last)
+Cell [0;32mIn[2], line 2[0m
+[1;32m      1[0m [38;5;66;03m# BackendManager.save_account('your_token')[39;00m
+[0;32m----> 2[0m backend [38;5;241m=[39m [43mBackendManager[49m[43m([49m[43mhub[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mibm-q[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mgroup[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mopen[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mproject[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mmain[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+File [0;32m~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/backend_manager.py:494[0m, in [0;36mBackendManager.__init__[0;34m(self, hub, group, project, instance, real_provider_source, fake_version)[0m
+[1;32m    489[0m         [38;5;28msuper[39m()[38;5;241m.[39m[38;5;21m__init__[39m(
+[1;32m    490[0m             real_provider[38;5;241m=[39mnew_provider,
+[1;32m    491[0m             fake_version[38;5;241m=[39mfake_version,
+[1;32m    492[0m         )
+[1;32m    493[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m [38;5;28;01mas[39;00m err:
+[0;32m--> 494[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(
+[1;32m    495[0m             [38;5;124m"[39m[38;5;124mProvider by [39m[38;5;124m'[39m[38;5;124mqiskit_ibm_runtime[39m[38;5;124m'[39m[38;5;124m is not available, [39m[38;5;124m"[39m
+[1;32m    496[0m             [38;5;241m+[39m [38;5;124m"[39m[38;5;124mcheck installation of [39m[38;5;124m'[39m[38;5;124mqiskit-ibm-runtime[39m[38;5;124m'[39m[38;5;124m first.[39m[38;5;124m"[39m
+[1;32m    497[0m         ) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m    499[0m [38;5;28;01melif[39;00m real_provider_source [38;5;241m==[39m [38;5;124m"[39m[38;5;124mqiskit_ibmq_provider[39m[38;5;124m"[39m:
+[1;32m    500[0m     [38;5;28mprint[39m([38;5;124m"[39m[38;5;124m| Provider by [39m[38;5;124m'[39m[38;5;124mqiskit.providers.ibmq[39m[38;5;124m'[39m[38;5;124m, which will be deprecated.[39m[38;5;124m"[39m)
+
+[0;31mImportError[0m: Provider by 'qiskit_ibm_runtime' is not available, check installation of 'qiskit-ibm-runtime' first.
+

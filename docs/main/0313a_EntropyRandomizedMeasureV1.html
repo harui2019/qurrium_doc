@@ -1,0 +1,1524 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.1 EntropyMeasureV1 &#8212; Qurrium Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/0313a_EntropyRandomizedMeasureV1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1 EntropyMeasureV1" href="0313b_EntropyRandomizedMeasureV1.html" />
+    <link rel="prev" title="3.1 EntropyMeasure" href="0312_EntropyHadamardTest.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Qurrium Documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Qurrium Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">main</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03_Just_Post_Processing.html">03 - Just Post-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0311a_EntropyRandomizedMeasure.html">3.1 EntropyMeasure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0311b_EntropyRandomizedMeasure.html">3.1 EntropyMeasure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0312_EntropyHadamardTest.html">3.1 EntropyMeasure</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3.1 EntropyMeasureV1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0313b_EntropyRandomizedMeasureV1.html">3.1 EntropyMeasureV1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/harui2019/qurrium_doc" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/harui2019/qurrium_doc/issues/new?title=Issue%20on%20page%20%2Fdocs/main/0313a_EntropyRandomizedMeasureV1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/main/0313a_EntropyRandomizedMeasureV1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.1 EntropyMeasureV1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">3.1.3 Randomized Measurement V1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-randomized-entangled-entropy-v1">a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-your-own-progress-bar">Integration with your own progress bar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-backend">Using Python backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing-speed-up-availablities-and-version-info">Post-Processing Speed-up Availablities and Version Info</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="entropymeasurev1">
+<h1>3.1 EntropyMeasureV1<a class="headerlink" href="#entropymeasurev1" title="Link to this heading">#</a></h1>
+<p>The instance <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> contains 2 methods, one is <code class="docutils literal notranslate"><span class="pre">EntropyHadamardTest</span></code> using Hadamard test, and the other is <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> using randomized measure, the default case.</p>
+<p>Both of them are used to calculate the entropy of a quantum state, but the calculation and post-processing are totally different.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasureV1</span></code> is a deprecated version of <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> because it lacks clarity on the relationship between bitstrings and qubit indices.
+This limitation can easily cause confusion, especially when working with systems that do not measure all qubits. However, it is retained for backward compatibility.</p>
+<section id="randomized-measurement-v1">
+<h2>3.1.3 Randomized Measurement V1<a class="headerlink" href="#randomized-measurement-v1" title="Link to this heading">#</a></h2>
+<p>This method is based on <a class="reference external" href="https://www.science.org/doi/abs/10.1126/science.aau4963">Probing Rényi entanglement entropy via randomized measurements</a> with deplorizing error mitigation by <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevE.104.035309">Simple mitigation of global depolarizing errors in quantum simulations</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="a-randomized-entangled-entropy-v1">
+<h2>a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code><a class="headerlink" href="#a-randomized-entangled-entropy-v1" title="Link to this heading">#</a></h2>
+<p><a id='randomized_entangled_entropy_v1'></a></p>
+<p>Here, we assume you already have the data from the calculation. You can call the function <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code> from <code class="docutils literal notranslate"><span class="pre">qurry.process.randomized_measure</span></code> to calculate the entropy.</p>
+<p>In this function, only <code class="docutils literal notranslate"><span class="pre">shots</span></code>, <code class="docutils literal notranslate"><span class="pre">counts</span></code>, and <code class="docutils literal notranslate"><span class="pre">degree</span></code> are required arguments. The others are optional.</p>
+<p>The following is the arguments of the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">randomized_entangled_entropy_v1</span><span class="p">(</span>
+    <span class="n">shots</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">counts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+    <span class="n">degree</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]],</span>
+    <span class="n">measure</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">backend</span><span class="p">:</span> <span class="n">PostProcessingBackendLabel</span> <span class="o">=</span> <span class="n">DEFAULT_PROCESS_BACKEND</span><span class="p">,</span>
+    <span class="n">workers_num</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">pbar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RandomizedEntangledEntropyComplex</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate entangled entropy.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        shots (int):</span>
+<span class="sd">            Shots of the counts.</span>
+<span class="sd">        counts (list[dict[str, int]]):</span>
+<span class="sd">            Counts from randomized measurement results.</span>
+<span class="sd">        degree (Optional[Union[tuple[int, int], int]]):</span>
+<span class="sd">            The range of partition.</span>
+<span class="sd">        measure (Optional[tuple[int, int]], optional):</span>
+<span class="sd">            The range that implemented the measuring gate.</span>
+<span class="sd">            If not specified, then use all qubits.</span>
+<span class="sd">            This will affect the range of partition</span>
+<span class="sd">            when you not implement the measuring gate on all qubit.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        backend (PostProcessingBackendLabel, optional):</span>
+<span class="sd">            Backend for the post-processing.</span>
+<span class="sd">            Defaults to DEFAULT_PROCESS_BACKEND.</span>
+<span class="sd">        workers_num (Optional[int], optional):</span>
+<span class="sd">            Number of multi-processing workers, it will be ignored if backend is Rust.</span>
+<span class="sd">            if sets to 1, then disable to using multi-processing;</span>
+<span class="sd">            if not specified, then use the number of all cpu counts by `os.cpu_count()`.</span>
+<span class="sd">            This only works for Python and Cython backend.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        pbar (Optional[tqdm.tqdm], optional):</span>
+<span class="sd">            The progress bar API, you can use put a :cls:`tqdm` object here.</span>
+<span class="sd">            This function will update the progress bar description.</span>
+<span class="sd">            Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        RandomizedEntangledEntropyComplex:</span>
+<span class="sd">            A dictionary contains purity, entropy,</span>
+<span class="sd">            a list of each overlap, puritySD, degree,</span>
+<span class="sd">            actual measure range, bitstring range and more.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>This function returns a dictionary that contains the entropy, purity, and other relevant information.
+The returned <code class="docutils literal notranslate"><span class="pre">dict</span></code> contains the following information:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RandomizedEntangledEntropyComplex</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The result of the analysis.&quot;&quot;&quot;</span>
+
+    <span class="n">purity</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of the system.&quot;&quot;&quot;</span>
+    <span class="n">entropy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The entropy of the system.&quot;&quot;&quot;</span>
+    <span class="n">purityCells</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of each cell.&quot;&quot;&quot;</span>
+    <span class="n">puritySD</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the purity.&quot;&quot;&quot;</span>
+    <span class="n">entropySD</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the entropy.&quot;&quot;&quot;</span>
+    <span class="n">degree</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The range of partition.&quot;&quot;&quot;</span>
+    <span class="n">measureActually</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[()]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The range of partition refer to all qubits.&quot;&quot;&quot;</span>
+    <span class="n">bitStringRange</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[()]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The range of partition on the bitstring.&quot;&quot;&quot;</span>
+    <span class="n">countsNum</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of counts.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="dummy-data">
+<h3>Dummy Data<a class="headerlink" href="#dummy-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.capsule</span> <span class="kn">import</span> <span class="n">quickRead</span>
+
+<span class="n">easy_dummy</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="n">quickRead</span><span class="p">(</span><span class="s2">&quot;./easy-dummy.json&quot;</span><span class="p">)</span>
+<span class="n">large_dummy_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">easy_dummy</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="simple-example">
+<h3>Simple Example<a class="headerlink" href="#simple-example" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process.randomized_measure</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">randomized_entangled_entropy_v1</span><span class="p">,</span>
+    <span class="n">RandomizedEntangledEntropyComplex</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">test_result_1_1_1</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy_v1 except for purityCells&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_1_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;purityCells&quot;</span><span class="p">})</span>
+<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy_v1[purityCells]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_1_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_1_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy_v1 except for purityCells
+{&#39;bitStringRange&#39;: (2, 8),
+ &#39;countsNum&#39;: 100,
+ &#39;degree&#39;: 6,
+ &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropySD&#39;: 0.0,
+ &#39;measureActually&#39;: (0, 8),
+ &#39;purity&#39;: 1.0627930164337158,
+ &#39;puritySD&#39;: 0.0,
+ &#39;takingTime&#39;: 18.007}
+| result of randomized_entangled_entropy_v1[purityCells]
+1.0627930164337158
+1.0627930164337158
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="integration-with-your-own-progress-bar">
+<h3>Integration with your own progress bar<a class="headerlink" href="#integration-with-your-own-progress-bar" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">all_counts_progress_01</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="p">],</span>
+    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">test_result_1_1_2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
+    <span class="n">test_result_1_1_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span>
+            <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6. - 00:15 &lt; 01:30
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8). - 00:15 &lt; 01:30
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8). - 00:24 &lt; 00:57
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7. - 00:24 &lt; 00:57     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Process SpawnPoolWorker-26:
+Process SpawnPoolWorker-25:
+Process SpawnPoolWorker-29:
+
+| Calculate specific degree 7. - 00:30 &lt; 01:15
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Process SpawnPoolWorker-31:
+Process SpawnPoolWorker-32:
+Process SpawnPoolWorker-27:
+Process SpawnPoolWorker-28:
+Process SpawnPoolWorker-30:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;modul
+e&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+Traceback (most recent call last):
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/__init__.py&quot;, line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 56, in parse
+    feedparser.feed(data)
+  File &quot;/Users/ha
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 175, in feed
+    self._input.push(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 110, in push
+    parts = self._partial.readlines()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/__init__.py&quot;, line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 56, in parse
+    feedparser.feed(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 176, in feed
+    self._call_parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 180, in _call_parse
+    self._parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 240, in _parsegen
+    self._parse_headers(headers)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 488, in _parse_headers
+    self._cur.set_raw(*self.policy.header_source_parse(lastvalue))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/_policybase.py&quot;, line 303, in header_source_parse
+    return (name, value.rstrip(&#39;\r\n&#39;))
+                  ^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/__init__.py&quot;, line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 56, in parse
+    feedparser.feed(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 175, in feed
+    self._input.push(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 110, in push
+    parts = self._partial.readlines()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+KeyboardInterrupt
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/__init__.py&quot;, line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 56, in parse
+    feedparser.feed(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 176, in feed
+    self._call_parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 180, in _call_parse
+    self._parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 464, in _parsegen
+    for line in self._input:
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 129, in __next__
+    line = self.readline()
+           ^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 89, in readline
+    for ateof in reversed(self._eofstack):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/__init__.py&quot;, line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 56, in parse
+    feedparser.feed(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 176, in feed
+    self._call_parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 180, in _call_parse
+    self._parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 228, in _parsegen
+    if not headerRE.match(line):
+           ^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/__init__.py&quot;, line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/parser.py&quot;, line 56, in parse
+    feedparser.feed(data)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 176, in feed
+    self._call_parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 180, in _call_parse
+    self._parse()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 240, in _parsegen
+    self._parse_headers(headers)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/email/feedparser.py&quot;, line 491, in _parse_headers
+    if line.startswith(&#39;From &#39;):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 36, in __init__
+    self._headers = self._repair_headers()
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 49, in _repair_headers
+    headers = [(key, redent(value)) for key, value in vars(self)[&#39;_headers&#39;]]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 49, in &lt;listcomp&gt;
+    headers = [(key, redent(value)) for key, value in vars(self)[&#39;_headers&#39;]]
+                     ^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 47, in redent
+    return textwrap.dedent(&#39; &#39; * 8 + value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/textwrap.py&quot;, line 466, in dedent
+    text = re.sub(r&#39;(?m)^&#39; + margin, &#39;&#39;, text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/re/__init__.py&quot;, line 185, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
+    self.run()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
+    task = get()
+           ^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 367, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/__init__.py&quot;, line 42, in &lt;module&gt;
+    from .qurrech import EchoListen
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .hadamard_test import EchoListenHadamard
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .analysis import EchoListenHadamardAnalysis
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrech/hadamard_test/analysis.py&quot;, line 11, in &lt;module&gt;
+    from ...qurrium.analysis import AnalysisPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .samplingqurry import SamplingExecuter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/__init__.py&quot;, line 10, in &lt;module&gt;
+    from .experiment import QurryExperiment
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/experiment.py&quot;, line 16, in &lt;module&gt;
+    from .arguments import QurryArguments, SHORT_NAME
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/samplingqurry/arguments.py&quot;, line 16, in &lt;module&gt;
+    from ..experiment import ArgumentsPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .experiment import ExperimentPrototype
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/experiment.py&quot;, line 24, in &lt;module&gt;
+    from .arguments import ArgumentsPrototype, Commonparams
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/qurrium/experiment/arguments.py&quot;, line 18, in &lt;module&gt;
+    from ...tools.backend import backend_name_getter
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/__init__.py&quot;, line 8, in &lt;module&gt;
+    from .backend import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/__init__.py&quot;, line 9, in &lt;module&gt;
+    from .env_check import version_check
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/env_check.py&quot;, line 23, in &lt;module&gt;
+    from .import_ibm import (
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/backend/import_ibm.py&quot;, line 21, in &lt;module&gt;
+    from ..qiskit_version import QISKIT_VERSION
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 141, in &lt;module&gt;
+    QISKIT_VERSION_STATESHEET = qiskit_version_statesheet()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 112, in qiskit_version_statesheet
+    pkg_version = QISKIT_VERSION.get(package)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 774, in get
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 78, in __getitem__
+    self._load_versions()
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/qiskit_version.py&quot;, line 59, in _load_versions
+    i.metadata[&quot;Name&quot;]
+    ^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/__init__.py&quot;, line 617, in metadata
+    return _adapters.Message(email.message_from_string(text))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 36, in __init__
+    self._headers = self._repair_headers()
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 49, in _repair_headers
+    headers = [(key, redent(value)) for key, value in vars(self)[&#39;_headers&#39;]]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 49, in &lt;listcomp&gt;
+    headers = [(key, redent(value)) for key, value in vars(self)[&#39;_headers&#39;]]
+                     ^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/importlib/metadata/_adapters.py&quot;, line 47, in redent
+    return textwrap.dedent(&#39; &#39; * 8 + value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/textwrap.py&quot;, line 466, in dedent
+    text = re.sub(r&#39;(?m)^&#39; + margin, &#39;&#39;, text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/re/__init__.py&quot;, line 185, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">test_result_1_1_2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">test_result_1_1_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>         <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>             <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entangled_entropy.py:125,</span> in <span class="ni">randomized_entangled_entropy_deprecated</span><span class="nt">(shots, counts, degree, measure, backend, workers_num, pbar)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pbar</span><span class="p">,</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">set_description_str</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculate specific degree </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="n">purity_cell_dict</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="n">bitstring_range</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="n">measure_range</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">_msg</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">taken</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">125</span> <span class="p">)</span> <span class="o">=</span> <span class="n">entangled_entropy_core</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>     <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="n">measure</span><span class="o">=</span><span class="n">measure</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="n">multiprocess_pool_size</span><span class="o">=</span><span class="n">workers_num</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="n">purity_cell_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">purity_cell_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="c1"># pylance cannot recognize the type</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entropy_core.py:259,</span> in <span class="ni">entangled_entropy_core</span><span class="nt">(shots, counts, degree, measure, backend, multiprocess_pool_size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>         <span class="sa">f</span><span class="s2">&quot;Rust is not available, using </span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2"> to calculate purity cell.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; Check the error: </span><span class="si">{</span><span class="n">FAILED_RUST_IMPORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>         <span class="n">PostProcessingRustUnavailableWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">259</span> <span class="k">return</span> <span class="n">entangled_entropy_core_pycyrust</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="n">shots</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">measure</span><span class="p">,</span> <span class="n">multiprocess_pool_size</span><span class="p">,</span> <span class="n">backend</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entropy_core.py:155,</span> in <span class="ni">entangled_entropy_core_pycyrust</span><span class="nt">(shots, counts, degree, measure, multiprocess_pool_size, backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;, </span><span class="si">{</span><span class="n">launch_worker</span><span class="si">}</span><span class="s2"> workers, </span><span class="si">{</span><span class="n">times</span><span class="si">}</span><span class="s2"> overlaps.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="n">pool</span> <span class="o">=</span> <span class="n">ParallelManager</span><span class="p">(</span><span class="n">launch_worker</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">155</span>     <span class="n">purity_cell_items</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">cell_calculation</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span>         <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">bitstring_range</span><span class="p">,</span> <span class="n">subsystem_size</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">counts</span><span class="p">)],</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="n">taken</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="n">purity_cell_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="n">purity_cell_items</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span> <span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/parallelmanager.py:116,</span> in <span class="ni">ParallelManager.starmap</span><span class="nt">(self, func, args_list)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">args_list</span><span class="p">)))</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">workers_num</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">pool_kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">116</span>     <span class="k">return</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args_list</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:375,</span> in <span class="ni">Pool.starmap</span><span class="nt">(self, func, iterable, chunksize)</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span> <span class="k">def</span> <span class="nf">starmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span><span class="sd">     Like `map()` method but the elements of the `iterable` are expected to</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span><span class="sd">     be iterables as well and will be unpacked as arguments. Hence</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span><span class="sd">     `func` and (a, b) becomes func(a, b).</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span><span class="sd">     &#39;&#39;&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">375</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_async</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">starmapstar</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:768,</span> in <span class="ni">ApplyResult.get</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">768</span>     <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>         <span class="k">raise</span> <span class="ne">TimeoutError</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:765,</span> in <span class="ni">ApplyResult.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span> <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">765</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/threading.py:622,</span> in <span class="ni">Event.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">620</span> <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
+<span class="g g-Whitespace">    </span><span class="mi">621</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signaled</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">622</span>     <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cond</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span> <span class="k">return</span> <span class="n">signaled</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/threading.py:320,</span> in <span class="ni">Condition.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">320</span>         <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="using-python-backend">
+<h3>Using Python backend<a class="headerlink" href="#using-python-backend" title="Link to this heading">#</a></h3>
+<p>It will be slow. You’d better think twice before using it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_counts_progress_02</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="p">],</span>
+    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">test_result_1_1_2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_02</span><span class="p">:</span>
+    <span class="n">test_result_1_1_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span>
+            <span class="n">tmp_shot</span><span class="p">,</span>
+            <span class="n">tmp_counts</span><span class="p">,</span>
+            <span class="n">tmp_partition</span><span class="p">,</span>
+            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_02</span><span class="p">,</span>
+            <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:09 &lt; 00:00 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="post-processing-speed-up-availablities-and-version-info">
+<h2>Post-Processing Speed-up Availablities and Version Info<a class="headerlink" href="#post-processing-speed-up-availablities-and-version-info" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process.status</span> <span class="kn">import</span> <span class="n">AVAIBILITY_STATESHEET</span>
+
+<span class="n">AVAIBILITY_STATESHEET</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.2.dev1
+--------------------------------------------------------
+ ### Qurry Post-Processing
+   - Backend Availability ................... Python Cython Rust  
+ - randomized_measure
+   - entangled_entropy.entropy_core_2 ....... Yes    Depr.  Yes   
+   - entangle_entropy.purity_cell_2 ......... Yes    Depr.  Yes   
+   - wavefunction_overlap ................... Yes    Depr.  Yes   
+   - echo_cell .............................. Yes    Depr.  Error 
+ - utils
+   - randomized ............................. Yes    Depr.  Yes   
+   - construct .............................. Yes    No     Yes   
+   - dummy .................................. Yes    No     Yes   
+ - hadamard_test
+   - purity_echo_core ....................... Yes    No     Yes   
+ - magnet_square
+   - magnsq_core ............................ Yes    No     No    
+--------------------------------------------------------
+   + Yes ...... Working normally.
+   + Error .... Exception occurred.
+   + No ....... Not supported.
+   + Depr. .... Deprecated.
+--------------------------------------------------------
+by &lt;Hoshi&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/main"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0312_EntropyHadamardTest.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.1 EntropyMeasure</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0313b_EntropyRandomizedMeasureV1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.1 EntropyMeasureV1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">3.1.3 Randomized Measurement V1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-randomized-entangled-entropy-v1">a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-your-own-progress-bar">Integration with your own progress bar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-backend">Using Python backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing-speed-up-availablities-and-version-info">Post-Processing Speed-up Availablities and Version Info</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Huai-Chung Chang (harui2019)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

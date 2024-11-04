@@ -1,0 +1,1404 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.1 EntropyMeasure &#8212; Qurrium Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/0311b_EntropyRandomizedMeasure';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1 EntropyMeasure" href="0312_EntropyHadamardTest.html" />
+    <link rel="prev" title="3.1 EntropyMeasure" href="0311a_EntropyRandomizedMeasure.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Qurrium Documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Qurrium Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">main</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03_Just_Post_Processing.html">03 - Just Post-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0311a_EntropyRandomizedMeasure.html">3.1 EntropyMeasure</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3.1 EntropyMeasure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0312_EntropyHadamardTest.html">3.1 EntropyMeasure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0313a_EntropyRandomizedMeasureV1.html">3.1 EntropyMeasureV1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0313b_EntropyRandomizedMeasureV1.html">3.1 EntropyMeasureV1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/harui2019/qurrium_doc" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/harui2019/qurrium_doc/issues/new?title=Issue%20on%20page%20%2Fdocs/main/0311b_EntropyRandomizedMeasure.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/main/0311b_EntropyRandomizedMeasure.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.1 EntropyMeasure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measure">3.1.1 Randomized Measure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-randomized-entangled-entropy-mitigated">b. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-existing-all-system-data">With Existing All System Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-wit-your-own-progress-bar">Integration wit your own progress bar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-backend">Using Python backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="entropymeasure">
+<h1>3.1 EntropyMeasure<a class="headerlink" href="#entropymeasure" title="Link to this heading">#</a></h1>
+<p>The instance <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> contains 2 methods, one is <code class="docutils literal notranslate"><span class="pre">EntropyHadamardTest</span></code> using Hadamard test, and the other is <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> using randomized measure, the default case.</p>
+<p>Both of them are used to calculate the entropy of a quantum state, but the calculation and post-processing are totally different.</p>
+<section id="randomized-measure">
+<h2>3.1.1 Randomized Measure<a class="headerlink" href="#randomized-measure" title="Link to this heading">#</a></h2>
+<p>This method is based on <a class="reference external" href="https://www.science.org/doi/abs/10.1126/science.aau4963">Probing Rényi entanglement entropy via randomized measurements</a> with deplorizing error mitigation by <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevE.104.035309">Simple mitigation of global depolarizing errors in quantum simulations</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="b-randomized-entangled-entropy-mitigated">
+<h2>b. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated</span></code><a class="headerlink" href="#b-randomized-entangled-entropy-mitigated" title="Link to this heading">#</a></h2>
+<p><a id='randomized_entangled_entropy_mitigated'></a></p>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy</span></code> introduced in section 3.1.1 a, this function is used to calculate the entropy of a quantum state, but additionally, mitigate the depolarizing error.
+You can call the function <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated</span></code> from <code class="docutils literal notranslate"><span class="pre">qurry.process.randomized_measure</span></code>. In order to perform the error mitigation,
+this function requires the  measurement outcomes of the all system as the baseline.<br />
+If you already have data at hand, you can prepare a namedtuple <code class="docutils literal notranslate"><span class="pre">ExistedAllSystemInfo</span></code> like the following,
+which can be imported from <code class="docutils literal notranslate"><span class="pre">qurry.process.randomized_measure</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ExistedAllSystemInfo</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Existed all system information&quot;&quot;&quot;</span>
+
+    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The source of all system.&quot;&quot;&quot;</span>
+
+    <span class="n">purityAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of the all system.&quot;&quot;&quot;</span>
+    <span class="n">entropyAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The entropy of the all system.&quot;&quot;&quot;</span>
+    <span class="n">puritySDAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the purity of the all system.&quot;&quot;&quot;</span>
+    <span class="n">entropySDAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the entropy of the all system.&quot;&quot;&quot;</span>
+    <span class="n">purityCellsAllSys</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of each single count.&quot;&quot;&quot;</span>
+
+    <span class="c1"># new added</span>
+    <span class="n">num_classical_registers_all_sys</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of classical registers of all system.&quot;&quot;&quot;</span>
+    <span class="n">classical_registers_all_sys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers.&quot;&quot;&quot;</span>
+    <span class="n">classical_registers_actually_all_sys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers which is actually used.&quot;&quot;&quot;</span>
+
+    <span class="c1"># refactored</span>
+    <span class="n">taking_time_all_sys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The calculation time of the all system.&quot;&quot;&quot;</span>
+
+</pre></div>
+</div>
+<p>And assign it into the argument <code class="docutils literal notranslate"><span class="pre">existed_all_system</span></code> of the function <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated</span></code> to save a lot of time on mitigating purities of all partitions.</p>
+<p>This function requires only three arguments: <code class="docutils literal notranslate"><span class="pre">shots</span></code>, <code class="docutils literal notranslate"><span class="pre">counts</span></code>, and <code class="docutils literal notranslate"><span class="pre">selected_classical_registers</span></code>. All other arguments are optional.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">selected_classical_registers</span></code> expects a list of <u>bitstring indices</u>, <strong>NOT</strong> <u>qubit indices</u>, as these are distinct.</p>
+<p>The following is the arguments of the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">randomized_entangled_entropy_mitigated</span><span class="p">(</span>
+    <span class="n">shots</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">counts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+    <span class="n">selected_classical_registers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">backend</span><span class="p">:</span> <span class="n">PostProcessingBackendLabel</span> <span class="o">=</span> <span class="n">DEFAULT_PROCESS_BACKEND</span><span class="p">,</span>
+    <span class="n">existed_all_system</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ExistedAllSystemInfo</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">pbar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EntangledEntropyResultMitigated</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate entangled entropy.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        shots (int):</span>
+<span class="sd">            Shots of the counts.</span>
+<span class="sd">        counts (list[dict[str, int]]):</span>
+<span class="sd">            Counts from randomized measurement results.</span>
+<span class="sd">        degree (Optional[Union[tuple[int, int], int]]):</span>
+<span class="sd">            The range of partition.</span>
+<span class="sd">        measure (Optional[tuple[int, int]], optional):</span>
+<span class="sd">            The range that implemented the measuring gate.</span>
+<span class="sd">            If not specified, then use all qubits.</span>
+<span class="sd">            This will affect the range of partition</span>
+<span class="sd">            when you not implement the measuring gate on all qubit.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        backend (PostProcessingBackendLabel, optional):</span>
+<span class="sd">            Backend for the post-processing.</span>
+<span class="sd">            Defaults to DEFAULT_PROCESS_BACKEND.</span>
+<span class="sd">        workers_num (Optional[int], optional):</span>
+<span class="sd">            Number of multi-processing workers, it will be ignored if backend is Rust.</span>
+<span class="sd">            if sets to 1, then disable to using multi-processing;</span>
+<span class="sd">            if not specified, then use the number of all cpu counts by `os.cpu_count()`.</span>
+<span class="sd">            This only works for Python and Cython backend.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        existed_all_system (Optional[ExistingAllSystemSource], optional):</span>
+<span class="sd">            Existing all system source.</span>
+<span class="sd">            If there is known all system result,</span>
+<span class="sd">            then you can put it here to save a lot of time on calculating all system</span>
+<span class="sd">            for not matter what partition you are using,</span>
+<span class="sd">            their all system result is the same.</span>
+<span class="sd">            All system source should contain</span>
+<span class="sd">            `purityCellsAllSys`, `bitStringRange`, `measureActually`, `source` for its name.</span>
+<span class="sd">            This can save a lot of time</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        pbar (Optional[tqdm.tqdm], optional):</span>
+<span class="sd">            The progress bar API, you can use put a :cls:`tqdm` object here.</span>
+<span class="sd">            This function will update the progress bar description.</span>
+<span class="sd">            Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        RandomizedEntangledEntropyMitigatedComplex:</span>
+<span class="sd">            A dictionary contains purity, entropy,</span>
+<span class="sd">            a list of each overlap, puritySD, degree,</span>
+<span class="sd">            actual measure range, bitstring range and more.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>This function returns a dictionary that contains the entropy, purity, and other relevant information.
+The return <code class="docutils literal notranslate"><span class="pre">dict</span></code> contains the following variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EntangledEntropyResultMitigated</span><span class="p">(</span><span class="n">EntangledEntropyResult</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The return type of the post-processing for entangled entropy with error mitigation.&quot;&quot;&quot;</span>
+    <span class="c1"># This TyedDict inherit from EntangledEntropyResult</span>
+
+    <span class="c1"># refactored</span>
+    <span class="n">all_system_source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;independent&quot;</span><span class="p">,</span> <span class="s2">&quot;null_counts&quot;</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The name of source of all system.</span>
+
+<span class="sd">    - independent: The all system is calculated independently.</span>
+<span class="sd">    - null_counts: No counts exist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">purityAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of the all system.&quot;&quot;&quot;</span>
+    <span class="n">entropyAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The entropy of the all system.&quot;&quot;&quot;</span>
+    <span class="n">puritySDAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the purity of the all system.&quot;&quot;&quot;</span>
+    <span class="n">entropySDAllSys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the entropy of the all system.&quot;&quot;&quot;</span>
+    <span class="n">purityCellsAllSys</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of each single count.&quot;&quot;&quot;</span>
+
+    <span class="c1"># new added</span>
+    <span class="n">num_classical_registers_all_sys</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of classical registers of all system.&quot;&quot;&quot;</span>
+    <span class="n">classical_registers_all_sys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers.&quot;&quot;&quot;</span>
+    <span class="n">classical_registers_actually_all_sys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers which is actually used.&quot;&quot;&quot;</span>
+
+    <span class="c1"># mitigated info</span>
+    <span class="n">errorRate</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The error rate of the measurement from depolarizing error migigation calculated.&quot;&quot;&quot;</span>
+    <span class="n">mitigatedPurity</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The mitigated purity.&quot;&quot;&quot;</span>
+    <span class="n">mitigatedEntropy</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The mitigated entropy.&quot;&quot;&quot;</span>
+
+    <span class="c1"># refactored</span>
+    <span class="n">taking_time_all_sys</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The calculation time of the all system.&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">EntangledEntropyResult</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The return type of the post-processing for entangled entropy.&quot;&quot;&quot;</span>
+
+    <span class="n">purity</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of the system.&quot;&quot;&quot;</span>
+    <span class="n">entropy</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The entropy of the system.&quot;&quot;&quot;</span>
+    <span class="n">puritySD</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the purity.&quot;&quot;&quot;</span>
+    <span class="n">entropySD</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the entropy.&quot;&quot;&quot;</span>
+    <span class="n">purityCells</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of each single count.&quot;&quot;&quot;</span>
+    <span class="c1"># new added</span>
+    <span class="n">num_classical_registers</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of classical registers.&quot;&quot;&quot;</span>
+    <span class="n">classical_registers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers.&quot;&quot;&quot;</span>
+    <span class="n">classical_registers_actually</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers which is actually used.&quot;&quot;&quot;</span>
+    <span class="c1"># refactored</span>
+    <span class="n">counts_num</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of counts.&quot;&quot;&quot;</span>
+    <span class="n">taking_time</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The calculation time.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="dummy-data">
+<h3>Dummy Data<a class="headerlink" href="#dummy-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.capsule</span> <span class="kn">import</span> <span class="n">quickRead</span>
+
+<span class="n">easy_dummy</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="n">quickRead</span><span class="p">(</span><span class="s2">&quot;./easy-dummy.json&quot;</span><span class="p">)</span>
+<span class="n">large_dummy_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">easy_dummy</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="simple-example">
+<h3>Simple Example<a class="headerlink" href="#simple-example" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process.randomized_measure</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">randomized_entangled_entropy_mitigated</span><span class="p">,</span>
+    <span class="n">EntangledEntropyResultMitigated</span><span class="p">,</span>
+    <span class="n">ExistedAllSystemInfo</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">test_result_1_2_1</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_mitigated</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_2_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;purityCells&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">})</span>
+<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCellsAllSys]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
+{&#39;all_system_source&#39;: &#39;independent&#39;,
+ &#39;classical_registers&#39;: [0, 1, 2, 3, 4, 5],
+ &#39;classical_registers_actually&#39;: [5, 4, 3, 2, 1, 0],
+ &#39;classical_registers_actually_all_sys&#39;: [7, 6, 5, 4, 3, 2, 1, 0],
+ &#39;classical_registers_all_sys&#39;: None,
+ &#39;counts_num&#39;: 100,
+ &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropyAllSys&#39;: 0.9461940705953849,
+ &#39;entropySD&#39;: 0.0,
+ &#39;entropySDAllSys&#39;: 0.0,
+ &#39;errorRate&#39;: 0.2808939301105586,
+ &#39;mitigatedEntropy&#39;: -1.0290289944568636,
+ &#39;mitigatedPurity&#39;: 2.0406503299038543,
+ &#39;num_classical_registers&#39;: 8,
+ &#39;num_classical_registers_all_sys&#39;: 8,
+ &#39;purity&#39;: 1.0627930164337158,
+ &#39;purityAllSys&#39;: 0.5189998149871826,
+ &#39;puritySD&#39;: 0.0,
+ &#39;puritySDAllSys&#39;: 0.0,
+ &#39;taking_time&#39;: 3.255,
+ &#39;taking_time_all_sys&#39;: 9.0}
+
+| result of randomized_entangled_entropy[purityCells]
+1.0627930164337158
+1.0627930164337158
+
+| result of randomized_entangled_entropy[purityCellsAllSys]
+0.5189998149871826
+0.5189998149871826
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="with-existing-all-system-data">
+<h3>With Existing All System Data<a class="headerlink" href="#with-existing-all-system-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_result_1_2_2</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_mitigated</span><span class="p">(</span>
+    <span class="mi">4096</span><span class="p">,</span>
+    <span class="n">large_dummy_list</span><span class="p">,</span>
+    <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)),</span>
+    <span class="n">existed_all_system</span><span class="o">=</span><span class="n">ExistedAllSystemInfo</span><span class="p">(</span>
+        <span class="n">source</span><span class="o">=</span><span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
+        <span class="n">purityAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityAllSys&quot;</span><span class="p">],</span>
+        <span class="n">entropyAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropyAllSys&quot;</span><span class="p">],</span>
+        <span class="n">puritySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;puritySDAllSys&quot;</span><span class="p">],</span>
+        <span class="n">entropySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropySDAllSys&quot;</span><span class="p">],</span>
+        <span class="n">purityCellsAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+        <span class="n">num_classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;num_classical_registers_all_sys&quot;</span><span class="p">],</span>
+        <span class="n">classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;classical_registers_all_sys&quot;</span><span class="p">],</span>
+        <span class="n">classical_registers_actually_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+            <span class="s2">&quot;classical_registers_actually_all_sys&quot;</span>
+        <span class="p">],</span>
+        <span class="n">taking_time_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;taking_time_all_sys&quot;</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_2_2</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;purityCells&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">})</span>
+<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCellsAllSys]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| You can see takingTimeAllSys is 0 for we use existed_all_system&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;taking_time_all_sys&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
+{&#39;all_system_source&#39;: &#39;from_previous_result:test_result_1_2_1&#39;,
+ &#39;classical_registers&#39;: [0, 1, 2, 3, 4, 5],
+ &#39;classical_registers_actually&#39;: [5, 4, 3, 2, 1, 0],
+ &#39;classical_registers_actually_all_sys&#39;: [7, 6, 5, 4, 3, 2, 1, 0],
+ &#39;classical_registers_all_sys&#39;: None,
+ &#39;counts_num&#39;: 100,
+ &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropyAllSys&#39;: 0.9461940705953849,
+ &#39;entropySD&#39;: 0.0,
+ &#39;entropySDAllSys&#39;: 0.0,
+ &#39;errorRate&#39;: 0.2808939301105586,
+ &#39;mitigatedEntropy&#39;: -1.0290289944568636,
+ &#39;mitigatedPurity&#39;: 2.0406503299038543,
+ &#39;num_classical_registers&#39;: 8,
+ &#39;num_classical_registers_all_sys&#39;: 8,
+ &#39;purity&#39;: 1.0627930164337158,
+ &#39;purityAllSys&#39;: 0.5189998149871826,
+ &#39;puritySD&#39;: 0.0,
+ &#39;puritySDAllSys&#39;: 0.0,
+ &#39;taking_time&#39;: 3.8,
+ &#39;taking_time_all_sys&#39;: 9.0}
+
+| result of randomized_entangled_entropy[purityCells]
+1.0627930164337158
+1.0627930164337158
+
+| result of randomized_entangled_entropy[purityCellsAllSys]
+0.5189998149871826
+0.5189998149871826
+
+| You can see takingTimeAllSys is 0 for we use existed_all_system
+9.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="integration-wit-your-own-progress-bar">
+<h3>Integration wit your own progress bar<a class="headerlink" href="#integration-wit-your-own-progress-bar" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="n">all_counts_progress_01</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="p">],</span>
+    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">test_result_1_2_3</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tmp_partition</span><span class="p">)</span>
+    <span class="n">test_result_1_2_3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_mitigated</span><span class="p">(</span>
+            <span class="n">tmp_shot</span><span class="p">,</span>
+            <span class="n">tmp_counts</span><span class="p">,</span>
+            <span class="n">tmp_partition</span><span class="p">,</span>
+            <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
+                <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="k">else</span> <span class="n">ExistedAllSystemInfo</span><span class="p">(</span>
+                    <span class="n">source</span><span class="o">=</span><span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
+                    <span class="n">purityAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">entropyAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropyAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">puritySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;puritySDAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">entropySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropySDAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">purityCellsAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">num_classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+                        <span class="s2">&quot;num_classical_registers_all_sys&quot;</span>
+                    <span class="p">],</span>
+                    <span class="n">classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;classical_registers_all_sys&quot;</span><span class="p">],</span>
+                    <span class="n">classical_registers_actually_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+                        <span class="s2">&quot;classical_registers_actually_all_sys&quot;</span>
+                    <span class="p">],</span>
+                    <span class="n">taking_time_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;taking_time_all_sys&quot;</span><span class="p">],</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| partition: </span><span class="si">{</span><span class="n">tmp_partition</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - taking_time:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;taking_time&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - taking_time_all_sys:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;taking_time_all_sys&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5]. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Python. - 00:04 &lt; ?                            
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [5, 4, 3, 2, 1, 0] - 00:18 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [5, 4, 3, 2, 1, 0] - 00:18 &lt; 01:31
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:18 &lt; 01:31      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: [0, 1, 2, 3, 4, 5]
+| - taking_time: 4.104
+| - taking_time_all_sys: 14.223
+[2, 3, 4, 5, 6, 7]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:29 &lt; 01:31
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 5, 4, 3, 2] - 00:29 &lt; 01:31      
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 5, 4, 3, 2] - 00:29 &lt; 00:56
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:29 &lt; 00:56   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: [2, 3, 4, 5, 6, 7]
+| - taking_time: 11.377
+| - taking_time_all_sys: 9.0
+[0, 1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 119, in spawn_main
+    parent_sentinel = os.dup(pipe_handle)
+                      ^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/__init__.py&quot;, line 16, in &lt;module&gt;
+    from . import context
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/context.py&quot;, line 6, in &lt;module&gt;
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 120, in spawn_main
+    from . import reduction
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/reduction.py&quot;, line 16, in &lt;module&gt;
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+    import socket
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 130, in _main
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 936, in exec_module
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 1069, in get_code
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 729, in _compile_bytecode
+KeyboardInterrupt
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 19, in &lt;module&gt;
+Traceback (most recent call last):
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 980, in exec_module
+  File &quot;&lt;frozen site&gt;&quot;, line 616, in &lt;module&gt;
+  File &quot;&lt;frozen site&gt;&quot;, line 603, in main
+  File &quot;&lt;frozen site&gt;&quot;, line 384, in addsitepackages
+  File &quot;&lt;frozen site&gt;&quot;, line 226, in addsitedir
+  File &quot;&lt;frozen site&gt;&quot;, line 186, in addpackage
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 980, in exec_module
+  File &quot;&lt;frozen importlib.util&gt;&quot;, line 14, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/contextlib.py&quot;, line 6, in &lt;module&gt;
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/__init__.py&quot;, line 16, in &lt;module&gt;
+    import queue
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/queue.py&quot;, line 9, in &lt;module&gt;
+    from _queue import SimpleQueue
+KeyboardInterrupt
+    exitcode = _main(fd, parent_sentinel)
+    from . import context
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 130, in _main
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/context.py&quot;, line 6, in &lt;module&gt;
+    from . import reduction
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/reduction.py&quot;, line 16, in &lt;module&gt;
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 30, in &lt;module&gt;
+    import socket
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/socket.py&quot;, line 54, in &lt;module&gt;
+    from .connection import wait
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/connection.py&quot;, line 18, in &lt;module&gt;
+    import tempfile
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/tempfile.py&quot;, line 43, in &lt;module&gt;
+    import os, sys, io, selectors
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/selectors.py&quot;, line 12, in &lt;module&gt;
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+    import shutil as _shutil
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/shutil.py&quot;, line 22, in &lt;module&gt;
+    import select
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 980, in exec_module
+  File &quot;&lt;frozen site&gt;&quot;, line 73, in &lt;module&gt;
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 980, in exec_module
+  File &quot;&lt;frozen os&gt;&quot;, line 29, in &lt;module&gt;
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 980, in exec_module
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 508, in &lt;module&gt;
+  File &quot;&lt;frozen _collections_abc&gt;&quot;, line 516, in Callable
+KeyboardInterrupt
+    from collections import deque
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 936, in exec_module
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 1069, in get_code
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 729, in _compile_bytecode
+KeyboardInterrupt
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 130, in _main
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 30, in &lt;module&gt;
+    from .connection import wait
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/connection.py&quot;, line 18, in &lt;module&gt;
+    import tempfile
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/tempfile.py&quot;, line 43, in &lt;module&gt;
+    import shutil as _shutil
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/shutil.py&quot;, line 22, in &lt;module&gt;
+    import bz2
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/bz2.py&quot;, line 15, in &lt;module&gt;
+    import _compression
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1138, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1078, in _find_spec
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 1504, in find_spec
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 1476, in _get_spec
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 1645, in find_spec
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 161, in _path_isfile
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 153, in _path_is_mode_type
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 147, in _path_stat
+KeyboardInterrupt
+KeyboardInterrupt
+    import bz2
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/bz2.py&quot;, line 15, in &lt;module&gt;
+    import _compression
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 936, in exec_module
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 1069, in get_code
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 729, in _compile_bytecode
+KeyboardInterrupt
+
+| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:30 &lt; 01:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="nb">print</span><span class="p">(</span><span class="n">tmp_partition</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">test_result_1_2_3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>         <span class="n">randomized_entangled_entropy_mitigated</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>             <span class="n">tmp_shot</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>             <span class="n">tmp_counts</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>             <span class="n">tmp_partition</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>             <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>                 <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>                 <span class="k">else</span> <span class="n">ExistedAllSystemInfo</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>                     <span class="n">source</span><span class="o">=</span><span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>                     <span class="n">purityAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityAllSys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>                     <span class="n">entropyAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropyAllSys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>                     <span class="n">puritySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;puritySDAllSys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>                     <span class="n">entropySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropySDAllSys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>                     <span class="n">purityCellsAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>                     <span class="n">num_classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>                         <span class="s2">&quot;num_classical_registers_all_sys&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>                     <span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>                     <span class="n">classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;classical_registers_all_sys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>                     <span class="n">classical_registers_actually_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>                         <span class="s2">&quot;classical_registers_actually_all_sys&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>                     <span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>                     <span class="n">taking_time_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;taking_time_all_sys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>             <span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>             <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| partition: </span><span class="si">{</span><span class="n">tmp_partition</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - taking_time:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;taking_time&quot;</span><span class="p">])</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy/entangled_entropy_2.py:385,</span> in <span class="ni">randomized_entangled_entropy_mitigated</span><span class="nt">(shots, counts, selected_classical_registers, backend, existed_all_system, pbar)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pbar</span><span class="p">,</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">set_description_str</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">377</span>         <span class="sa">f</span><span class="s2">&quot;Calculate selected classical registers: </span><span class="si">{</span><span class="n">selected_classical_registers</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span>     <span class="n">purity_cell_dict</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">382</span>     <span class="n">selected_qubits_sorted</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">383</span>     <span class="n">_msg</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span>     <span class="n">taken</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">385</span> <span class="p">)</span> <span class="o">=</span> <span class="n">entangled_entropy_core_2</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span>     <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span>     <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span>     <span class="n">selected_classical_registers</span><span class="o">=</span><span class="n">selected_classical_registers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span>     <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span> <span class="n">purity_cell_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">purity_cell_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span> <span class="n">all_system</span> <span class="o">=</span> <span class="n">preparing_all_system</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>     <span class="n">existed_all_system</span><span class="o">=</span><span class="n">existed_all_system</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span>     <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>     <span class="n">pbar</span><span class="o">=</span><span class="n">pbar</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy/entropy_core_2.py:221,</span> in <span class="ni">entangled_entropy_core_2</span><span class="nt">(shots, counts, selected_classical_registers, backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>         <span class="s2">&quot;Rust is not available, using Python to calculate purity cell.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Check the error: </span><span class="si">{</span><span class="n">FAILED_RUST_IMPORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>         <span class="n">PostProcessingRustUnavailableWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">221</span> <span class="k">return</span> <span class="n">entangled_entropy_core_2_pyrust</span><span class="p">(</span><span class="n">shots</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">selected_classical_registers</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy/entropy_core_2.py:119,</span> in <span class="ni">entangled_entropy_core_2_pyrust</span><span class="nt">(shots, counts, selected_classical_registers, backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="n">cell_calculation</span> <span class="o">=</span> <span class="n">purity_cell_2_rust</span> <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;Rust&quot;</span> <span class="k">else</span> <span class="n">purity_cell_2_py</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="n">pool</span> <span class="o">=</span> <span class="n">ParallelManager</span><span class="p">(</span><span class="n">launch_worker</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">119</span> <span class="n">purity_cell_result_list</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="n">cell_calculation</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">selected_classical_registers</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">counts</span><span class="p">)],</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="n">taken</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> <span class="n">selected_classical_registers_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">selected_classical_registers</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/parallelmanager.py:116,</span> in <span class="ni">ParallelManager.starmap</span><span class="nt">(self, func, args_list)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">args_list</span><span class="p">)))</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">workers_num</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">pool_kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">116</span>     <span class="k">return</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args_list</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:375,</span> in <span class="ni">Pool.starmap</span><span class="nt">(self, func, iterable, chunksize)</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span> <span class="k">def</span> <span class="nf">starmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span><span class="sd">     Like `map()` method but the elements of the `iterable` are expected to</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span><span class="sd">     be iterables as well and will be unpacked as arguments. Hence</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span><span class="sd">     `func` and (a, b) becomes func(a, b).</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span><span class="sd">     &#39;&#39;&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">375</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_async</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">starmapstar</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:768,</span> in <span class="ni">ApplyResult.get</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">768</span>     <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>         <span class="k">raise</span> <span class="ne">TimeoutError</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:765,</span> in <span class="ni">ApplyResult.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span> <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">765</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/threading.py:622,</span> in <span class="ni">Event.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">620</span> <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
+<span class="g g-Whitespace">    </span><span class="mi">621</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signaled</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">622</span>     <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cond</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span> <span class="k">return</span> <span class="n">signaled</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/threading.py:320,</span> in <span class="ni">Condition.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">320</span>         <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="using-python-backend">
+<h3>Using Python backend<a class="headerlink" href="#using-python-backend" title="Link to this heading">#</a></h3>
+<p>It will be slow. Yoy better think twice before using it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_counts_progress_02</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">))),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="p">],</span>
+    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">test_result_1_2_4</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_02</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tmp_partition</span><span class="p">)</span>
+    <span class="n">test_result_1_2_4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_mitigated</span><span class="p">(</span>
+            <span class="n">tmp_shot</span><span class="p">,</span>
+            <span class="n">tmp_counts</span><span class="p">,</span>
+            <span class="n">tmp_partition</span><span class="p">,</span>
+            <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
+                <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="k">else</span> <span class="n">ExistedAllSystemInfo</span><span class="p">(</span>
+                    <span class="n">source</span><span class="o">=</span><span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
+                    <span class="n">purityAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">entropyAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropyAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">puritySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;puritySDAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">entropySDAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;entropySDAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">purityCellsAllSys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+                    <span class="n">num_classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+                        <span class="s2">&quot;num_classical_registers_all_sys&quot;</span>
+                    <span class="p">],</span>
+                    <span class="n">classical_registers_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;classical_registers_all_sys&quot;</span><span class="p">],</span>
+                    <span class="n">classical_registers_actually_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span>
+                        <span class="s2">&quot;classical_registers_actually_all_sys&quot;</span>
+                    <span class="p">],</span>
+                    <span class="n">taking_time_all_sys</span><span class="o">=</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;taking_time_all_sys&quot;</span><span class="p">],</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_02</span><span class="p">,</span>
+            <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5]. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:00 &lt; 00:01        
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:00 &lt; 00:00         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:01 &lt; 00:01         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 6, 7]. - 00:01 &lt; 00:01               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 6, 7]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:01 &lt; 00:00         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4, 5, 6, 7, 0, 1]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 5, 4, 3, 1, 0] - 00:03 &lt; 00:00   
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="post-process-availablities-and-version-info">
+<h2>Post-Process Availablities and Version Info<a class="headerlink" href="#post-process-availablities-and-version-info" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process.status</span> <span class="kn">import</span> <span class="n">AVAIBILITY_STATESHEET</span>
+
+<span class="n">AVAIBILITY_STATESHEET</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.2.dev1
+--------------------------------------------------------
+ ### Qurry Post-Processing
+   - Backend Availability ................... Python Cython Rust  
+ - randomized_measure
+   - entangled_entropy.entropy_core_2 ....... Yes    Depr.  Yes   
+   - entangle_entropy.purity_cell_2 ......... Yes    Depr.  Yes   
+   - wavefunction_overlap ................... Yes    Depr.  Yes   
+   - echo_cell .............................. Yes    Depr.  Error 
+ - utils
+   - randomized ............................. Yes    Depr.  Yes   
+   - construct .............................. Yes    No     Yes   
+   - dummy .................................. Yes    No     Yes   
+ - hadamard_test
+   - purity_echo_core ....................... Yes    No     Yes   
+ - magnet_square
+   - magnsq_core ............................ Yes    No     No    
+--------------------------------------------------------
+   + Yes ...... Working normally.
+   + Error .... Exception occurred.
+   + No ....... Not supported.
+   + Depr. .... Deprecated.
+--------------------------------------------------------
+by &lt;Hoshi&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/main"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0311a_EntropyRandomizedMeasure.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.1 EntropyMeasure</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0312_EntropyHadamardTest.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.1 EntropyMeasure</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measure">3.1.1 Randomized Measure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-randomized-entangled-entropy-mitigated">b. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-existing-all-system-data">With Existing All System Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-wit-your-own-progress-bar">Integration wit your own progress bar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-backend">Using Python backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Huai-Chung Chang (harui2019)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
