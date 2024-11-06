@@ -37,12 +37,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-from qurry.process.randomized_measure import (
-    randomized_entangled_entropy_mitigated_v1,
-    RandomizedEntangledEntropyMitigatedComplex,
-    ExistingAllSystemSource,
-)
-
-test_result_1_2_1 = randomized_entangled_entropy_mitigated_v1(4096, large_dummy_list, 6)
+['all_counts_progress_02 = tqdm(', '    [', '        (4096, large_dummy_list, 6),', '        (4096, large_dummy_list, (2, 8)),', '        (4096, large_dummy_list, 7),']
+...
+['            ),', '            pbar=all_counts_progress_02,', '            backend="Python",', '        )', '    )']
 -------------------
 

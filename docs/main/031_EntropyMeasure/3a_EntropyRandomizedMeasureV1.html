@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1 EntropyMeasure &#8212; Qurrium Documentation</title>
+    <title>1.3a EntropyMeasure - Randomized Measurement V1 &#8212; Qurrium Documentation</title>
   
   
   
@@ -27,44 +27,57 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NH0TTCC2VZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/0311a_EntropyRandomizedMeasure';</script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1 EntropyMeasure" href="0311b_EntropyRandomizedMeasure.html" />
-    <link rel="prev" title="03 - Just Post-Processing" href="03_Just_Post_Processing.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/031_EntropyMeasure/3a_EntropyRandomizedMeasureV1';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation" href="3b_EntropyRandomizedMeasureV1.html" />
+    <link rel="prev" title="1.2 EntropyMeasure - Hadamaed Test" href="2_EntropyHadamardTest.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -86,7 +99,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="../../search.html"
+      action="../../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -135,20 +148,14 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
   
   
-    
-    
-      
-    
-    
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Qurrium Documentation - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Qurrium Documentation - Home"/>
   
+    <p class="title logo__title">Qurrium Documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -163,30 +170,37 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                <a class="reference internal" href="../../intro.html">
+                    Documentations of Qurry 🍛
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">main</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="03_Just_Post_Processing.html">03 - Just Post-Processing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3.1 EntropyMeasure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0311b_EntropyRandomizedMeasure.html">3.1 EntropyMeasure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0312_EntropyHadamardTest.html">3.1 EntropyMeasure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0313a_EntropyRandomizedMeasureV1.html">3.1 EntropyMeasureV1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0313b_EntropyRandomizedMeasureV1.html">3.1 EntropyMeasureV1</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../03_Just_Post_Processing.html">03 - Just Post-Processing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1a_EntropyRandomizedMeasure.html">1.1a EntropyMeasure - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1b_EntropyRandomizedMeasure.html">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_EntropyHadamardTest.html">1.2 EntropyMeasure - Hadamaed Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3a EntropyMeasure - Randomized Measurement V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3b_EntropyRandomizedMeasureV1.html">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">appendix</span></p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation and Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/01_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/02_Platform_Support.html">Platform Support</a></li>
 </ul>
 
     </div>
@@ -233,53 +247,6 @@
 
 
 
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/harui2019/qurrium_doc" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/harui2019/qurrium_doc/issues/new?title=Issue%20on%20page%20%2Fdocs/main/0311a_EntropyRandomizedMeasure.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -288,7 +255,7 @@
       
       
       
-      <li><a href="../../_sources/docs/main/0311a_EntropyRandomizedMeasure.ipynb" target="_blank"
+      <li><a href="../../../_sources/docs/main/031_EntropyMeasure/3a_EntropyRandomizedMeasureV1.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +331,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.1 EntropyMeasure</h1>
+    <h1>1.3a EntropyMeasure - Randomized Measurement V1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,8 +341,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement">3.1.1 Randomized Measurement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-randomized-entangled-entropy">a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">1.3 Randomized Measurement V1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-randomized-entangled-entropy-v1">a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-your-own-progress-bar">Integration with your own progress bar</a></li>
@@ -394,80 +361,92 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="entropymeasure">
-<h1>3.1 EntropyMeasure<a class="headerlink" href="#entropymeasure" title="Link to this heading">#</a></h1>
+  <section id="a-entropymeasure-randomized-measurement-v1">
+<h1>1.3a EntropyMeasure - Randomized Measurement V1<a class="headerlink" href="#a-entropymeasure-randomized-measurement-v1" title="Link to this heading">#</a></h1>
 <p>The instance <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> contains 2 methods, one is <code class="docutils literal notranslate"><span class="pre">EntropyHadamardTest</span></code> using Hadamard test, and the other is <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> using randomized measure, the default case.</p>
 <p>Both of them are used to calculate the entropy of a quantum state, but the calculation and post-processing are totally different.</p>
-<section id="randomized-measurement">
-<h2>3.1.1 Randomized Measurement<a class="headerlink" href="#randomized-measurement" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasureV1</span></code> is a deprecated version of <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> because it lacks clarity on the relationship between bitstrings and qubit indices.
+This limitation can easily cause confusion, especially when working with systems that do not measure all qubits. However, it is retained for backward compatibility.</p>
+<section id="randomized-measurement-v1">
+<h2>1.3 Randomized Measurement V1<a class="headerlink" href="#randomized-measurement-v1" title="Link to this heading">#</a></h2>
 <p>This method is based on <a class="reference external" href="https://www.science.org/doi/abs/10.1126/science.aau4963">Probing Rényi entanglement entropy via randomized measurements</a> with deplorizing error mitigation by <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevE.104.035309">Simple mitigation of global depolarizing errors in quantum simulations</a>.</p>
 </section>
 <hr class="docutils" />
-<section id="a-randomized-entangled-entropy">
-<h2>a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy</span></code><a class="headerlink" href="#a-randomized-entangled-entropy" title="Link to this heading">#</a></h2>
-<p><a id='randomized_entangled_entropy'></a></p>
-<p>Here, we assume you already have the calculated data. You can call the function <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy</span></code> from <code class="docutils literal notranslate"><span class="pre">qurry.process.randomized_measure</span></code> to calculate the entropy.</p>
-<p>This function requires only three arguments: <code class="docutils literal notranslate"><span class="pre">shots</span></code>, <code class="docutils literal notranslate"><span class="pre">counts</span></code>, and <code class="docutils literal notranslate"><span class="pre">selected_classical_registers</span></code>. All other arguments are optional.</p>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">selected_classical_registers</span></code> expects a list of <u>bitstring indices</u>, <strong>NOT</strong> <u>qubit indices</u>, as these are distinct.</p>
+<section id="a-randomized-entangled-entropy-v1">
+<h2>a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code><a class="headerlink" href="#a-randomized-entangled-entropy-v1" title="Link to this heading">#</a></h2>
+<p><a id='randomized_entangled_entropy_v1'></a></p>
+<p>Here, we assume you already have the data from the calculation. You can call the function <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code> from <code class="docutils literal notranslate"><span class="pre">qurry.process.randomized_measure</span></code> to calculate the entropy.</p>
+<p>In this function, only <code class="docutils literal notranslate"><span class="pre">shots</span></code>, <code class="docutils literal notranslate"><span class="pre">counts</span></code>, and <code class="docutils literal notranslate"><span class="pre">degree</span></code> are required arguments. The others are optional.</p>
 <p>The following is the arguments of the function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">randomized_entangled_entropy</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">randomized_entangled_entropy_v1</span><span class="p">(</span>
     <span class="n">shots</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">counts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
-    <span class="n">selected_classical_registers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">degree</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]],</span>
+    <span class="n">measure</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">backend</span><span class="p">:</span> <span class="n">PostProcessingBackendLabel</span> <span class="o">=</span> <span class="n">DEFAULT_PROCESS_BACKEND</span><span class="p">,</span>
+    <span class="n">workers_num</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">pbar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EntangledEntropyResult</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RandomizedEntangledEntropyComplex</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate entangled entropy.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        shots (int):</span>
-<span class="sd">            Shots of the experiment on quantum machine.</span>
+<span class="sd">            Shots of the counts.</span>
 <span class="sd">        counts (list[dict[str, int]]):</span>
-<span class="sd">            Counts of the experiment on quantum machine.</span>
-<span class="sd">        selected_classical_registers (Optional[list[int]], optional):</span>
-<span class="sd">            The list of **the index of the selected_classical_registers**.</span>
-<span class="sd">        backend (ExistingProcessBackendLabel, optional):</span>
-<span class="sd">            Backend for the process. Defaults to DEFAULT_PROCESS_BACKEND.</span>
+<span class="sd">            Counts from randomized measurement results.</span>
+<span class="sd">        degree (Optional[Union[tuple[int, int], int]]):</span>
+<span class="sd">            The range of partition.</span>
+<span class="sd">        measure (Optional[tuple[int, int]], optional):</span>
+<span class="sd">            The range that implemented the measuring gate.</span>
+<span class="sd">            If not specified, then use all qubits.</span>
+<span class="sd">            This will affect the range of partition</span>
+<span class="sd">            when you not implement the measuring gate on all qubit.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        backend (PostProcessingBackendLabel, optional):</span>
+<span class="sd">            Backend for the post-processing.</span>
+<span class="sd">            Defaults to DEFAULT_PROCESS_BACKEND.</span>
+<span class="sd">        workers_num (Optional[int], optional):</span>
+<span class="sd">            Number of multi-processing workers, it will be ignored if backend is Rust.</span>
+<span class="sd">            if sets to 1, then disable to using multi-processing;</span>
+<span class="sd">            if not specified, then use the number of all cpu counts by `os.cpu_count()`.</span>
+<span class="sd">            This only works for Python and Cython backend.</span>
+<span class="sd">            Defaults to None.</span>
 <span class="sd">        pbar (Optional[tqdm.tqdm], optional):</span>
 <span class="sd">            The progress bar API, you can use put a :cls:`tqdm` object here.</span>
 <span class="sd">            This function will update the progress bar description.</span>
 <span class="sd">            Defaults to None.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        EntangledEntropyReturn:</span>
-<span class="sd">            A dictionary contains purity, entropy, a dictionary of each purity cell,</span>
-<span class="sd">            entropySD, puritySD, num_classical_registers, classical_registers,</span>
-<span class="sd">            classical_registers_actually, counts_num, taking_time.</span>
+<span class="sd">        RandomizedEntangledEntropyComplex:</span>
+<span class="sd">            A dictionary contains purity, entropy,</span>
+<span class="sd">            a list of each overlap, puritySD, degree,</span>
+<span class="sd">            actual measure range, bitstring range and more.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>This function returns a dictionary that contains the entropy, purity, and other relevant information.
 The returned <code class="docutils literal notranslate"><span class="pre">dict</span></code> contains the following information:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EntangledEntropyResult</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The return type of the post-processing for entangled entropy.&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RandomizedEntangledEntropyComplex</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The result of the analysis.&quot;&quot;&quot;</span>
 
-    <span class="n">purity</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+    <span class="n">purity</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of the system.&quot;&quot;&quot;</span>
-    <span class="n">entropy</span><span class="p">:</span> <span class="n">GenericFloatType</span>
+    <span class="n">entropy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The entropy of the system.&quot;&quot;&quot;</span>
-    <span class="n">puritySD</span><span class="p">:</span> <span class="n">GenericFloatType</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the purity.&quot;&quot;&quot;</span>
-    <span class="n">entropySD</span><span class="p">:</span> <span class="n">GenericFloatType</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the entropy.&quot;&quot;&quot;</span>
     <span class="n">purityCells</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of each single count.&quot;&quot;&quot;</span>
-    <span class="c1"># new added</span>
-    <span class="n">num_classical_registers</span><span class="p">:</span> <span class="nb">int</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of classical registers.&quot;&quot;&quot;</span>
-    <span class="n">classical_registers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers.&quot;&quot;&quot;</span>
-    <span class="n">classical_registers_actually</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The list of the index of the selected classical registers which is actually used.&quot;&quot;&quot;</span>
-    <span class="c1"># refactored</span>
-    <span class="n">counts_num</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The purity of each cell.&quot;&quot;&quot;</span>
+    <span class="n">puritySD</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the purity.&quot;&quot;&quot;</span>
+    <span class="n">entropySD</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The standard deviation of the entropy.&quot;&quot;&quot;</span>
+    <span class="n">degree</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The range of partition.&quot;&quot;&quot;</span>
+    <span class="n">measureActually</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[()]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The range of partition refer to all qubits.&quot;&quot;&quot;</span>
+    <span class="n">bitStringRange</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[()]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The range of partition on the bitstring.&quot;&quot;&quot;</span>
+    <span class="n">countsNum</span><span class="p">:</span> <span class="nb">int</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of counts.&quot;&quot;&quot;</span>
-    <span class="n">taking_time</span><span class="p">:</span> <span class="n">GenericFloatType</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The calculation time.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -496,10 +475,11 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process.randomized_measure</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">randomized_entangled_entropy</span><span class="p">,</span>
+    <span class="n">randomized_entangled_entropy_v1</span><span class="p">,</span>
+    <span class="n">RandomizedEntangledEntropyComplex</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">test_result_1_1_1</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)))</span>
+<span class="n">test_result_1_1_1</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -508,28 +488,28 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy_v1 except for purityCells&quot;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_1_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;purityCells&quot;</span><span class="p">})</span>
 <span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy_v1[purityCells]&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_1_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_1_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
-{&#39;classical_registers&#39;: [0, 1, 2, 3, 4, 5],
- &#39;classical_registers_actually&#39;: [5, 4, 3, 2, 1, 0],
- &#39;counts_num&#39;: 100,
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy_v1 except for purityCells
+{&#39;bitStringRange&#39;: (2, 8),
+ &#39;countsNum&#39;: 100,
+ &#39;degree&#39;: 6,
  &#39;entropy&#39;: -0.08786065308638322,
  &#39;entropySD&#39;: 0.0,
- &#39;num_classical_registers&#39;: 8,
+ &#39;measureActually&#39;: (0, 8),
  &#39;purity&#39;: 1.0627930164337158,
  &#39;puritySD&#39;: 0.0,
- &#39;taking_time&#39;: 2.76}
-| result of randomized_entangled_entropy[purityCells]
+ &#39;takingTime&#39;: 2.472}
+| result of randomized_entangled_entropy_v1[purityCells]
 1.0627930164337158
 1.0627930164337158
 </pre></div>
@@ -547,21 +527,21 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 
 <span class="n">all_counts_progress_01</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
     <span class="p">],</span>
     <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">test_result_1_1_2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tmp_partition</span><span class="p">)</span>
     <span class="n">test_result_1_1_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">randomized_entangled_entropy</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span>
             <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span>
         <span class="p">)</span>
     <span class="p">)</span>
@@ -573,61 +553,49 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5]. - 00:00 &lt; ?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6. - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6. - 00:03 &lt; 00:18
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5]. - 00:03 &lt; 00:19
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8). - 00:03 &lt; 00:18
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:03 &lt; 00:19
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8). - 00:06 &lt; 00:15
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7. - 00:06 &lt; 00:15     
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:07 &lt; 00:14
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7. - 00:09 &lt; 00:13
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:07 &lt; 00:14
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7). - 00:09 &lt; 00:13
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7). - 00:13 &lt; 00:10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:12 &lt; 00:12
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:13 &lt; 00:10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:12 &lt; 00:12
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:17 &lt; 00:07
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:17 &lt; 00:07
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:16 &lt; 00:08
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:20 &lt; 00:03
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 6, 7]. - 00:16 &lt; 00:08      
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:20 &lt; 00:03 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 6, 7]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:23 &lt; 00:00
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 6, 7]. - 00:20 &lt; 00:03
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:20 &lt; 00:03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4, 5, 6, 7, 0, 1]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:24 &lt; 00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:24 &lt; 00:00
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:23 &lt; 00:00
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -644,12 +612,13 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_counts_progress_02</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">))),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
     <span class="p">],</span>
     <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
 <span class="p">)</span>
@@ -657,9 +626,8 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 
 <span class="n">test_result_1_1_2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_02</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tmp_partition</span><span class="p">)</span>
     <span class="n">test_result_1_1_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">randomized_entangled_entropy</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_v1</span><span class="p">(</span>
             <span class="n">tmp_shot</span><span class="p">,</span>
             <span class="n">tmp_counts</span><span class="p">,</span>
             <span class="n">tmp_partition</span><span class="p">,</span>
@@ -675,61 +643,49 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5]. - 00:00 &lt; ?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6. - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6. - 00:03 &lt; 00:18
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5]. - 00:03 &lt; 00:16
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8). - 00:03 &lt; 00:18
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:03 &lt; 00:16
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8). - 00:06 &lt; 00:15
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7. - 00:06 &lt; 00:15     
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:08 &lt; 00:17
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7. - 00:10 &lt; 00:13
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:08 &lt; 00:17
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7). - 00:10 &lt; 00:13
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7). - 00:13 &lt; 00:10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:13 &lt; 00:14
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:13 &lt; 00:10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:13 &lt; 00:14
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:17 &lt; 00:07
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:17 &lt; 00:07
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:17 &lt; 00:08
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:20 &lt; 00:03
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 6, 7]. - 00:17 &lt; 00:08      
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:20 &lt; 00:03 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 6, 7]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:23 &lt; 00:00
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 6, 7]. - 00:21 &lt; 00:04
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:21 &lt; 00:04
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4, 5, 6, 7, 0, 1]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:26 &lt; 00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:26 &lt; 00:00
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2). - 00:23 &lt; 00:00
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -795,7 +751,7 @@ by &lt;Hoshi&gt;
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs/main"
+            path: "./docs/main/031_EntropyMeasure"
         },
         predefinedOutput: true
     }
@@ -813,20 +769,20 @@ by &lt;Hoshi&gt;
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03_Just_Post_Processing.html"
+       href="2_EntropyHadamardTest.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">03 - Just Post-Processing</p>
+        <p class="prev-next-title">1.2 EntropyMeasure - Hadamaed Test</p>
       </div>
     </a>
     <a class="right-next"
-       href="0311b_EntropyRandomizedMeasure.html"
+       href="3b_EntropyRandomizedMeasureV1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.1 EntropyMeasure</p>
+        <p class="prev-next-title">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -847,8 +803,8 @@ by &lt;Hoshi&gt;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement">3.1.1 Randomized Measurement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-randomized-entangled-entropy">a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">1.3 Randomized Measurement V1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-randomized-entangled-entropy-v1">a. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_v1</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-your-own-progress-bar">Integration with your own progress bar</a></li>
@@ -904,8 +860,8 @@ By Huai-Chung Chang (harui2019)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

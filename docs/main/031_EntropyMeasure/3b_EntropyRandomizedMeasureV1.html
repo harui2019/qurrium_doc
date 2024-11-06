@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1 EntropyMeasureV1 &#8212; Qurrium Documentation</title>
+    <title>1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation &#8212; Qurrium Documentation</title>
   
   
   
@@ -27,44 +27,57 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NH0TTCC2VZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/0313b_EntropyRandomizedMeasureV1';</script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Appendix 01 - Backend Wrapper and Backend Manager" href="../appendix/A01_BackendManager.html" />
-    <link rel="prev" title="3.1 EntropyMeasureV1" href="0313a_EntropyRandomizedMeasureV1.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/031_EntropyMeasure/3b_EntropyRandomizedMeasureV1';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Appendix 01 - Backend Wrapper and Backend Manager" href="../../appendix/A01_BackendManager.html" />
+    <link rel="prev" title="1.3a EntropyMeasure - Randomized Measurement V1" href="3a_EntropyRandomizedMeasureV1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -86,7 +99,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="../../search.html"
+      action="../../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -135,20 +148,14 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
   
   
-    
-    
-      
-    
-    
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Qurrium Documentation - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Qurrium Documentation - Home"/>
   
+    <p class="title logo__title">Qurrium Documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -163,30 +170,37 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                <a class="reference internal" href="../../intro.html">
+                    Documentations of Qurry 🍛
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">main</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="03_Just_Post_Processing.html">03 - Just Post-Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0311a_EntropyRandomizedMeasure.html">3.1 EntropyMeasure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0311b_EntropyRandomizedMeasure.html">3.1 EntropyMeasure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0312_EntropyHadamardTest.html">3.1 EntropyMeasure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0313a_EntropyRandomizedMeasureV1.html">3.1 EntropyMeasureV1</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3.1 EntropyMeasureV1</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../03_Just_Post_Processing.html">03 - Just Post-Processing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1a_EntropyRandomizedMeasure.html">1.1a EntropyMeasure - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1b_EntropyRandomizedMeasure.html">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_EntropyHadamardTest.html">1.2 EntropyMeasure - Hadamaed Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3a_EntropyRandomizedMeasureV1.html">1.3a EntropyMeasure - Randomized Measurement V1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">appendix</span></p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation and Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/01_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/02_Platform_Support.html">Platform Support</a></li>
 </ul>
 
     </div>
@@ -233,53 +247,6 @@
 
 
 
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/harui2019/qurrium_doc" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/harui2019/qurrium_doc/issues/new?title=Issue%20on%20page%20%2Fdocs/main/0313b_EntropyRandomizedMeasureV1.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -288,7 +255,7 @@
       
       
       
-      <li><a href="../../_sources/docs/main/0313b_EntropyRandomizedMeasureV1.ipynb" target="_blank"
+      <li><a href="../../../_sources/docs/main/031_EntropyMeasure/3b_EntropyRandomizedMeasureV1.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +331,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.1 EntropyMeasureV1</h1>
+    <h1>1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,7 +341,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">3.1.3 Randomized Measurement V1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">1.3 Randomized Measurement V1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-randomized-entangled-entropy-mitigated-v1">b. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated_v1</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
@@ -395,14 +362,14 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="entropymeasurev1">
-<h1>3.1 EntropyMeasureV1<a class="headerlink" href="#entropymeasurev1" title="Link to this heading">#</a></h1>
+  <section id="b-entropymeasure-randomized-measurement-v1-with-error-mitigation">
+<h1>1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation<a class="headerlink" href="#b-entropymeasure-randomized-measurement-v1-with-error-mitigation" title="Link to this heading">#</a></h1>
 <p>The instance <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> contains 2 methods, one is <code class="docutils literal notranslate"><span class="pre">EntropyHadamardTest</span></code> using Hadamard test, and the other is <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> using randomized measure, the default case.</p>
 <p>Both of them are used to calculate the entropy of a quantum state, but the calculation and post-processing are totally different.</p>
 <p><code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasureV1</span></code> is a deprecated version of <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> because it lacks clarity on the relationship between bitstrings and qubit indices.
 This limitation can easily cause confusion, especially when working with systems that do not measure all qubits. However, it is retained for backward compatibility.</p>
 <section id="randomized-measurement-v1">
-<h2>3.1.3 Randomized Measurement V1<a class="headerlink" href="#randomized-measurement-v1" title="Link to this heading">#</a></h2>
+<h2>1.3 Randomized Measurement V1<a class="headerlink" href="#randomized-measurement-v1" title="Link to this heading">#</a></h2>
 <p>This method is based on <a class="reference external" href="https://www.science.org/doi/abs/10.1126/science.aau4963">Probing Rényi entanglement entropy via randomized measurements</a> with deplorizing error mitigation by <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevE.104.035309">Simple mitigation of global depolarizing errors in quantum simulations</a>.</p>
 </section>
 <hr class="docutils" />
@@ -597,174 +564,526 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_2_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;purityCells&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">})</span>
+<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCellsAllSys]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Process SpawnPoolWorker-11:
-Process SpawnPoolWorker-14:
-Process SpawnPoolWorker-13:
-Process SpawnPoolWorker-9:
-Process SpawnPoolWorker-10:
-Process SpawnPoolWorker-16:
-Process SpawnPoolWorker-12:
-Traceback (most recent call last):
-Traceback (most recent call last):
-Traceback (most recent call last):
-Process SpawnPoolWorker-15:
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
-    task = get()
-           ^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
-    task = get()
-           ^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 364, in get
-    with self._rlock:
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 364, in get
-    with self._rlock:
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/synchronize.py&quot;, line 95, in __enter__
-    return self._semlock.__enter__()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/synchronize.py&quot;, line 95, in __enter__
-    return self._semlock.__enter__()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-KeyboardInterrupt
-Traceback (most recent call last):
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
-    task = get()
-           ^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
-    task = get()
-           ^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 364, in get
-    with self._rlock:
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 364, in get
-    with self._rlock:
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/synchronize.py&quot;, line 95, in __enter__
-    return self._semlock.__enter__()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/synchronize.py&quot;, line 95, in __enter__
-    return self._semlock.__enter__()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-KeyboardInterrupt
-Traceback (most recent call last):
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 123, in ensemble_cell
-    * (np.float64(s_j_meas) / shots)
-       ^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-Traceback (most recent call last):
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
-    task = get()
-           ^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 364, in get
-    with self._rlock:
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/synchronize.py&quot;, line 95, in __enter__
-    return self._semlock.__enter__()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 114, in worker
-    task = get()
-           ^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/queues.py&quot;, line 365, in get
-    res = self._reader.recv_bytes()
-          ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/connection.py&quot;, line 215, in recv_bytes
-    buf = self._recv_bytes(maxlength)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/connection.py&quot;, line 413, in _recv_bytes
-    buf = self._recv(4)
-          ^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/connection.py&quot;, line 378, in _recv
-    chunk = read(handle, remaining)
-            ^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 120, in ensemble_cell
-    np.float_power(2, a_num, dtype=np.float64)
-KeyboardInterrupt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
+{&#39;allSystemSource&#39;: &#39;independent&#39;,
+ &#39;bitStringRange&#39;: (2, 8),
+ &#39;bitsStringRangeAllSys&#39;: (0, 8),
+ &#39;countsNum&#39;: 100,
+ &#39;degree&#39;: 6,
+ &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropyAllSys&#39;: 0.9461940705953849,
+ &#39;entropySD&#39;: 0.0,
+ &#39;entropySDAllSys&#39;: 0.0,
+ &#39;errorRate&#39;: 0.2808939301105586,
+ &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (0, 8)),
+ &#39;measureActually&#39;: (0, 8),
+ &#39;measureActuallyAllSys&#39;: (0, 8),
+ &#39;mitigatedEntropy&#39;: -1.0290289944568636,
+ &#39;mitigatedPurity&#39;: 2.0406503299038543,
+ &#39;num_qubits&#39;: 8,
+ &#39;purity&#39;: 1.0627930164337158,
+ &#39;purityAllSys&#39;: 0.5189998149871826,
+ &#39;puritySD&#39;: 0.0,
+ &#39;puritySDAllSys&#39;: 0.0,
+ &#39;takingTime&#39;: 2.381,
+ &#39;takingTimeAllSys&#39;: 5.632}
+
+| result of randomized_entangled_entropy[purityCells]
+1.0627930164337158
+1.0627930164337158
+
+| result of randomized_entangled_entropy[purityCellsAllSys]
+0.5189998149871826
+0.5189998149871826
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="with-existing-all-system-data">
+<h3>With Existing All System Data<a class="headerlink" href="#with-existing-all-system-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_result_1_2_2</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
+    <span class="mi">4096</span><span class="p">,</span>
+    <span class="n">large_dummy_list</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="n">existed_all_system</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_2_2</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;purityCells&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">})</span>
+<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCellsAllSys]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| You can see takingTimeAllSys is 0 for we use existed_all_system&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;takingTimeAllSys&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
+{&#39;allSystemSource&#39;: &#39;from_previous_result:test_result_1_2_1&#39;,
+ &#39;bitStringRange&#39;: (2, 8),
+ &#39;bitsStringRangeAllSys&#39;: (2, 8),
+ &#39;countsNum&#39;: 100,
+ &#39;degree&#39;: 6,
+ &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropyAllSys&#39;: 0.9461940705953849,
+ &#39;entropySD&#39;: 0.0,
+ &#39;entropySDAllSys&#39;: 0.0,
+ &#39;errorRate&#39;: 0.2808939301105586,
+ &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (0, 8)),
+ &#39;measureActually&#39;: (0, 8),
+ &#39;measureActuallyAllSys&#39;: (0, 8),
+ &#39;mitigatedEntropy&#39;: -1.0290289944568636,
+ &#39;mitigatedPurity&#39;: 2.0406503299038543,
+ &#39;num_qubits&#39;: 8,
+ &#39;purity&#39;: 1.0627930164337158,
+ &#39;purityAllSys&#39;: 0.5189998149871826,
+ &#39;puritySD&#39;: 0.0,
+ &#39;puritySDAllSys&#39;: 0.0,
+ &#39;takingTime&#39;: 2.523,
+ &#39;takingTimeAllSys&#39;: 0}
+
+| result of randomized_entangled_entropy[purityCells]
+1.0627930164337158
+1.0627930164337158
+
+| result of randomized_entangled_entropy[purityCellsAllSys]
+0.5189998149871826
+0.5189998149871826
+
+| You can see takingTimeAllSys is 0 for we use existed_all_system
+0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="integration-wit-your-own-progress-bar">
+<h3>Integration wit your own progress bar<a class="headerlink" href="#integration-wit-your-own-progress-bar" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="n">all_counts_progress_01</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="p">],</span>
+    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">test_result_1_2_3</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
+    <span class="n">test_result_1_2_3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
+            <span class="n">tmp_shot</span><span class="p">,</span>
+            <span class="n">tmp_counts</span><span class="p">,</span>
+            <span class="n">tmp_partition</span><span class="p">,</span>
+            <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
+                <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">),</span>
+            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| partition: </span><span class="si">{</span><span class="n">tmp_partition</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - takingTime:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;takingTime&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - takingTimeAllSys:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;takingTimeAllSys&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6 by Python. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Python. - 00:03 &lt; ?       
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:09 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 8 workers, 100 overlaps with mitigation. - 00:09 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 8 workers, 100 overlaps with mitigation. - 00:09 &lt; 00:55
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8) by Python. - 00:09 &lt; 00:55                                                  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: 6
+| - takingTime: 3.189
+| - takingTimeAllSys: 6.052
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:11 &lt; 00:55
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:11 &lt; 00:55                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:11 &lt; 00:55
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:11 &lt; 00:26
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7 by Python. - 00:11 &lt; 00:26            
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (2, 8)
+| - takingTime: 2.552
+| - takingTimeAllSys: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:15 &lt; 00:26
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (1, 8) on None - 00:15 &lt; 00:26                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:15 &lt; 00:26
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:15 &lt; 00:18
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7) by Python. - 00:15 &lt; 00:18       
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: 7
+| - takingTime: 3.643
+| - takingTimeAllSys: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:19 &lt; 00:18
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (0, 7) on None - 00:19 &lt; 00:18                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:19 &lt; 00:18
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:19 &lt; 00:12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5) by Python. - 00:19 &lt; 00:12      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (0, 7)
+| - takingTime: 3.62
+| - takingTimeAllSys: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:22 &lt; 00:12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (-2, 5) on None - 00:22 &lt; 00:12                          
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:22 &lt; 00:12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:22 &lt; 00:08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1) by Python. - 00:22 &lt; 00:08     
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (-2, 5)
+| - takingTime: 3.8
+| - takingTimeAllSys: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:25 &lt; 00:08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 7) on None - 00:25 &lt; 00:08                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:25 &lt; 00:08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:25 &lt; 00:03
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2) by Python. - 00:25 &lt; 00:03      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (-5, -1)
+| - takingTime: 2.653
+| - takingTimeAllSys: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:28 &lt; 00:03
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 6) on None - 00:28 &lt; 00:03                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:28 &lt; 00:03
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:28 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:28 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (3, -2)
+| - takingTime: 2.595
+| - takingTimeAllSys: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="using-python-backend">
+<h3>Using Python backend<a class="headerlink" href="#using-python-backend" title="Link to this heading">#</a></h3>
+<p>It will be slow. Yoy better think twice before using it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_counts_progress_02</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="p">],</span>
+    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">test_result_1_2_4</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_02</span><span class="p">:</span>
+    <span class="n">test_result_1_2_4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
+            <span class="n">tmp_shot</span><span class="p">,</span>
+            <span class="n">tmp_counts</span><span class="p">,</span>
+            <span class="n">tmp_partition</span><span class="p">,</span>
+            <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
+                <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_4&quot;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">),</span>
+            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_02</span><span class="p">,</span>
+            <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6 by Python. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Python. - 00:03 &lt; ?       
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:10 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 8 workers, 100 overlaps with mitigation. - 00:10 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 8 workers, 100 overlaps with mitigation. - 00:10 &lt; 01:05
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8) by Python. - 00:10 &lt; 01:05                                                  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:14 &lt; 01:05
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:14 &lt; 01:05                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:14 &lt; 01:05
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:14 &lt; 00:32
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7 by Python. - 00:14 &lt; 00:32            
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:19 &lt; 00:32
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (1, 8) on None - 00:19 &lt; 00:32                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:19 &lt; 00:32
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:19 &lt; 00:23
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7) by Python. - 00:19 &lt; 00:23       
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:24 &lt; 00:23
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (0, 7) on None - 00:24 &lt; 00:23                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:24 &lt; 00:23
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:24 &lt; 00:16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5) by Python. - 00:24 &lt; 00:16      
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:29 &lt; 00:16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (-2, 5) on None - 00:29 &lt; 00:16                          
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:29 &lt; 00:16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:29 &lt; 00:10
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1) by Python. - 00:29 &lt; 00:10     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/spawn.py&quot;, line 120, in spawn_main
+Process SpawnPoolWorker-138:
+Process SpawnPoolWorker-140:
+    exitcode = _main(fd, parent_sentinel)
+
+| Calculate specific degree (-5, -1) by Python. - 00:30 &lt; 00:12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">qurry.process.randomized_measure</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">RandomizedEntangledEntropyMitigatedComplex</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">ExistingAllSystemSource</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">test_result_1_2_1</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">test_result_1_2_4</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_02</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">test_result_1_2_4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="ne">---&gt; </span><span class="mi">18</span>         <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>             <span class="n">tmp_shot</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>             <span class="n">tmp_counts</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>             <span class="n">tmp_partition</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>             <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>                 <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>                 <span class="k">else</span> <span class="p">{</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>                     <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>                     <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>                     <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>                     <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_4&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>                 <span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>             <span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_02</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>             <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entangled_entropy.py:343,</span> in <span class="ni">randomized_entangled_entropy_mitigated_deprecated</span><span class="nt">(shots, counts, degree, measure, backend, workers_num, existed_all_system, pbar)</span>
-<span class="g g-Whitespace">    </span><span class="mi">335</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pbar</span><span class="p">,</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">336</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">set_description_str</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculate all system by </span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">338</span>     <span class="n">purity_cell_dict_allsys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span>     <span class="n">bitstring_range_allsys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="n">measure_range_allsys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="n">_msg_allsys</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">taken_allsys</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">343</span> <span class="p">)</span> <span class="o">=</span> <span class="n">entangled_entropy_core</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>     <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="n">degree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>     <span class="n">measure</span><span class="o">=</span><span class="n">measure</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>     <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">349</span>     <span class="n">multiprocess_pool_size</span><span class="o">=</span><span class="n">workers_num</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">350</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span> <span class="n">purity_cell_list_allsys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>     <span class="n">purity_cell_dict_allsys</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span> <span class="p">)</span>  <span class="c1"># type: ignore</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;independent&quot;</span>
+<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entangled_entropy.py:324,</span> in <span class="ni">randomized_entangled_entropy_mitigated_deprecated</span><span class="nt">(shots, counts, degree, measure, backend, workers_num, existed_all_system, pbar)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pbar</span><span class="p">,</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">set_description_str</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculate specific degree </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2"> by </span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="n">purity_cell_dict</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>     <span class="n">bitstring_range</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="n">measure_range</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="n">msg</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="n">taken</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">324</span> <span class="p">)</span> <span class="o">=</span> <span class="n">entangled_entropy_core</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span>     <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>     <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">measure</span><span class="o">=</span><span class="n">measure</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>     <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="n">multiprocess_pool_size</span><span class="o">=</span><span class="n">workers_num</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span> <span class="n">purity_cell_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">purity_cell_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span> <span class="k">if</span> <span class="n">existed_all_system</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
 <span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entropy_core.py:259,</span> in <span class="ni">entangled_entropy_core</span><span class="nt">(shots, counts, degree, measure, backend, multiprocess_pool_size)</span>
 <span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
@@ -831,287 +1150,6 @@ KeyboardInterrupt
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
-<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_2_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;purityCells&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">})</span>
-<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCellsAllSys]&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
-{&#39;allSystemSource&#39;: &#39;independent&#39;,
- &#39;bitStringRange&#39;: (2, 8),
- &#39;bitsStringRangeAllSys&#39;: (0, 8),
- &#39;countsNum&#39;: 100,
- &#39;degree&#39;: 6,
- &#39;entropy&#39;: -0.0878606530863832,
- &#39;entropyAllSys&#39;: 0.9461940705953849,
- &#39;entropySD&#39;: 0.0,
- &#39;entropySDAllSys&#39;: 0.0,
- &#39;errorRate&#39;: 0.2808939301105586,
- &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (2, 8)),
- &#39;measureActually&#39;: (2, 8),
- &#39;measureActuallyAllSys&#39;: (0, 8),
- &#39;mitigatedEntropy&#39;: -1.0290289944568636,
- &#39;mitigatedPurity&#39;: 2.0406503299038543,
- &#39;num_qubits&#39;: 8,
- &#39;purity&#39;: 1.0627930164337158,
- &#39;purityAllSys&#39;: 0.5189998149871826,
- &#39;puritySD&#39;: 0.0,
- &#39;puritySDAllSys&#39;: 0.0,
- &#39;takingTime&#39;: 0.003617926,
- &#39;takingTimeAllSys&#39;: 0.010865806}
-
-| result of randomized_entangled_entropy[purityCells]
-1.0627930164337158
-1.0627930164337158
-
-| result of randomized_entangled_entropy[purityCellsAllSys]
-0.5189998149871826
-0.5189998149871826
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="with-existing-all-system-data">
-<h3>With Existing All System Data<a class="headerlink" href="#with-existing-all-system-data" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_result_1_2_2</span> <span class="o">=</span> <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
-    <span class="mi">4096</span><span class="p">,</span>
-    <span class="n">large_dummy_list</span><span class="p">,</span>
-    <span class="mi">6</span><span class="p">,</span>
-    <span class="n">existed_all_system</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_1</span><span class="p">[</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy except for purityCells&quot;</span><span class="p">)</span>
-<span class="n">pprint</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">test_result_1_2_2</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;purityCells&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">})</span>
-<span class="c1"># &quot;purityCells&quot; is too long we skip it here</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCells]&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCells&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| result of randomized_entangled_entropy[purityCellsAllSys]&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| You can see takingTimeAllSys is 0 for we use existed_all_system&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_result_1_2_2</span><span class="p">[</span><span class="s2">&quot;takingTimeAllSys&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| result of randomized_entangled_entropy except for purityCells
-{&#39;allSystemSource&#39;: &#39;from_previous_result:test_result_1_2_1&#39;,
- &#39;bitStringRange&#39;: (2, 8),
- &#39;bitsStringRangeAllSys&#39;: (2, 8),
- &#39;countsNum&#39;: 100,
- &#39;degree&#39;: 6,
- &#39;entropy&#39;: -0.0878606530863832,
- &#39;entropyAllSys&#39;: 0.9461940705953849,
- &#39;entropySD&#39;: 0.0,
- &#39;entropySDAllSys&#39;: 0.0,
- &#39;errorRate&#39;: 0.2808939301105586,
- &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (2, 8)),
- &#39;measureActually&#39;: (2, 8),
- &#39;measureActuallyAllSys&#39;: (2, 8),
- &#39;mitigatedEntropy&#39;: -1.0290289944568636,
- &#39;mitigatedPurity&#39;: 2.0406503299038543,
- &#39;num_qubits&#39;: 8,
- &#39;purity&#39;: 1.0627930164337158,
- &#39;purityAllSys&#39;: 0.5189998149871826,
- &#39;puritySD&#39;: 0.0,
- &#39;puritySDAllSys&#39;: 0.0,
- &#39;takingTime&#39;: 0.002607396,
- &#39;takingTimeAllSys&#39;: 0}
-
-| result of randomized_entangled_entropy[purityCells]
-1.0627930164337158
-1.0627930164337158
-
-| result of randomized_entangled_entropy[purityCellsAllSys]
-0.5189998149871826
-0.5189998149871826
-
-| You can see takingTimeAllSys is 0 for we use existed_all_system
-0
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="integration-wit-your-own-progress-bar">
-<h3>Integration wit your own progress bar<a class="headerlink" href="#integration-wit-your-own-progress-bar" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-
-
-<span class="n">all_counts_progress_01</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
-    <span class="p">],</span>
-    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">test_result_1_2_3</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
-    <span class="n">test_result_1_2_3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
-            <span class="n">tmp_shot</span><span class="p">,</span>
-            <span class="n">tmp_counts</span><span class="p">,</span>
-            <span class="n">tmp_partition</span><span class="p">,</span>
-            <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
-                <span class="kc">None</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-                <span class="k">else</span> <span class="p">{</span>
-                    <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
-                    <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
-                    <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
-                    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
-                <span class="p">}</span>
-            <span class="p">),</span>
-            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span><span class="p">,</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| partition: </span><span class="si">{</span><span class="n">tmp_partition</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - takingTime:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;takingTime&quot;</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - takingTimeAllSys:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;takingTimeAllSys&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5) by Rust. - 00:00 &lt; 00:00                             
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: 6
-| - takingTime: 0.004006246
-| - takingTimeAllSys: 0.014917189
-| partition: (2, 8)
-| - takingTime: 0.02929423
-| - takingTimeAllSys: 0
-| partition: 7
-| - takingTime: 0.037732631
-| - takingTimeAllSys: 0
-| partition: (0, 7)
-| - takingTime: 0.030506098
-| - takingTimeAllSys: 0
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1) by Rust. - 00:00 &lt; 00:00                            
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (-2, 5)
-| - takingTime: 0.029499891
-| - takingTimeAllSys: 0
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 6) on None - 00:00 &lt; 00:00                           
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (-5, -1)
-| - takingTime: 0.008938533
-| - takingTimeAllSys: 0
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; 00:00
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (3, -2)
-| - takingTime: 0.011057409
-| - takingTimeAllSys: 0
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="using-python-backend">
-<h3>Using Python backend<a class="headerlink" href="#using-python-backend" title="Link to this heading">#</a></h3>
-<p>It will be slow. Yoy better think twice before using it.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_counts_progress_02</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
-        <span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">large_dummy_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)),</span>
-    <span class="p">],</span>
-    <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;| </span><span class="si">{desc}</span><span class="s2"> - </span><span class="si">{elapsed}</span><span class="s2"> &lt; </span><span class="si">{remaining}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-
-<span class="n">test_result_1_2_4</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_02</span><span class="p">:</span>
-    <span class="n">test_result_1_2_4</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
-            <span class="n">tmp_shot</span><span class="p">,</span>
-            <span class="n">tmp_counts</span><span class="p">,</span>
-            <span class="n">tmp_partition</span><span class="p">,</span>
-            <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
-                <span class="kc">None</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-                <span class="k">else</span> <span class="p">{</span>
-                    <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
-                    <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
-                    <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_4</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
-                    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_4&quot;</span><span class="p">,</span>
-                <span class="p">}</span>
-            <span class="p">),</span>
-            <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_02</span><span class="p">,</span>
-            <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:07 &lt; 00:00                                            
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -1170,7 +1208,7 @@ by &lt;Hoshi&gt;
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs/main"
+            path: "./docs/main/031_EntropyMeasure"
         },
         predefinedOutput: true
     }
@@ -1188,16 +1226,16 @@ by &lt;Hoshi&gt;
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="0313a_EntropyRandomizedMeasureV1.html"
+       href="3a_EntropyRandomizedMeasureV1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.1 EntropyMeasureV1</p>
+        <p class="prev-next-title">1.3a EntropyMeasure - Randomized Measurement V1</p>
       </div>
     </a>
     <a class="right-next"
-       href="../appendix/A01_BackendManager.html"
+       href="../../appendix/A01_BackendManager.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1222,7 +1260,7 @@ by &lt;Hoshi&gt;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">3.1.3 Randomized Measurement V1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-measurement-v1">1.3 Randomized Measurement V1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-randomized-entangled-entropy-mitigated-v1">b. <code class="docutils literal notranslate"><span class="pre">randomized_entangled_entropy_mitigated_v1</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-data">Dummy Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple Example</a></li>
@@ -1280,8 +1318,8 @@ By Huai-Chung Chang (harui2019)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
