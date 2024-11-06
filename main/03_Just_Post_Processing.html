@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.2 EntropyMeasure - Hadamaed Test &#8212; Qurrium Documentation</title>
+    <title>03 - Just Post-Processing &#8212; Qurrium Documentation</title>
   
   
   
@@ -27,35 +27,35 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NH0TTCC2VZ"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,7 +64,7 @@
                 gtag('config', 'G-NH0TTCC2VZ');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -73,11 +73,11 @@
                 gtag('config', 'G-NH0TTCC2VZ');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/main/031_EntropyMeasure/2_EntropyHadamardTest';</script>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="1.3a EntropyMeasure - Randomized Measurement V1" href="3a_EntropyRandomizedMeasureV1.html" />
-    <link rel="prev" title="1.1b EntropyMeasure - Randomized Measurement with Error Mitigation" href="1b_EntropyRandomizedMeasure.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/03_Just_Post_Processing';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.1a EntropyMeasure - Randomized Measurement" href="031_EntropyMeasure/1a_EntropyRandomizedMeasure.html" />
+    <link rel="prev" title="02 - The True Power of Qurry" href="02_The_True_Power_of_Qurry.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -99,7 +99,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="../../../search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -148,7 +148,7 @@
     
   
 
-<a class="navbar-brand logo" href="../../intro.html">
+<a class="navbar-brand logo" href="../intro.html">
   
   
   
@@ -170,37 +170,37 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../intro.html">
+                <a class="reference internal" href="../intro.html">
                     Documentations of Qurry 🍛
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
 
 
 
 
 
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../03_Just_Post_Processing.html">03 - Just Post-Processing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1a_EntropyRandomizedMeasure.html">1.1a EntropyMeasure - Randomized Measurement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1b_EntropyRandomizedMeasure.html">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2 EntropyMeasure - Hadamaed Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3a_EntropyRandomizedMeasureV1.html">1.3a EntropyMeasure - Randomized Measurement V1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3b_EntropyRandomizedMeasureV1.html">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">03 - Just Post-Processing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="031_EntropyMeasure/1a_EntropyRandomizedMeasure.html">1.1a EntropyMeasure - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="031_EntropyMeasure/1b_EntropyRandomizedMeasure.html">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="031_EntropyMeasure/2_EntropyHadamardTest.html">1.2 EntropyMeasure - Hadamaed Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="031_EntropyMeasure/3a_EntropyRandomizedMeasureV1.html">1.3a EntropyMeasure - Randomized Measurement V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="031_EntropyMeasure/3b_EntropyRandomizedMeasureV1.html">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation and Support</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../installation/01_Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/02_Platform_Support.html">Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/01_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/02_Platform_Support.html">Platform Support</a></li>
 </ul>
 
     </div>
@@ -255,7 +255,7 @@
       
       
       
-      <li><a href="../../../_sources/docs/main/031_EntropyMeasure/2_EntropyHadamardTest.ipynb" target="_blank"
+      <li><a href="../_sources/main/03_Just_Post_Processing.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +331,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.2 EntropyMeasure - Hadamaed Test</h1>
+    <h1>03 - Just Post-Processing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -341,9 +341,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadamaed-test">3.1.2 Hadamaed Test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadamard-entangled-entropy"><code class="docutils literal notranslate"><span class="pre">hadamard_entangled_entropy</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-the-post-processing-functions-with-rust-or-cython-acceleration">Access the post-processing functions with Rust or Cython acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-future-of-acceleration">The Future of Acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
 </ul>
             </nav>
         </div>
@@ -355,28 +355,15 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="entropymeasure-hadamaed-test">
-<h1>1.2 EntropyMeasure - Hadamaed Test<a class="headerlink" href="#entropymeasure-hadamaed-test" title="Link to this heading">#</a></h1>
-<p>The instance <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> contains 2 methods, one is <code class="docutils literal notranslate"><span class="pre">EntropyHadamardTest</span></code> using Hadamard test, and the other is <code class="docutils literal notranslate"><span class="pre">EntropyRandomizedMeasure</span></code> using randomized measure, the default case.</p>
-<p>Both of them are used to calculate the entropy of a quantum state, but the calculation and post-processing are totally different.</p>
-<section id="hadamaed-test">
-<h2>3.1.2 Hadamaed Test<a class="headerlink" href="#hadamaed-test" title="Link to this heading">#</a></h2>
-<p>This method is also called ‘Swap test’. The interested users are encouraged to read the papers <a class="reference external" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.120502">Identification of Symmetry-Protected Topological States on Noisy Quantum Computers</a> and <a class="reference external" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.96.195136">Entanglement spectroscopy on a quantum computer</a> for the introduction and applications of this method.</p>
-</section>
-<hr class="docutils" />
-<section id="hadamard-entangled-entropy">
-<h2><code class="docutils literal notranslate"><span class="pre">hadamard_entangled_entropy</span></code><a class="headerlink" href="#hadamard-entangled-entropy" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Under construction ...</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="post-process-availablities-and-version-info">
-<h2>Post-Process Availablities and Version Info<a class="headerlink" href="#post-process-availablities-and-version-info" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="just-post-processing">
+<h1>03 - Just Post-Processing<a class="headerlink" href="#just-post-processing" title="Link to this heading">#</a></h1>
+<p>We have introduced the workflow from building circuits to executing post-processing to get the final result. However, for some users that already have measurement outcomes from their own calculations, they may want to skip the building circuits and job manager to use the post-processing part only.</p>
+<p>In this notebook, we will focus on the post-processing part. We will introduce how to access the fuctions that performs post-processing for <u><strong>those who are familiar with the post-processing procedure and more experienced with Python</strong></u>.</p>
+<section id="access-the-post-processing-functions-with-rust-or-cython-acceleration">
+<h2>Access the post-processing functions with Rust or Cython acceleration<a class="headerlink" href="#access-the-post-processing-functions-with-rust-or-cython-acceleration" title="Link to this heading">#</a></h2>
+<p>All the functions are located in the <code class="docutils literal notranslate"><span class="pre">qurry.process</span></code> module. You can access them by importing the module.</p>
+<p>We also prepared Rust and Cython acceleration for the post-processing because Python is notorious for its inefficiency. The post-processing is the most time-consuming part in the workflow, as a result of the exponential amount of quantum data. Thus, acceleration of the process is of extreme importance.</p>
+<p>For comparison, Rust is the fastest, Cython is the second, and Python is the slowest. You can check whether the acceleration module is available by checking <code class="docutils literal notranslate"><span class="pre">AVAIBILITY_STATESHEET</span></code> from <code class="docutils literal notranslate"><span class="pre">qurry.process.status</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process.status</span> <span class="kn">import</span> <span class="n">AVAIBILITY_STATESHEET</span>
@@ -419,6 +406,82 @@ by &lt;Hoshi&gt;
 </div>
 </div>
 </section>
+<section id="the-future-of-acceleration">
+<h2>The Future of Acceleration<a class="headerlink" href="#the-future-of-acceleration" title="Link to this heading">#</a></h2>
+<p>The future version of Qurry will only maintain Rust acceleration.
+Cython acceleration that has been implemented will remain in the package, but not be updated anymore. For the computation efficiency of Cython is only slightly better than that of Python. Nonetheless, Cython and Python are hard to work parallelly due to not just <strong>GIL (Global Interpreter Lock) in multi-thread</strong>, but also <strong>memory-wasted and inefficient for each children process in multi-process</strong>. Therefore, we decided to focus on Rust acceleration. Python version will be remained for the compatibility and the convenience of debugging.</p>
+<style type="text/css">
+  @counter-style prefix3 {
+    system: numeric;
+    symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+    prefix: "3.";
+    suffix: ". ";
+  }
+  @counter-style prefix31 {
+    system: numeric;
+    symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+    prefix: "3.1.";
+    suffix: ". ";
+  }
+  @counter-style prefix32 {
+    system: numeric;
+    symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+    prefix: "3.2.";
+    suffix: ". ";
+  }
+  ul.root3 li { list-style-type: prefix3; }
+  ul.root3 li ul.root31 li { list-style-type: prefix31; }
+  ul.root3 li ul.root32 li { list-style-type: prefix32; }
+  ul.root3 li ul.root3-child li ol li { list-style-type: lower-alpha; }
+  ul.root3 li ul.root3-child li ul li { list-style-type: circle; }
+</style>
+</section>
+<section id="content">
+<h2>Content<a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
+<ul class="root3">
+  <li>EntropyMeasure
+    <ul class="root31 root3-child">
+      <li>Entanglement Entropy - Randomized Measure
+        <ol>
+          <li><a href="./0311a_EntropyRandomizedMeasure.ipynb">randomized_entangled_entropy</a></li>
+          <li><a href="./0311b_EntropyRandomizedMeasure.ipynb">randomized_entangled_entropy_mitigated</a></li>
+        </ol>
+      </li>
+      <li><a href="./0312_EntropyHadamardTest.ipynb">Entanglement Entropy - Hadamard Test</a></li>
+      <li>Entanglement Entropy - Randomized Measure V1
+        <ul>
+          <li>This method is deprecated, and we recommend <strong>not</strong> using it for post-processing except when dealing with data from versions <strong>below <code>0.9.1</code></strong></li>
+          <li><code>EntropyRandomizedMeasureV1</code> is a deprecated version of <code>EntropyRandomizedMeasure</code> because it lacks clarity on the relationship between bitstrings and qubit indices. This limitation can easily cause confusion, especially when working with systems that do not measure all qubits. However, it is retained for backward compatibility.</li>
+        </ul>
+        <ol>
+          <li><a href="./0313a_EntropyRandomizedMeasureV1.ipynb">randomized_entangled_entropy_v1</a></li>
+          <li><a href="./0313b_EntropyRandomizedMeasureV1.ipynb">randomized_entangled_entropy_mitigated_v1</a></li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>EchoListen
+    <ul class="root32 root3-child">
+      <li>This feature has been implemented, but documentation is not ready yet. Please wait for the next version.</li>
+    </ul>
+  </li>
+</ul>
+<!-- - EntropyMeasure
+  - Entanglement Entropy - Randomized Measure
+    1. [randomized_entangled_entropy](./0311a_EntropyRandomizedMeasure.ipynb)
+    2. [randomized_entangled_entropy_mitigated](./0311b_EntropyRandomizedMeasure.ipynb)
+  - [Entanglement Entropy - Hadamard Test](./0312_EntropyHadamardTest.ipynb)
+  - Entanglement Entropy - Randomized Measure V1
+    - This method is deprecated, and we recommend **not** using it for post-processing except when dealing with data from versions **below `0.9.1`**
+    - `EntropyRandomizedMeasureV1` is a deprecated version of `EntropyRandomizedMeasure` because it lacks clarity on the relationship between bitstrings and qubit indices. This limitation can easily cause confusion, especially when working with systems that do not measure all qubits. However, it is retained for backward compatibility.
+    1. [randomized_entangled_entropy_v1](./0313a_EntropyRandomizedMeasureV1.ipynb)
+    2. [randomized_entangled_entropy_mitigated_v1](./0313b_EntropyRandomizedMeasureV1.ipynb)
+
+- EchoListen
+  - This feature has been implemented, but documentation is not ready yet. Please wait for the next version.  -->
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -434,7 +497,7 @@ by &lt;Hoshi&gt;
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs/main/031_EntropyMeasure"
+            path: "./main"
         },
         predefinedOutput: true
     }
@@ -452,20 +515,20 @@ by &lt;Hoshi&gt;
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1b_EntropyRandomizedMeasure.html"
+       href="02_The_True_Power_of_Qurry.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</p>
+        <p class="prev-next-title">02 - The True Power of Qurry</p>
       </div>
     </a>
     <a class="right-next"
-       href="3a_EntropyRandomizedMeasureV1.html"
+       href="031_EntropyMeasure/1a_EntropyRandomizedMeasure.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.3a EntropyMeasure - Randomized Measurement V1</p>
+        <p class="prev-next-title">1.1a EntropyMeasure - Randomized Measurement</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -486,9 +549,9 @@ by &lt;Hoshi&gt;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadamaed-test">3.1.2 Hadamaed Test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hadamard-entangled-entropy"><code class="docutils literal notranslate"><span class="pre">hadamard_entangled_entropy</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-the-post-processing-functions-with-rust-or-cython-acceleration">Access the post-processing functions with Rust or Cython acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-future-of-acceleration">The Future of Acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
 </ul>
   </nav></div>
 
@@ -537,8 +600,8 @@ By Huai-Chung Chang (harui2019)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
