@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -170,7 +170,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Documentations of Qurry 🍛
+                    Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.
                 </a>
             </li>
         </ul>
@@ -178,7 +178,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../main/01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
-
 
 
 
@@ -388,70 +387,59 @@ It can’t and won’t support Python 3.8 and below since they are too old.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>CPython 3.9</p></td>
-<td><p>✅</p></td>
-<td><p>❌2</p></td>
+<tr class="row-even"><td><p>CPython 3.9 <sup>1</sup></p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
+<td><p>✅ <sup>2</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
 </tr>
-<tr class="row-odd"><td><p>CPython 3.10</p></td>
-<td><p>✅</p></td>
-<td><p>❌2</p></td>
+<tr class="row-odd"><td><p>CPython 3.10 <sup>1</sup></p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
+<td><p>✅ <sup>2</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
 </tr>
-<tr class="row-even"><td><p>CPython 3.11</p></td>
-<td><p>✅</p></td>
-<td><p>❌2</p></td>
+<tr class="row-even"><td><p>CPython 3.11 <sup>1</sup></p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
+<td><p>✅ <sup>2</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
 </tr>
-<tr class="row-odd"><td><p>CPython 3.12</p></td>
-<td><p>✅</p></td>
-<td><p>❌2</p></td>
+<tr class="row-odd"><td><p>CPython 3.12 <sup>1</sup></p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p>CPython 3.9+ ABI</p></td>
-<td><p>❌1</p></td>
-<td><p>❌2</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
+<td><p>✅ <sup>2</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
+<td><p>✅ <sup>3</sup></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ol class="arabic simple">
-<li><p>There are some issues on building.</p></li>
-<li><p>The functions written in Rust are not avaiable.</p></li>
+<li><p>All CPython builds are based on the 3.9+ CPython ABI.</p></li>
+<li><p>Although <code class="docutils literal notranslate"><span class="pre">windows_arm64</span></code> builds are provided, they have not been properly tested, as we do not have access to such a machine for testing.</p></li>
+<li><p>All Linux builds are based on <code class="docutils literal notranslate"><span class="pre">manylinux2014</span></code>, consistent with Qiskit’s approach for their Linux builds.</p></li>
 </ol>
 <ul class="simple">
-<li><p>Note: All linux are based on <code class="docutils literal notranslate"><span class="pre">manylinux2014</span></code></p></li>
 <li><p><strong>All ManyLinux 2014 compatible distro</strong>
 Ubuntu 18.04+ LTS, Rocky Linux, …</p>
 <ul>

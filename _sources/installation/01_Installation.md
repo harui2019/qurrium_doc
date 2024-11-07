@@ -2,7 +2,8 @@
 
 ## By PyPI - Stable Release
 
-- Would show up in `pip list` as `qurrium-x.y.z`
+- The package can be found in `pip list` as `qurrium-x.y.z`
+- Pip downloads the most stable release, but not necessarily the latest version.
 
 ```bash
 pip install qurrium
@@ -10,36 +11,37 @@ pip install qurrium
 
 ## By TestPyPI - Nightly Release
 
-- Would show up in `pip list` as `qurry-x.y.z.devW`
+- This package can be found in `pip list` as `qurry-x.y.z.devW`
+- This version includes new features and minor bug fixes, but may not be stable.
 
 ```bash
-pip install qiskit qiskit-aer tqdm requests
+pip install qiskit tqdm requests
 # the installation from testPyPI can' t find these dependencies
 pip install -i https://test.pypi.org/simple/ qurry
 ```
 
 ## Maually by Git
 
-**This method is installed from source**, since we introduce Rust, **it will require "Rust complier" you need to install first.**
+**Qurry can be installed from source**. Since this package relies on Cython and Rust, **it requires "C complier" and "Rust complier" which you need to install first.**
 
-You can install rust quickly by the following command:
+To install rust, run the following command:
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Then, you can install `qurry` by the following command:
+Then install `qurry` by the following command:
 
 ```bash
-git clone https://github.com/harui2019/qurrium.git --recursive
+git clone https://github.com/harui2019/qurry-preview.git --recursive
 cd qurry
 pip install -e .
 ```
 
-We have pytest for testing, you can run the following command to test:
+## Test Installation
+
+`pytest` is used for testing. Simply run the following command after the installation:
 
 ```bash
 pytest
 ```
-
-After you finish the installation and want to comfirm the installation.

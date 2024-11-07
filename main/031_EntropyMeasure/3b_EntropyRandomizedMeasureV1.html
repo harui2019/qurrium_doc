@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -171,7 +171,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Documentations of Qurry 🍛
+                    Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.
                 </a>
             </li>
         </ul>
@@ -179,7 +179,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
-
 
 
 
@@ -541,12 +540,6 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -590,13 +583,13 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;bitsStringRangeAllSys&#39;: (0, 8),
  &#39;countsNum&#39;: 100,
  &#39;degree&#39;: 6,
- &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropy&#39;: -0.0878606530863832,
  &#39;entropyAllSys&#39;: 0.9461940705953849,
  &#39;entropySD&#39;: 0.0,
  &#39;entropySDAllSys&#39;: 0.0,
  &#39;errorRate&#39;: 0.2808939301105586,
- &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (0, 8)),
- &#39;measureActually&#39;: (0, 8),
+ &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (2, 8)),
+ &#39;measureActually&#39;: (2, 8),
  &#39;measureActuallyAllSys&#39;: (0, 8),
  &#39;mitigatedEntropy&#39;: -1.0290289944568636,
  &#39;mitigatedPurity&#39;: 2.0406503299038543,
@@ -605,8 +598,8 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;purityAllSys&#39;: 0.5189998149871826,
  &#39;puritySD&#39;: 0.0,
  &#39;puritySDAllSys&#39;: 0.0,
- &#39;takingTime&#39;: 4.656,
- &#39;takingTimeAllSys&#39;: 11.177}
+ &#39;takingTime&#39;: 0.002558494,
+ &#39;takingTimeAllSys&#39;: 0.009195885}
 
 | result of randomized_entangled_entropy[purityCells]
 1.0627930164337158
@@ -668,14 +661,14 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;bitsStringRangeAllSys&#39;: (2, 8),
  &#39;countsNum&#39;: 100,
  &#39;degree&#39;: 6,
- &#39;entropy&#39;: -0.08786065308638322,
+ &#39;entropy&#39;: -0.0878606530863832,
  &#39;entropyAllSys&#39;: 0.9461940705953849,
  &#39;entropySD&#39;: 0.0,
  &#39;entropySDAllSys&#39;: 0.0,
  &#39;errorRate&#39;: 0.2808939301105586,
- &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (0, 8)),
- &#39;measureActually&#39;: (0, 8),
- &#39;measureActuallyAllSys&#39;: (0, 8),
+ &#39;measure&#39;: (&#39;not specified, use all qubits&#39;, (2, 8)),
+ &#39;measureActually&#39;: (2, 8),
+ &#39;measureActuallyAllSys&#39;: (2, 8),
  &#39;mitigatedEntropy&#39;: -1.0290289944568636,
  &#39;mitigatedPurity&#39;: 2.0406503299038543,
  &#39;num_qubits&#39;: 8,
@@ -683,7 +676,7 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;purityAllSys&#39;: 0.5189998149871826,
  &#39;puritySD&#39;: 0.0,
  &#39;puritySDAllSys&#39;: 0.0,
- &#39;takingTime&#39;: 4.105,
+ &#39;takingTime&#39;: 0.002185014,
  &#39;takingTimeAllSys&#39;: 0}
 
 | result of randomized_entangled_entropy[purityCells]
@@ -752,278 +745,117 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6 by Python. - 00:00 &lt; ?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6 by Rust. - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Python. - 00:07 &lt; ?       
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Rust. - 00:00 &lt; ?       
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:18 &lt; ?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 8 workers, 100 overlaps with mitigation. - 00:18 &lt; ?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  with mitigation. - 00:00 &lt; ?                           
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 8 workers, 100 overlaps with mitigation. - 00:18 &lt; 01:52
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8) by Rust. - 00:00 &lt; ?
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8) by Python. - 00:18 &lt; 01:52                                                  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:00 &lt; ?                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7 by Rust. - 00:00 &lt; ?              
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (1, 8) on None - 00:00 &lt; ?                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7) by Rust. - 00:00 &lt; ?         
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (0, 7) on None - 00:00 &lt; ?                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5) by Rust. - 00:00 &lt; ?        
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (-2, 5) on None - 00:00 &lt; ?                          
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1) by Rust. - 00:00 &lt; ?       
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 7) on None - 00:00 &lt; ?                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2) by Rust. - 00:00 &lt; ?        
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 6) on None - 00:00 &lt; ?                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:00 &lt; 00:00
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: 6
-| - takingTime: 7.115
-| - takingTimeAllSys: 11.574
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:23 &lt; 01:52
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:23 &lt; 01:52                           
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:23 &lt; 01:52
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:23 &lt; 00:52
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7 by Python. - 00:23 &lt; 00:52            
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| partition: (2, 8)
-| - takingTime: 4.869
+| - takingTime: 0.002417397
+| - takingTimeAllSys: 0.009717155
+| partition: (2, 8)
+| - takingTime: 0.002735842
+| - takingTimeAllSys: 0
+| partition: 7
+| - takingTime: 0.005015366
+| - takingTimeAllSys: 0
+| partition: (0, 7)
+| - takingTime: 0.004787294
+| - takingTimeAllSys: 0
+| partition: (-2, 5)
+| - takingTime: 0.006102661
+| - takingTimeAllSys: 0
+| partition: (-5, -1)
+| - takingTime: 0.00151601
+| - takingTimeAllSys: 0
+| partition: (3, -2)
+| - takingTime: 0.001004483
 | - takingTimeAllSys: 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Process SpawnPoolWorker-54:
-Process SpawnPoolWorker-55:
-Process SpawnPoolWorker-52:
-Process SpawnPoolWorker-56:
-Process SpawnPoolWorker-49:
-Process SpawnPoolWorker-50:
-Traceback (most recent call last):
-Traceback (most recent call last):
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 121, in ensemble_cell
-    * np.float_power(-2, -diff, dtype=np.float64)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 120, in ensemble_cell
-    np.float_power(2, a_num, dtype=np.float64)
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 118, in ensemble_cell
-    diff = sum(s1 != s2 for s1, s2 in zip(s_i, s_j))  # hamming_distance(sAi, sAj)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 118, in &lt;genexpr&gt;
-    diff = sum(s1 != s2 for s1, s2 in zip(s_i, s_j))  # hamming_distance(sAi, sAj)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 123, in ensemble_cell
-    * (np.float64(s_j_meas) / shots)
-       ^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 121, in ensemble_cell
-    * np.float_power(-2, -diff, dtype=np.float64)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 314, in _bootstrap
-    self.run()
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/process.py&quot;, line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py&quot;, line 51, in starmapstar
-    return list(itertools.starmap(args[0], args[1]))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/purity_cell.py&quot;, line 107, in purity_cell_py
-    _purity_cell += ensemble_cell_py(
-                    ^^^^^^^^^^^^^^^^^
-  File &quot;/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/utils/randomized.py&quot;, line 120, in ensemble_cell
-    np.float_power(2, a_num, dtype=np.float64)
-KeyboardInterrupt
-
-| Calculate specific degree 7 by Python. - 00:30 &lt; 01:15
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">test_result_1_2_3</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">for</span> <span class="n">tmp_shot</span><span class="p">,</span> <span class="n">tmp_counts</span><span class="p">,</span> <span class="n">tmp_partition</span> <span class="ow">in</span> <span class="n">all_counts_progress_01</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">test_result_1_2_3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">---&gt; </span><span class="mi">20</span>         <span class="n">randomized_entangled_entropy_mitigated_v1</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>             <span class="n">tmp_shot</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>             <span class="n">tmp_counts</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>             <span class="n">tmp_partition</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span>             <span class="n">existed_all_system</span><span class="o">=</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>                 <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_result_1_2_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>                 <span class="k">else</span> <span class="p">{</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>                     <span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;purityCellsAllSys&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>                     <span class="s2">&quot;bitStringRange&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;bitStringRange&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>                     <span class="s2">&quot;measureActually&quot;</span><span class="p">:</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;measureActually&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>                     <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;from_previous_result:test_result_1_2_1&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>                 <span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span>             <span class="p">),</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>             <span class="n">pbar</span><span class="o">=</span><span class="n">all_counts_progress_01</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| partition: </span><span class="si">{</span><span class="n">tmp_partition</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - takingTime:&quot;</span><span class="p">,</span> <span class="n">test_result_1_2_3</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;takingTime&quot;</span><span class="p">])</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entangled_entropy.py:324,</span> in <span class="ni">randomized_entangled_entropy_mitigated_deprecated</span><span class="nt">(shots, counts, degree, measure, backend, workers_num, existed_all_system, pbar)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pbar</span><span class="p">,</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>     <span class="n">pbar</span><span class="o">.</span><span class="n">set_description_str</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculate specific degree </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2"> by </span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="n">purity_cell_dict</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>     <span class="n">bitstring_range</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="n">measure_range</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="n">msg</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="n">taken</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">324</span> <span class="p">)</span> <span class="o">=</span> <span class="n">entangled_entropy_core</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span>     <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span>     <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">measure</span><span class="o">=</span><span class="n">measure</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>     <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="n">multiprocess_pool_size</span><span class="o">=</span><span class="n">workers_num</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span> <span class="n">purity_cell_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">purity_cell_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">334</span> <span class="k">if</span> <span class="n">existed_all_system</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entropy_core.py:259,</span> in <span class="ni">entangled_entropy_core</span><span class="nt">(shots, counts, degree, measure, backend, multiprocess_pool_size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span>         <span class="sa">f</span><span class="s2">&quot;Rust is not available, using </span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2"> to calculate purity cell.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span>         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; Check the error: </span><span class="si">{</span><span class="n">FAILED_RUST_IMPORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span>         <span class="n">PostProcessingRustUnavailableWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">259</span> <span class="k">return</span> <span class="n">entangled_entropy_core_pycyrust</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="n">shots</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">measure</span><span class="p">,</span> <span class="n">multiprocess_pool_size</span><span class="p">,</span> <span class="n">backend</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span> <span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/process/randomized_measure/entangled_entropy_v1/entropy_core.py:155,</span> in <span class="ni">entangled_entropy_core_pycyrust</span><span class="nt">(shots, counts, degree, measure, multiprocess_pool_size, backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;, </span><span class="si">{</span><span class="n">launch_worker</span><span class="si">}</span><span class="s2"> workers, </span><span class="si">{</span><span class="n">times</span><span class="si">}</span><span class="s2"> overlaps.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="n">pool</span> <span class="o">=</span> <span class="n">ParallelManager</span><span class="p">(</span><span class="n">launch_worker</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">155</span>     <span class="n">purity_cell_items</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">cell_calculation</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>         <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">bitstring_range</span><span class="p">,</span> <span class="n">subsystem_size</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">counts</span><span class="p">)],</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="n">taken</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="n">purity_cell_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="n">purity_cell_items</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span> <span class="p">)</span>  <span class="c1"># type: ignore</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/qurry/tools/parallelmanager.py:116,</span> in <span class="ni">ParallelManager.starmap</span><span class="nt">(self, func, args_list)</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">args_list</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">workers_num</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">pool_kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">116</span>     <span class="k">return</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args_list</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:375,</span> in <span class="ni">Pool.starmap</span><span class="nt">(self, func, iterable, chunksize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">369</span> <span class="k">def</span> <span class="nf">starmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span><span class="sd">     Like `map()` method but the elements of the `iterable` are expected to</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span><span class="sd">     be iterables as well and will be unpacked as arguments. Hence</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span><span class="sd">     `func` and (a, b) becomes func(a, b).</span>
-<span class="g g-Whitespace">    </span><span class="mi">374</span><span class="sd">     &#39;&#39;&#39;</span>
-<span class="ne">--&gt; </span><span class="mi">375</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_async</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">starmapstar</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:768,</span> in <span class="ni">ApplyResult.get</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">768</span>     <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">770</span>         <span class="k">raise</span> <span class="ne">TimeoutError</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/multiprocessing/pool.py:765,</span> in <span class="ni">ApplyResult.wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">764</span> <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">765</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_event</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/threading.py:622,</span> in <span class="ni">Event.wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">620</span> <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
-<span class="g g-Whitespace">    </span><span class="mi">621</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signaled</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">622</span>     <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cond</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">623</span> <span class="k">return</span> <span class="n">signaled</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/quantumsphere11/lib/python3.11/threading.py:320,</span> in <span class="ni">Condition.wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">320</span>         <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1074,7 +906,115 @@ KeyboardInterrupt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:07 &lt; 00:00                                            
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 6 by Python. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Python. - 00:00 &lt; ?       
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:03 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 16 workers, 100 overlaps with mitigation. - 00:03 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Partition: (2, 8), Measure: (0, 8), backend: Python, 16 workers, 100 overlaps with mitigation. - 00:03 &lt; 00:20
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (2, 8) by Python. - 00:03 &lt; 00:20                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:03 &lt; 00:20
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (2, 8) on None - 00:03 &lt; 00:20                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:03 &lt; 00:20
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:03 &lt; 00:08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree 7 by Python. - 00:03 &lt; 00:08            
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:04 &lt; 00:08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (1, 8) on None - 00:04 &lt; 00:08                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:04 &lt; 00:08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:04 &lt; 00:05
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (0, 7) by Python. - 00:04 &lt; 00:05       
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:05 &lt; 00:05
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (0, 7) on None - 00:05 &lt; 00:05                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:05 &lt; 00:05
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:05 &lt; 00:03
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5) by Python. - 00:05 &lt; 00:03      
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:06 &lt; 00:03
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (-2, 5) on None - 00:06 &lt; 00:03                          
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:06 &lt; 00:03
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:06 &lt; 00:02
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1) by Python. - 00:06 &lt; 00:02     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:07 &lt; 00:02
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 7) on None - 00:07 &lt; 00:02                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:07 &lt; 00:02
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:07 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (3, -2) by Python. - 00:07 &lt; 00:00      
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_4&#39; - 00:07 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of (3, 6) on None - 00:07 &lt; 00:00                           
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:07 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| urce is not in existed_all_system with mitigation. - 00:07 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

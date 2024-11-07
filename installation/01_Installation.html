@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -171,7 +171,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Documentations of Qurry 🍛
+                    Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.
                 </a>
             </li>
         </ul>
@@ -179,7 +179,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../main/01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
-
 
 
 
@@ -344,6 +343,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-pypi-stable-release">By PyPI - Stable Release</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-testpypi-nightly-release">By TestPyPI - Nightly Release</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maually-by-git">Maually by Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-installation">Test Installation</a></li>
 </ul>
             </nav>
         </div>
@@ -360,7 +360,8 @@
 <section id="by-pypi-stable-release">
 <h2>By PyPI - Stable Release<a class="headerlink" href="#by-pypi-stable-release" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Would show up in <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> as <code class="docutils literal notranslate"><span class="pre">qurrium-x.y.z</span></code></p></li>
+<li><p>The package can be found in <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> as <code class="docutils literal notranslate"><span class="pre">qurrium-x.y.z</span></code></p></li>
+<li><p>Pip downloads the most stable release, but not necessarily the latest version.</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qurrium
 </pre></div>
@@ -369,9 +370,10 @@
 <section id="by-testpypi-nightly-release">
 <h2>By TestPyPI - Nightly Release<a class="headerlink" href="#by-testpypi-nightly-release" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Would show up in <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> as <code class="docutils literal notranslate"><span class="pre">qurry-x.y.z.devW</span></code></p></li>
+<li><p>This package can be found in <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> as <code class="docutils literal notranslate"><span class="pre">qurry-x.y.z.devW</span></code></p></li>
+<li><p>This version includes new features and minor bug fixes, but may not be stable.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qiskit<span class="w"> </span>qiskit-aer<span class="w"> </span>tqdm<span class="w"> </span>requests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qiskit<span class="w"> </span>tqdm<span class="w"> </span>requests
 <span class="c1"># the installation from testPyPI can&#39; t find these dependencies</span>
 pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>qurry
 </pre></div>
@@ -379,22 +381,24 @@ pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </s
 </section>
 <section id="maually-by-git">
 <h2>Maually by Git<a class="headerlink" href="#maually-by-git" title="Link to this heading">#</a></h2>
-<p><strong>This method is installed from source</strong>, since we introduce Rust, <strong>it will require “Rust complier” you need to install first.</strong></p>
-<p>You can install rust quickly by the following command:</p>
+<p><strong>Qurry can be installed from source</strong>. Since this package relies on Cython and Rust, <strong>it requires “C complier” and “Rust complier” which you need to install first.</strong></p>
+<p>To install rust, run the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-sSf<span class="w"> </span>https://sh.rustup.rs<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </pre></div>
 </div>
-<p>Then, you can install <code class="docutils literal notranslate"><span class="pre">qurry</span></code> by the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/harui2019/qurrium.git<span class="w"> </span>--recursive
+<p>Then install <code class="docutils literal notranslate"><span class="pre">qurry</span></code> by the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/harui2019/qurry-preview.git<span class="w"> </span>--recursive
 <span class="nb">cd</span><span class="w"> </span>qurry
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
-<p>We have pytest for testing, you can run the following command to test:</p>
+</section>
+<section id="test-installation">
+<h2>Test Installation<a class="headerlink" href="#test-installation" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pytest</span></code> is used for testing. Simply run the following command after the installation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
 </pre></div>
 </div>
-<p>After you finish the installation and want to comfirm the installation.</p>
 </section>
 </section>
 
@@ -466,6 +470,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-pypi-stable-release">By PyPI - Stable Release</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#by-testpypi-nightly-release">By TestPyPI - Nightly Release</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maually-by-git">Maually by Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-installation">Test Installation</a></li>
 </ul>
   </nav></div>
 

@@ -20,18 +20,16 @@ We strongly recommend to use Linux based system, due to Python multiprocessing m
 
 ## Availability
 
-|                  | macos<br/>x86_64 | macos<br/>universal2 | macos<br/>ARM64 | windows<br/>amd64 | windows<br/>win32 | windows<br/>arm64 | linux<br/>x86_64 | linux<br/>i686 | linux<br/>aarch64 |
-| ---------------- | ---------------- | -------------------- | --------------- | ----------------- | ----------------- | ----------------- | ---------------- | -------------- | ----------------- |
-| CPython 3.9      | ✅               | ❌2                  | ✅              | ✅                | ✅                | ✅                | ✅               | ✅             | ✅                |
-| CPython 3.10     | ✅               | ❌2                  | ✅              | ✅                | ✅                | ✅                | ✅               | ✅             | ✅                |
-| CPython 3.11     | ✅               | ❌2                  | ✅              | ✅                | ✅                | ✅                | ✅               | ✅             | ✅                |
-| CPython 3.12     | ✅               | ❌2                  | ✅              | ✅                | ✅                | ✅                | ✅               | ✅             | ✅                |
-| CPython 3.9+ ABI | ❌1              | ❌2                  | ✅              | ✅                | ✅                | ✅                | ✅               | ✅             | ✅                |
+|                           | macos<br/>x86_64 | macos<br/>universal2 | macos<br/>ARM64 | windows<br/>amd64 | windows<br/>win32 | windows<br/>arm64 | linux<br/>x86_64 | linux<br/>i686  | linux<br/>aarch64 |
+| ------------------------- | ---------------- | -------------------- | --------------- | ----------------- | ----------------- | ----------------- | ---------------- | --------------- | ----------------- |
+| CPython 3.9 <sup>1</sup>  | ✅               | ✅                   | ✅              | ✅                | ✅                | ✅ <sup>2</sup>   | ✅ <sup>3</sup>  | ✅ <sup>3</sup> | ✅ <sup>3</sup>   |
+| CPython 3.10 <sup>1</sup> | ✅               | ✅                   | ✅              | ✅                | ✅                | ✅ <sup>2</sup>   | ✅ <sup>3</sup>  | ✅ <sup>3</sup> | ✅ <sup>3</sup>   |
+| CPython 3.11 <sup>1</sup> | ✅               | ✅                   | ✅              | ✅                | ✅                | ✅ <sup>2</sup>   | ✅ <sup>3</sup>  | ✅ <sup>3</sup> | ✅ <sup>3</sup>   |
+| CPython 3.12 <sup>1</sup> | ✅               | ✅                   | ✅              | ✅                | ✅                | ✅ <sup>2</sup>   | ✅ <sup>3</sup>  | ✅ <sup>3</sup> | ✅ <sup>3</sup>   |
 
-1. There are some issues on building.
-2. The functions written in Rust are not avaiable.
-
-- Note: All linux are based on `manylinux2014`
+1. All CPython builds are based on the 3.9+ CPython ABI.
+2. Although `windows_arm64` builds are provided, they have not been properly tested, as we do not have access to such a machine for testing.
+3. All Linux builds are based on `manylinux2014`, consistent with Qiskit's approach for their Linux builds.
 
 - **All ManyLinux 2014 compatible distro**
   Ubuntu 18.04+ LTS, Rocky Linux, ...

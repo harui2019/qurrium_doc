@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -171,7 +171,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Documentations of Qurry 🍛
+                    Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.
                 </a>
             </li>
         </ul>
@@ -179,7 +179,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
-
 
 
 
@@ -373,25 +372,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/harui/opt/anaconda3/envs/quantumsphere11/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.2.dev1
 --------------------------------------------------------
  ### Qurry Post-Processing
    - Backend Availability ................... Python Cython Rust  
  - randomized_measure
-   - entangled_entropy.entropy_core_2 ....... Yes    Depr.  Error 
-   - entangle_entropy.purity_cell_2 ......... Yes    Depr.  Error 
-   - wavefunction_overlap ................... Yes    Depr.  Error 
+   - entangled_entropy.entropy_core_2 ....... Yes    Depr.  Yes   
+   - entangle_entropy.purity_cell_2 ......... Yes    Depr.  Yes   
+   - wavefunction_overlap ................... Yes    Depr.  Yes   
    - echo_cell .............................. Yes    Depr.  Error 
  - utils
-   - randomized ............................. Yes    Depr.  Error 
-   - construct .............................. Yes    No     Error 
-   - dummy .................................. Yes    No     Error 
+   - randomized ............................. Yes    Depr.  Yes   
+   - construct .............................. Yes    No     Yes   
+   - dummy .................................. Yes    No     Yes   
  - hadamard_test
-   - purity_echo_core ....................... Yes    No     Error 
+   - purity_echo_core ....................... Yes    No     Yes   
  - magnet_square
    - magnsq_core ............................ Yes    No     No    
 --------------------------------------------------------
