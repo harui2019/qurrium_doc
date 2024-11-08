@@ -7,6 +7,37 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="1.1b EntropyMeasure - Randomized Measurement with Error Mitigation" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.qurrium.org/main/031_EntropyMeasure/1b_EntropyRandomizedMeasure.html" />
+<meta property="og:site_name" content="Project name not set" />
+<meta property="og:description" content="The instance EntropyMeasure contains 2 methods, one is EntropyHadamardTest using Hadamard test, and the other is EntropyRandomizedMeasure using randomized measure, the default case. Both of them ar..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://docs.qurrium.org/_images/social_previews/summary_main_031_EntropyMeasure_1b_EntropyRandomizedMeasure_41b82b32.png" />
+<meta property="og:image:alt" content="The instance EntropyMeasure contains 2 methods, one is EntropyHadamardTest using Hadamard test, and the other is EntropyRandomizedMeasure using randomized me..." />
+<meta name="description" content="The instance EntropyMeasure contains 2 methods, one is EntropyHadamardTest using Hadamard test, and the other is EntropyRandomizedMeasure using randomized measure, the default case. Both of them ar..." />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- HTML Meta Tags -->
+<title>Qurry 🍛 Documentation</title>
+<meta name='description' content='The python package that makes the randomized measurement easy.'>
+
+<!-- Facebook Meta Tags -->
+<meta property='og:url' content='https://docs.qurrium.org'>
+<meta property='og:type' content='website'>
+<meta property='og:title' content='Qurry 🍛 Documentation'>
+<meta property='og:description' content='The python package that makes the randomized measurement easy.'>
+<meta property='og:image' content=''>
+
+<!-- Twitter Meta Tags -->
+<meta name='twitter:card' content='summary_large_image'>
+<meta property='twitter:domain' content='docs.qurrium.org'>
+<meta property='twitter:url' content='https://docs.qurrium.org'>
+<meta name='twitter:title' content='Qurry 🍛 Documentation'>
+<meta name='twitter:description' content='The python package that makes the randomized measurement easy.'>
+<meta name='twitter:image' content=''>
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
     <title>1.1b EntropyMeasure - Randomized Measurement with Error Mitigation &#8212; Qurrium Documentation</title>
   
@@ -609,8 +640,8 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;purityAllSys&#39;: 0.5189998149871826,
  &#39;puritySD&#39;: 0.0,
  &#39;puritySDAllSys&#39;: 0.0,
- &#39;taking_time&#39;: 0.002595111,
- &#39;taking_time_all_sys&#39;: 0.010733614}
+ &#39;taking_time&#39;: 0.002246064,
+ &#39;taking_time_all_sys&#39;: 0.010192996}
 
 | result of randomized_entangled_entropy[purityCells]
 1.0627930164337158
@@ -694,8 +725,8 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;purityAllSys&#39;: 0.5189998149871826,
  &#39;puritySD&#39;: 0.0,
  &#39;puritySDAllSys&#39;: 0.0,
- &#39;taking_time&#39;: 0.002456975,
- &#39;taking_time_all_sys&#39;: 0.010733614}
+ &#39;taking_time&#39;: 0.001893594,
+ &#39;taking_time_all_sys&#39;: 0.010192996}
 
 | result of randomized_entangled_entropy[purityCells]
 1.0627930164337158
@@ -706,7 +737,7 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 0.5189998149871826
 
 | You can see takingTimeAllSys is 0 for we use existed_all_system
-0.010733614
+0.010192996
 </pre></div>
 </div>
 </div>
@@ -832,28 +863,28 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
 | partition: [0, 1, 2, 3, 4, 5]
-| - taking_time: 0.002312466
-| - taking_time_all_sys: 0.012595453
+| - taking_time: 0.002051937
+| - taking_time_all_sys: 0.011746248
 [2, 3, 4, 5, 6, 7]
 | partition: [2, 3, 4, 5, 6, 7]
-| - taking_time: 0.002824328
-| - taking_time_all_sys: 0.010733614
+| - taking_time: 0.002582962
+| - taking_time_all_sys: 0.010192996
 [0, 1, 2, 3, 4, 5, 6]
 | partition: [0, 1, 2, 3, 4, 5, 6]
-| - taking_time: 0.005513165
-| - taking_time_all_sys: 0.010733614
+| - taking_time: 0.005064595
+| - taking_time_all_sys: 0.010192996
 [0, 1, 2, 3, 4, 5, 6]
 | partition: [0, 1, 2, 3, 4, 5, 6]
-| - taking_time: 0.005785512
-| - taking_time_all_sys: 0.010733614
+| - taking_time: 0.00533651
+| - taking_time_all_sys: 0.010192996
 [0, 1, 2, 6, 7]
 | partition: [0, 1, 2, 6, 7]
-| - taking_time: 0.001499415
-| - taking_time_all_sys: 0.010733614
+| - taking_time: 0.001327981
+| - taking_time_all_sys: 0.010192996
 [3, 4, 5, 6, 7, 0, 1]
 | partition: [3, 4, 5, 6, 7, 0, 1]
-| - taking_time: 0.005650233
-| - taking_time_all_sys: 0.010733614
+| - taking_time: 0.005378664
+| - taking_time_all_sys: 0.010192996
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -986,16 +1017,16 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 6, 7]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:02 &lt; 00:01
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:03 &lt; 00:01
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 2, 1, 0] - 00:02 &lt; 00:01         
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 2, 1, 0] - 00:03 &lt; 00:01         
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 2, 1, 0] - 00:02 &lt; 00:00
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [7, 6, 2, 1, 0] - 00:03 &lt; 00:00
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:02 &lt; 00:00
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4, 5, 6, 7, 0, 1]. - 00:03 &lt; 00:00
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4, 5, 6, 7, 0, 1]
