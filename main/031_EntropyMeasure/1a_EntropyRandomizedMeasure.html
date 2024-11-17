@@ -518,12 +518,12 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 {&#39;classical_registers&#39;: [0, 1, 2, 3, 4, 5],
  &#39;classical_registers_actually&#39;: [0, 1, 2, 3, 4, 5],
  &#39;counts_num&#39;: 100,
- &#39;entropy&#39;: -0.0878606530863832,
- &#39;entropySD&#39;: 0.0,
+ &#39;entropy&#39;: np.float64(-0.08786065308638322),
+ &#39;entropySD&#39;: np.float64(0.0),
  &#39;num_classical_registers&#39;: 8,
- &#39;purity&#39;: 1.0627930164337158,
- &#39;puritySD&#39;: 0.0,
- &#39;taking_time&#39;: 0.002095076}
+ &#39;purity&#39;: np.float64(1.0627930164337158),
+ &#39;puritySD&#39;: np.float64(0.0),
+ &#39;taking_time&#39;: 0.002178821}
 | result of randomized_entangled_entropy[purityCells]
 1.0627930164337158
 1.0627930164337158
@@ -685,10 +685,10 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:01 &lt; 00:03
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [2, 3, 4, 5, 6, 7]. - 00:01 &lt; 00:02
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:01 &lt; 00:03
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:01 &lt; 00:02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
@@ -746,7 +746,7 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.3.dev3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.4
 --------------------------------------------------------
  ### Qurry Post-Processing
    - Backend Availability ................... Python Cython Rust  
@@ -759,6 +759,7 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
    - randomized ............................. Yes    Depr.  Yes   
    - construct .............................. Yes    No     Yes   
    - dummy .................................. Yes    No     Yes   
+   - test ................................... Yes    No     Yes   
  - hadamard_test
    - purity_echo_core ....................... Yes    No     Yes   
  - magnet_square

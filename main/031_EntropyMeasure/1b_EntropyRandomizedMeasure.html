@@ -631,21 +631,21 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;classical_registers_actually_all_sys&#39;: [0, 1, 2, 3, 4, 5, 6, 7],
  &#39;classical_registers_all_sys&#39;: None,
  &#39;counts_num&#39;: 100,
- &#39;entropy&#39;: -0.0878606530863832,
- &#39;entropyAllSys&#39;: 0.9461940705953849,
- &#39;entropySD&#39;: 0.0,
- &#39;entropySDAllSys&#39;: 0.0,
- &#39;errorRate&#39;: 0.2808939301105586,
- &#39;mitigatedEntropy&#39;: -1.0290289944568636,
- &#39;mitigatedPurity&#39;: 2.0406503299038543,
+ &#39;entropy&#39;: np.float64(-0.08786065308638322),
+ &#39;entropyAllSys&#39;: np.float64(0.9461940705953849),
+ &#39;entropySD&#39;: np.float64(0.0),
+ &#39;entropySDAllSys&#39;: np.float64(0.0),
+ &#39;errorRate&#39;: np.float64(0.2808939301105586),
+ &#39;mitigatedEntropy&#39;: np.float64(-1.0290289944568636),
+ &#39;mitigatedPurity&#39;: np.float64(2.0406503299038543),
  &#39;num_classical_registers&#39;: 8,
  &#39;num_classical_registers_all_sys&#39;: 8,
- &#39;purity&#39;: 1.0627930164337158,
- &#39;purityAllSys&#39;: 0.5189998149871826,
- &#39;puritySD&#39;: 0.0,
- &#39;puritySDAllSys&#39;: 0.0,
- &#39;taking_time&#39;: 0.00210311,
- &#39;taking_time_all_sys&#39;: 0.008578304}
+ &#39;purity&#39;: np.float64(1.0627930164337158),
+ &#39;purityAllSys&#39;: np.float64(0.5189998149871826),
+ &#39;puritySD&#39;: np.float64(0.0),
+ &#39;puritySDAllSys&#39;: np.float64(0.0),
+ &#39;taking_time&#39;: 0.002285385,
+ &#39;taking_time_all_sys&#39;: 0.009800319}
 
 | result of randomized_entangled_entropy[purityCells]
 1.0627930164337158
@@ -716,21 +716,21 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
  &#39;classical_registers_actually_all_sys&#39;: [0, 1, 2, 3, 4, 5, 6, 7],
  &#39;classical_registers_all_sys&#39;: None,
  &#39;counts_num&#39;: 100,
- &#39;entropy&#39;: -0.0878606530863832,
- &#39;entropyAllSys&#39;: 0.9461940705953849,
- &#39;entropySD&#39;: 0.0,
- &#39;entropySDAllSys&#39;: 0.0,
- &#39;errorRate&#39;: 0.2808939301105586,
- &#39;mitigatedEntropy&#39;: -1.0290289944568636,
- &#39;mitigatedPurity&#39;: 2.0406503299038543,
+ &#39;entropy&#39;: np.float64(-0.08786065308638322),
+ &#39;entropyAllSys&#39;: np.float64(0.9461940705953849),
+ &#39;entropySD&#39;: np.float64(0.0),
+ &#39;entropySDAllSys&#39;: np.float64(0.0),
+ &#39;errorRate&#39;: np.float64(0.2808939301105586),
+ &#39;mitigatedEntropy&#39;: np.float64(-1.0290289944568636),
+ &#39;mitigatedPurity&#39;: np.float64(2.0406503299038543),
  &#39;num_classical_registers&#39;: 8,
  &#39;num_classical_registers_all_sys&#39;: 8,
- &#39;purity&#39;: 1.0627930164337158,
- &#39;purityAllSys&#39;: 0.5189998149871826,
- &#39;puritySD&#39;: 0.0,
- &#39;puritySDAllSys&#39;: 0.0,
- &#39;taking_time&#39;: 0.00203576,
- &#39;taking_time_all_sys&#39;: 0.008578304}
+ &#39;purity&#39;: np.float64(1.0627930164337158),
+ &#39;purityAllSys&#39;: np.float64(0.5189998149871826),
+ &#39;puritySD&#39;: np.float64(0.0),
+ &#39;puritySDAllSys&#39;: np.float64(0.0),
+ &#39;taking_time&#39;: 0.00163245,
+ &#39;taking_time_all_sys&#39;: 0.009800319}
 
 | result of randomized_entangled_entropy[purityCells]
 1.0627930164337158
@@ -741,7 +741,7 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 0.5189998149871826
 
 | You can see takingTimeAllSys is 0 for we use existed_all_system
-0.008578304
+0.009800319
 </pre></div>
 </div>
 </div>
@@ -867,28 +867,28 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
 | partition: [0, 1, 2, 3, 4, 5]
-| - taking_time: 0.001648242
-| - taking_time_all_sys: 0.008706961
+| - taking_time: 0.001708639
+| - taking_time_all_sys: 0.00926223
 [2, 3, 4, 5, 6, 7]
 | partition: [2, 3, 4, 5, 6, 7]
-| - taking_time: 0.00184708
-| - taking_time_all_sys: 0.008578304
+| - taking_time: 0.001752699
+| - taking_time_all_sys: 0.009800319
 [0, 1, 2, 3, 4, 5, 6]
 | partition: [0, 1, 2, 3, 4, 5, 6]
-| - taking_time: 0.003826357
-| - taking_time_all_sys: 0.008578304
+| - taking_time: 0.003668715
+| - taking_time_all_sys: 0.009800319
 [0, 1, 2, 3, 4, 5, 6]
 | partition: [0, 1, 2, 3, 4, 5, 6]
-| - taking_time: 0.003839322
-| - taking_time_all_sys: 0.008578304
+| - taking_time: 0.003699127
+| - taking_time_all_sys: 0.009800319
 [0, 1, 2, 6, 7]
 | partition: [0, 1, 2, 6, 7]
-| - taking_time: 0.000979529
-| - taking_time_all_sys: 0.008578304
+| - taking_time: 0.00092832
+| - taking_time_all_sys: 0.009800319
 [3, 4, 5, 6, 7, 0, 1]
 | partition: [3, 4, 5, 6, 7, 0, 1]
-| - taking_time: 0.003952242
-| - taking_time_all_sys: 0.008578304
+| - taking_time: 0.003673562
+| - taking_time_all_sys: 0.009800319
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -991,16 +991,16 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:01 &lt; 00:00
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;from_previous_result:test_result_1_2_1&#39; - 00:00 &lt; 00:00
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [6, 5, 4, 3, 2, 1, 0] - 00:01 &lt; 00:00   
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [6, 5, 4, 3, 2, 1, 0] - 00:00 &lt; 00:00   
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [6, 5, 4, 3, 2, 1, 0] - 00:01 &lt; 00:01
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [6, 5, 4, 3, 2, 1, 0] - 00:00 &lt; 00:01
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:01 &lt; 00:01      
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0, 1, 2, 3, 4, 5, 6]. - 00:00 &lt; 00:01      
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6]
@@ -1067,7 +1067,7 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.3.dev3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.4
 --------------------------------------------------------
  ### Qurry Post-Processing
    - Backend Availability ................... Python Cython Rust  
@@ -1080,6 +1080,7 @@ The return <code class="docutils literal notranslate"><span class="pre">dict</sp
    - randomized ............................. Yes    Depr.  Yes   
    - construct .............................. Yes    No     Yes   
    - dummy .................................. Yes    No     Yes   
+   - test ................................... Yes    No     Yes   
  - hadamard_test
    - purity_echo_core ....................... Yes    No     Yes   
  - magnet_square

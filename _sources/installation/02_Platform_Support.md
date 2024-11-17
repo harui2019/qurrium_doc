@@ -35,19 +35,29 @@ We strongly recommend to use Linux based system, due to Python multiprocessing m
   Ubuntu 18.04+ LTS, Rocky Linux, ...
 
   - on `x86_64` **(recommended)**
+    - Synology NAS with a finely-tuned Python environment.
+      - ["Your NAS can also perform Quantum Computing!"](https://www.threads.net/@harui_2019/post/DCe_flgTVSR?xmt=AQGz8x3XKpPWT3XmW9qBngiKuobCM14Hh7JaqpMJAa2qOg) 🤯
   - on `x86_64` Windows 10/11 WSL2 **(recommended)**
   - on `aarch64`
     - Fujitsu Quantum Simulator with `qiskit-qulacs` making `qulacs` as a `qiskit` backend to run.
-    - Android Terminal emulator `Termux` with `proto-distro`, so you can run this on your Android device if you know how to do.
+    - Android Terminal emulator `Termux` with `proot-distro`, so you can run this on your Android device if you know how to do.
       - If you want to try this, I suggest using the devices with sufficient performance CPU like Qualcomm Snapdragon 865 with 10GiB RAM at least.
-      - See ["Quantum computing right at your fingertips"](https://www.instagram.com/p/C1-dQWdSFYB/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==) :)
-      - iSH on iOS/iPadOS can not even handle python environment building although iPad has powerful performance :(
+      - See ["Quantum computing right at your fingertips"](https://www.instagram.com/p/C1-dQWdSFYB/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==) 🙂
+      - iSH on iOS/iPadOS can not even handle python environment building although iPad has powerful performance 😦
 
-- **Windows 10/11** on `x86_64`, `x86_32`, `ARM64`
+- **Windows 10/11**
+
+  - on `x86_64` **(recommended)**
+  - on `x86_32`
+  - on `ARM64` **(not tested yet)**
+    - **Disclaimer**: Although we provide the distribution for Windows ARM, we cannot guarantee its functionality.
+    - Since this distribution was built using cross-compilation, and we do not have access to a Windows ARM device, full testing could not be performed.
 
 - **MacOS 11+**
+
   - on `arm64 (Apple Silicon)`
   - on `x86_64 (Intel chips)`
+    - We provide `arm64`, `x86_64` and `universal2` wheels for installation.
 
 ## Dependencies
 

@@ -531,12 +531,12 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 {&#39;bitStringRange&#39;: (2, 8),
  &#39;countsNum&#39;: 100,
  &#39;degree&#39;: 6,
- &#39;entropy&#39;: -0.0878606530863832,
- &#39;entropySD&#39;: 0.0,
+ &#39;entropy&#39;: np.float64(-0.08786065308638322),
+ &#39;entropySD&#39;: np.float64(0.0),
  &#39;measureActually&#39;: (2, 8),
- &#39;purity&#39;: 1.0627930164337158,
- &#39;puritySD&#39;: 0.0,
- &#39;takingTime&#39;: 0.002601715}
+ &#39;purity&#39;: np.float64(1.0627930164337158),
+ &#39;puritySD&#39;: np.float64(0.0),
+ &#39;takingTime&#39;: 0.002424645}
 | result of randomized_entangled_entropy_v1[purityCells]
 1.0627930164337158
 1.0627930164337158
@@ -698,10 +698,10 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:03 &lt; 00:02
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:04 &lt; 00:02
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-2, 5). - 00:04 &lt; 00:01
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:04 &lt; 00:02
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:04 &lt; 00:01
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate specific degree (-5, -1). - 00:05 &lt; 00:00
@@ -735,7 +735,7 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.3.dev3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.4
 --------------------------------------------------------
  ### Qurry Post-Processing
    - Backend Availability ................... Python Cython Rust  
@@ -748,6 +748,7 @@ The returned <code class="docutils literal notranslate"><span class="pre">dict</
    - randomized ............................. Yes    Depr.  Yes   
    - construct .............................. Yes    No     Yes   
    - dummy .................................. Yes    No     Yes   
+   - test ................................... Yes    No     Yes   
  - hadamard_test
    - purity_echo_core ....................... Yes    No     Yes   
  - magnet_square

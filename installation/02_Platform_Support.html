@@ -479,27 +479,50 @@ It can’t and won’t support Python 3.8 and below since they are too old.</p>
 <li><p><strong>All ManyLinux 2014 compatible distro</strong>
 Ubuntu 18.04+ LTS, Rocky Linux, …</p>
 <ul>
-<li><p>on <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> <strong>(recommended)</strong></p></li>
+<li><p>on <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> <strong>(recommended)</strong></p>
+<ul>
+<li><p>Synology NAS with a finely-tuned Python environment.</p>
+<ul>
+<li><p><a class="reference external" href="https://www.threads.net/&#64;harui_2019/post/DCe_flgTVSR?xmt=AQGz8x3XKpPWT3XmW9qBngiKuobCM14Hh7JaqpMJAa2qOg">“Your NAS can also perform Quantum Computing!”</a> 🤯</p></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>on <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> Windows 10/11 WSL2 <strong>(recommended)</strong></p></li>
 <li><p>on <code class="docutils literal notranslate"><span class="pre">aarch64</span></code></p>
 <ul>
 <li><p>Fujitsu Quantum Simulator with <code class="docutils literal notranslate"><span class="pre">qiskit-qulacs</span></code> making <code class="docutils literal notranslate"><span class="pre">qulacs</span></code> as a <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> backend to run.</p></li>
-<li><p>Android Terminal emulator <code class="docutils literal notranslate"><span class="pre">Termux</span></code> with <code class="docutils literal notranslate"><span class="pre">proto-distro</span></code>, so you can run this on your Android device if you know how to do.</p>
+<li><p>Android Terminal emulator <code class="docutils literal notranslate"><span class="pre">Termux</span></code> with <code class="docutils literal notranslate"><span class="pre">proot-distro</span></code>, so you can run this on your Android device if you know how to do.</p>
 <ul>
 <li><p>If you want to try this, I suggest using the devices with sufficient performance CPU like Qualcomm Snapdragon 865 with 10GiB RAM at least.</p></li>
-<li><p>See <a class="reference external" href="https://www.instagram.com/p/C1-dQWdSFYB/?utm_source=ig_web_button_share_sheet&amp;amp;igsh=MzRlODBiNWFlZA==">“Quantum computing right at your fingertips”</a> :)</p></li>
-<li><p>iSH on iOS/iPadOS can not even handle python environment building although iPad has powerful performance :(</p></li>
+<li><p>See <a class="reference external" href="https://www.instagram.com/p/C1-dQWdSFYB/?utm_source=ig_web_button_share_sheet&amp;amp;igsh=MzRlODBiNWFlZA==">“Quantum computing right at your fingertips”</a> 🙂</p></li>
+<li><p>iSH on iOS/iPadOS can not even handle python environment building although iPad has powerful performance 😦</p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong>Windows 10/11</strong> on <code class="docutils literal notranslate"><span class="pre">x86_64</span></code>, <code class="docutils literal notranslate"><span class="pre">x86_32</span></code>, <code class="docutils literal notranslate"><span class="pre">ARM64</span></code></p></li>
+<li><p><strong>Windows 10/11</strong></p>
+<ul>
+<li><p>on <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> <strong>(recommended)</strong></p></li>
+<li><p>on <code class="docutils literal notranslate"><span class="pre">x86_32</span></code></p></li>
+<li><p>on <code class="docutils literal notranslate"><span class="pre">ARM64</span></code> <strong>(not tested yet)</strong></p>
+<ul>
+<li><p><strong>Disclaimer</strong>: Although we provide the distribution for Windows ARM, we cannot guarantee its functionality.</p></li>
+<li><p>Since this distribution was built using cross-compilation, and we do not have access to a Windows ARM device, full testing could not be performed.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p><strong>MacOS 11+</strong></p>
 <ul>
 <li><p>on <code class="docutils literal notranslate"><span class="pre">arm64</span> <span class="pre">(Apple</span> <span class="pre">Silicon)</span></code></p></li>
-<li><p>on <code class="docutils literal notranslate"><span class="pre">x86_64</span> <span class="pre">(Intel</span> <span class="pre">chips)</span></code></p></li>
+<li><p>on <code class="docutils literal notranslate"><span class="pre">x86_64</span> <span class="pre">(Intel</span> <span class="pre">chips)</span></code></p>
+<ul>
+<li><p>We provide <code class="docutils literal notranslate"><span class="pre">arm64</span></code>, <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> and <code class="docutils literal notranslate"><span class="pre">universal2</span></code> wheels for installation.</p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
