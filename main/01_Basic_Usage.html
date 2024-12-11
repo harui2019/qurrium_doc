@@ -1,0 +1,1649 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="01 - Basic Usage of Qurry" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.qurrium.org/main/01_Basic_Usage.html" />
+<meta property="og:site_name" content="Project name not set" />
+<meta property="og:description" content="In Qurry, we use the instance of Qurry to store quantum circuits, experiments, build experiment, and excute them on local simulator or pending to the real quantum machine on IBM. In this chapter (o..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://docs.qurrium.org/_images/social_previews/summary_main_01_Basic_Usage_96387828.png" />
+<meta property="og:image:alt" content="In Qurry, we use the instance of Qurry to store quantum circuits, experiments, build experiment, and excute them on local simulator or pending to the real qu..." />
+<meta name="description" content="In Qurry, we use the instance of Qurry to store quantum circuits, experiments, build experiment, and excute them on local simulator or pending to the real quantum machine on IBM. In this chapter (o..." />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- HTML Meta Tags -->
+<title>Qurrium-Qurry🍛 Documentation</title>
+<meta name='description' content='The python package that makes the randomized measurement easy.'>
+
+<!-- Facebook Meta Tags -->
+<meta property='og:url' content='https://docs.qurrium.org'>
+<meta property='og:type' content='website'>
+<meta property='og:title' content='Qurrium-Qurry🍛 Documentation'>
+<meta property='og:description' content='The python package that makes the randomized measurement easy.'>
+<meta property='og:image' content=''>
+
+<!-- Twitter Meta Tags -->
+<meta name='twitter:card' content='summary_large_image'>
+<meta property='twitter:domain' content='docs.qurrium.org'>
+<meta property='twitter:url' content='https://docs.qurrium.org'>
+<meta name='twitter:title' content='Qurrium-Qurry🍛 Documentation'>
+<meta name='twitter:description' content='The python package that makes the randomized measurement easy.'>
+<meta name='twitter:image' content=''>
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+    <title>01 - Basic Usage of Qurry &#8212; Qurry🍛/Qurrium Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NH0TTCC2VZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/01_Basic_Usage';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="02 - The True Power of Qurry" href="02_The_True_Power_of_Qurry.html" />
+    <link rel="prev" title="Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap." href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Qurry🍛/Qurrium Documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Post Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../postprocessing/00_Just_Post_Processing.html">Just Post-Processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/1a_EntropyRandomizedMeasure.html">1.1a EntropyMeasure - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/1b_EntropyRandomizedMeasure.html">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/2_EntropyHadamardTest.html">1.2 EntropyMeasure - Hadamard Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/3a_EntropyRandomizedMeasureV1.html">1.3a EntropyMeasure - Randomized Measurement V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/3b_EntropyRandomizedMeasureV1.html">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/02_WaveFunctionOverlap/1_EchoListenRandomized.html">2.1 WaveFunctionOverlap - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/02_WaveFunctionOverlap/2_EchoListenHadamard.html">2.2 WaveFunctionOverlap - Hadamaed Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/02_WaveFunctionOverlap/3_EchoListenRandomizedV1.html">2.3 WaveFunctionOverlap - Randomized Measurement V1</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Features</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/A01_BackendManager.html">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation and Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation/01_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/02_Platform_Support.html">Platform Support</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/01_About_Qurry.html">About</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/main/01_Basic_Usage.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>01 - Basic Usage of Qurry</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment-and-creat-experiment-executor">1.1 Setup Environment and Creat experiment executor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-quantum-circuits">1.2 Load quantum circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excute-circuits">1.3 Excute Circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">1.4 Post-Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qubit-selction-hint">Qubit Selction Hint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-current-result">1.5 Export Current Result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-usage-of-qurry">
+<h1>01 - Basic Usage of Qurry<a class="headerlink" href="#basic-usage-of-qurry" title="Link to this heading">#</a></h1>
+<p>In Qurry, we use the instance of <code class="docutils literal notranslate"><span class="pre">Qurry</span></code> to store quantum circuits, experiments, build experiment, and excute them on local simulator or pending to the real quantum machine on <code class="docutils literal notranslate"><span class="pre">IBM</span></code>. In this chapter (or we say this jupyter file), we will introduce how to use Qurry to build a simple quantum circuit and measure their Renyi Entropy on local simulator.</p>
+<p>If you are using Colab, you can run the following command in terminal to install Qurry.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qurrium
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">qurry</span> <span class="kn">import</span> <span class="n">__version__</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| Current Version: </span><span class="si">{</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Current Version: 0.10.1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/harui/actions-runner-playground/qurrium_docs-x64/_work/_tool/Python/3.12.7/x64/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<section id="setup-environment-and-creat-experiment-executor">
+<h2>1.1 Setup Environment and Creat experiment executor<a class="headerlink" href="#setup-environment-and-creat-experiment-executor" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry</span> <span class="kn">import</span> <span class="n">EntropyMeasure</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Import simulator</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.providers.basic_provider</span> <span class="kn">import</span> <span class="n">BasicProvider</span>
+
+<span class="n">basic_provider</span> <span class="o">=</span> <span class="n">BasicProvider</span><span class="p">()</span>
+<span class="n">backend_sim</span> <span class="o">=</span> <span class="n">basic_provider</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;basic_simulator&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Next, we will initialize our <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> instance. There are two methods implemented based on two theories. The defaul method is <code class="docutils literal notranslate"><span class="pre">randomized</span></code> based on Randomized Measure. The other method is <code class="docutils literal notranslate"><span class="pre">hadamard</span></code> based on Hadamard Test.</p></li>
+<li><p>In the following tutorial, we will use <code class="docutils literal notranslate"><span class="pre">randomized</span></code> as our measurement method.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_hadamard</span> <span class="o">=</span> <span class="n">EntropyMeasure</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;hadamard&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;| The first method is which is `Hadamard Test`&quot;.&#39;</span><span class="p">)</span>
+<span class="n">experiment_randomized</span> <span class="o">=</span> <span class="n">EntropyMeasure</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| The default method is which is `Randomized Measure` we will use.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| The first method is which is `Hadamard Test`&quot;.
+| The default method is which is `Randomized Measure` we will use.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="load-quantum-circuits">
+<h2>1.2 Load quantum circuits<a class="headerlink" href="#load-quantum-circuits" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Qurry</span></code>, there are built-in quantum circuits that construct certain wave functions, or equivalently, quantum states. They can be imported from <code class="docutils literal notranslate"><span class="pre">qurry.recipe</span></code>.</p></li>
+<li><p>The user can define customized circuits following Qiskit workflow.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.recipe</span> <span class="kn">import</span> <span class="n">TrivialParamagnet</span><span class="p">,</span> <span class="n">GHZ</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample01</span> <span class="o">=</span> <span class="n">TrivialParamagnet</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| trivial paramagnet in 8 qubits:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| trivial paramagnet in 8 qubits:
+     ┌───┐
+q_0: ┤ H ├
+     ├───┤
+q_1: ┤ H ├
+     ├───┤
+q_2: ┤ H ├
+     ├───┤
+q_3: ┤ H ├
+     ├───┤
+q_4: ┤ H ├
+     ├───┤
+q_5: ┤ H ├
+     ├───┤
+q_6: ┤ H ├
+     ├───┤
+q_7: ┤ H ├
+     └───┘
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample02</span> <span class="o">=</span> <span class="n">GHZ</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| GHZ in 8 qubits:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| GHZ in 8 qubits:
+     ┌───┐                                   
+q_0: ┤ H ├──■────────────────────────────────
+     └───┘┌─┴─┐                              
+q_1: ─────┤ X ├──■───────────────────────────
+          └───┘┌─┴─┐                         
+q_2: ──────────┤ X ├──■──────────────────────
+               └───┘┌─┴─┐                    
+q_3: ───────────────┤ X ├──■─────────────────
+                    └───┘┌─┴─┐               
+q_4: ────────────────────┤ X ├──■────────────
+                         └───┘┌─┴─┐          
+q_5: ─────────────────────────┤ X ├──■───────
+                              └───┘┌─┴─┐     
+q_6: ──────────────────────────────┤ X ├──■──
+                                   └───┘┌─┴─┐
+q_7: ───────────────────────────────────┤ X ├
+                                        └───┘
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample03</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">sample03</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| Custom circuit:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample03</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Custom circuit:
+     ┌───┐
+q_0: ┤ X ├
+     └───┘
+q_1: ─────
+     ┌───┐
+q_2: ┤ X ├
+     └───┘
+q_3: ─────
+     ┌───┐
+q_4: ┤ X ├
+     └───┘
+q_5: ─────
+     ┌───┐
+q_6: ┤ X ├
+     └───┘
+q_7: ─────
+          
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>After we prepare three quantum circuits, we append them to the <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> object by the <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method.</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">.waves</span></code> of <code class="docutils literal notranslate"><span class="pre">Qurry</span></code> object is a customized <code class="docutils literal notranslate"><span class="pre">dict</span></code>. we can check the stored circuits by printing the dictionary.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">wave</span><span class="o">=</span><span class="n">sample01</span><span class="p">,</span>  <span class="c1"># The circuit object</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;TrivialParamagnet&quot;</span><span class="p">,</span>  <span class="c1"># The name of the circuit</span>
+    <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># True for if you want to replace the circuit with the same name.</span>
+<span class="p">)</span>  <span class="c1"># Default is False, so if you add the same name when False,</span>
+<span class="c1"># it will be added with serial number.</span>
+<span class="n">experiment_randomized</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sample02</span><span class="p">,</span> <span class="s2">&quot;GHZ&quot;</span><span class="p">)</span>
+<span class="n">experiment_randomized</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sample03</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">waves</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;TrivialParamagnet&#39;: &lt;qurry.recipe.simple.paramagnet.TrivialParamagnet object at 0x78039d40c4a0&gt;, &#39;GHZ&#39;: &lt;qurry.recipe.simple.cat.GHZ object at 0x78039d308c20&gt;, 2: &lt;qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x78039d308ce0&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you do not give the name of circuit, it will be named by series number.</p>
+<p>Now, waves are loading, time to excute.</p>
+</section>
+<section id="excute-circuits">
+<h2>1.3 Excute Circuits<a class="headerlink" href="#excute-circuits" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">.measure()</span></code> method to excute the specific circuit in the <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> object. The <code class="docutils literal notranslate"><span class="pre">.measure()</span></code> method  returns a hash id of this experiment and save a <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> object in <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EntropyMeasure.measure()</span></code> requires the following input parameters:</p>
+<ul>
+<li><p>wave: the name of circuit in <code class="docutils literal notranslate"><span class="pre">Qurry.waves</span></code> object</p></li>
+<li><p>times: the number of random measurements</p></li>
+<li><p>shots: the number of shots for each measurement. The default is 1024.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp1</span> <span class="o">=</span> <span class="n">experiment_randomized</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span>
+    <span class="n">wave</span><span class="o">=</span><span class="s2">&quot;TrivialParamagnet&quot;</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend_sim</span>
+<span class="p">)</span>
+<span class="n">exp1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>You can specify the backend by add a parameter <code class="docutils literal notranslate"><span class="pre">backend</span></code> in <code class="docutils literal notranslate"><span class="pre">measure</span></code> method, if you do not specify, it will use simulator as the default backend. Moreover, qiskit has multiple simulators, they are <code class="docutils literal notranslate"><span class="pre">QasmSimulatorPy</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit</span></code>, <code class="docutils literal notranslate"><span class="pre">AerSimulator</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code>, and <code class="docutils literal notranslate"><span class="pre">AerSimulator</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer-gpu</span></code>. Qurry will check the availability of these simulators and use the first available one as the default backend in following order:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AerSimulator</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer-gpu</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AerSimulator</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QasmSimulatorPy</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit</span></code></p></li>
+</ol>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp2</span> <span class="o">=</span> <span class="n">experiment_randomized</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span>
+    <span class="n">wave</span><span class="o">=</span><span class="s2">&quot;TrivialParamagnet&quot;</span><span class="p">,</span>
+    <span class="n">times</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">shots</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">exp2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;99f6bedb-3aa0-4f3c-a70c-1bde7df5eedf&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>And we can check the attribute <code class="docutils literal notranslate"><span class="pre">.exps</span></code> of <code class="docutils literal notranslate"><span class="pre">EntropyMeasure</span></code> object, it will return the hash id of all experiments.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5&#39;: &lt;EntropyMeasureRandomizedExperiment(exp_id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5, EntropyMeasureRandomizedArguments(exp_name=&#39;experiment.N_U_100.qurrent_randomized&#39;, times=100, qubits_measured=[0, 1, 2, 3, 4, 5, 6, 7], registers_mapping={0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}, actual_num_qubits=8, unitary_located=[0, 1, 2, 3, 4, 5, 6, 7], random_unitary_seeds=None), Commonparams(exp_id=&#39;beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5&#39;, target_keys=[&#39;TrivialParamagnet&#39;], shots=1024, backend=&lt;qiskit.providers.basic_provider.basic_simulator.BasicSimulator object at 0x78039d40c4d0&gt;, run_args={}, transpile_args={}, tags=(), default_analysis=[], save_location=PosixPath(&#39;.&#39;), filename=&#39;&#39;, files={}, serial=None, summoner_id=None, summoner_name=None, datetimes=DatetimeDict({&#39;build&#39;: &#39;2024-12-11 21:12:12&#39;, &#39;run.001&#39;: &#39;2024-12-11 21:12:12&#39;})), unused_args_num=0, analysis_num=0)&gt;, &#39;99f6bedb-3aa0-4f3c-a70c-1bde7df5eedf&#39;: &lt;EntropyMeasureRandomizedExperiment(exp_id=99f6bedb-3aa0-4f3c-a70c-1bde7df5eedf, EntropyMeasureRandomizedArguments(exp_name=&#39;experiment.N_U_100.qurrent_randomized&#39;, times=100, qubits_measured=[0, 1, 2, 3, 4, 5, 6, 7], registers_mapping={0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}, actual_num_qubits=8, unitary_located=[0, 1, 2, 3, 4, 5, 6, 7], random_unitary_seeds=None), Commonparams(exp_id=&#39;99f6bedb-3aa0-4f3c-a70c-1bde7df5eedf&#39;, target_keys=[&#39;TrivialParamagnet&#39;], shots=1024, backend=&lt;AerSimulator(&#39;aer_simulator&#39;)&gt;, run_args={}, transpile_args={}, tags=(), default_analysis=[], save_location=PosixPath(&#39;.&#39;), filename=&#39;&#39;, files={}, serial=None, summoner_id=None, summoner_name=None, datetimes=DatetimeDict({&#39;build&#39;: &#39;2024-12-11 21:12:16&#39;, &#39;run.001&#39;: &#39;2024-12-11 21:12:16&#39;})), unused_args_num=0, analysis_num=0)&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The following is the other informatiom you can access.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">waves</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WaveContainer({
+  &#39;TrivialParamagnet&#39;: &lt;qurry.recipe.simple.paramagnet.TrivialParamagnet object at 0x78039d40c4a0&gt;,
+  &#39;GHZ&#39;: &lt;qurry.recipe.simple.cat.GHZ object at 0x78039d308c20&gt;,
+  2: &lt;qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x78039d308ce0&gt;})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;EntropyMeasureRandomizedExperiment(exp_id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5, 
+  EntropyMeasureRandomizedArguments(exp_name=&#39;experiment.N_U_100.qurrent_randomized&#39;, times=100, qubits_measured=[0, 1, 2, 3, 4, 5, 6, 7], registers_mapping={0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}, actual_num_qubits=8, unitary_located=[0, 1, 2, 3, 4, 5, 6, 7], random_unitary_seeds=None),
+  Commonparams(exp_id=&#39;beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5&#39;, target_keys=[&#39;TrivialParamagnet&#39;], shots=1024, backend=&lt;qiskit.providers.basic_provider.basic_simulator.BasicSimulator object at 0x78039d40c4d0&gt;, run_args={}, transpile_args={}, tags=(), default_analysis=[], save_location=PosixPath(&#39;.&#39;), filename=&#39;&#39;, files={}, serial=None, summoner_id=None, summoner_name=None, datetimes=DatetimeDict({&#39;build&#39;: &#39;2024-12-11 21:12:12&#39;, &#39;run.001&#39;: &#39;2024-12-11 21:12:12&#39;})),
+  unused_args_num=0,
+  analysis_num=0))&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">statesheet</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> # EntropyMeasureRandomizedExperiment with exp_id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5
+ - arguments
+   - exp_name --------------------- experiment.N_U_100.qurrent_randomized
+   - times ------------------------ 100
+   - qubits_measured -------------- [0, 1, 2, 3, 4, 5, 6, 7]
+   - registers_mapping ------------ {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}
+   - actual_num_qubits ------------ 8
+   - unitary_located -------------- [0, 1, 2, 3, 4, 5, 6, 7]
+   - random_unitary_seeds --------- None
+ - commonparams
+   - exp_id ----------------------- beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5   # This is ID is generated by Qurry which is different from &#39;job_id&#39; for pending.
+   - target_keys ------------------ [&#39;TrivialParamagnet&#39;]
+   - shots ------------------------ 1024
+   - backend ---------------------- &lt;qiskit.providers.basic_provider.basic_simulator.BasicSimulator object at 0x78039d40c4d0&gt;
+   - run_args --------------------- {}
+   - transpile_args --------------- {}
+   - tags ------------------------- ()
+   - default_analysis ------------- []
+   - save_location ---------------- .
+   - filename --------------------- 
+   - files ------------------------ {}
+   - serial ----------------------- None
+   - summoner_id ------------------ None
+   - summoner_name ---------------- None
+   - datetimes -------------------- {&#39;build&#39;: &#39;2024-12-11 21:12:12&#39;, &#39;run.001&#39;: &#39;2024-12-11 21:12:12&#39;}
+ - outfields -------------------- 0 ........  # Number of unused arguments.
+ - beforewards
+   - target ----------------------- 1 ........  # Number of target
+   - target_qasm ------------------ 1 ........  # Number of target_qasm
+   - circuit ---------------------- 100 ......  # Number of circuit
+   - circuit_qasm ----------------- 100 ......  # Number of circuit_qasm
+   - fig_original ----------------- 0 ........  # Number of fig_original
+   - job_id ----------------------- 41ec1022-6cbf-42d7-a078-bdb9b9935f4d
+   - exp_name --------------------- experiment.N_U_100.qurrent_randomized
+   - side_product ----------------- 2 ........  # Number of side_product
+ - afterwards
+   - result ----------------------- 1 ........  # Number of result
+   - counts ----------------------- 100 ......  # Number of counts
+ - reports ---------------------- 0 ........  # Number of analysis.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Then, there is a experiment completed, and we can calculate the Renyi Entropy by <code class="docutils literal notranslate"><span class="pre">analyze</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="post-processing">
+<h2>1.4 Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To obtain the Renyi Entropy of the whole system and the subsystems. We use <code class="docutils literal notranslate"><span class="pre">exps[].analyze()</span></code> method to calculate and store a <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> object in <code class="docutils literal notranslate"><span class="pre">Experiment</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">analyze</span></code> method requires the following input parameters:</p>
+<ul>
+<li><p>degree: The size or selected qubits of the subsystem. Please refer to the following chart for the selection.</p></li>
+</ul>
+</li>
+</ul>
+<section id="qubit-selction-hint">
+<h3>Qubit Selction Hint<a class="headerlink" href="#qubit-selction-hint" title="Link to this heading">#</a></h3>
+<p>For example, consider a system with 12 qubits indexed as <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">...</span> <span class="pre">11]</span></code>.</p>
+<p>Entering an index and running <code class="docutils literal notranslate"><span class="pre">.analyze</span></code> will select the bitstring corresponding to the chosen qubit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp1_report1</span> <span class="o">=</span> <span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">selected_qubits</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="c1"># The subsystem of qubits 3 and 4 is selected for the analysis.</span>
+<span class="n">exp1_report2</span> <span class="o">=</span> <span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">selected_qubits</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># The subsystem of qubit 0 is selected for the analysis.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [3, 4]. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate all system by Rust. - 00:00 &lt; ?                  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [3, 4] - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [3, 4] - 00:00 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|  - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Calculate selected classical registers: [0]. - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Using existing all system from &#39;AnalysisHeader(serial=0, datetime=&#39;2024-12-11 21:12:16&#39;, summoner=None, log={})&#39; - 00:00 &lt; ?
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [0] - 00:00 &lt; ?                                                              
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Preparing error mitigation of selected qubits: [0] - 00:00 &lt; 00:00
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">analyze</span></code> will return the result of this analysis.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp1_report2</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;purity&#39;: np.float64(1.0822221755981445),
+  &#39;entropy&#39;: np.float64(-0.11399670871140935),
+  &#39;puritySD&#39;: np.float64(0.4479588942427149),
+  &#39;entropySD&#39;: np.float64(0.5971676517244492),
+  &#39;num_classical_registers&#39;: 8,
+  &#39;classical_registers&#39;: [0],
+  &#39;classical_registers_actually&#39;: [0],
+  &#39;all_system_source&#39;: &quot;AnalysisHeader(serial=0, datetime=&#39;2024-12-11 21:12:16&#39;, summoner=None, log={})&quot;,
+  &#39;purityAllSys&#39;: np.float64(1.5011260223388672),
+  &#39;entropyAllSys&#39;: np.float64(-0.5860450989915066),
+  &#39;puritySDAllSys&#39;: np.float64(2.334989538154578),
+  &#39;entropySDAllSys&#39;: np.float64(2.2441006132013936),
+  &#39;num_classical_registers_all_sys&#39;: 8,
+  &#39;classical_registers_all_sys&#39;: None,
+  &#39;classical_registers_actually_all_sys&#39;: [0, 1, 2, 3, 4, 5, 6, 7],
+  &#39;errorRate&#39;: np.float64(-0.22600620815168412),
+  &#39;mitigatedPurity&#39;: np.float64(0.8873498606812776),
+  &#39;mitigatedEntropy&#39;: np.float64(0.1724250582833001),
+  &#39;counts_num&#39;: 100,
+  &#39;taking_time&#39;: 0.00053347,
+  &#39;taking_time_all_sys&#39;: 0.012570397,
+  &#39;counts_used&#39;: None,
+  &#39;input&#39;: {&#39;num_qubits&#39;: 8,
+   &#39;selected_qubits&#39;: [0],
+   &#39;registers_mapping&#39;: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7},
+   &#39;shots&#39;: 1024,
+   &#39;unitary_located&#39;: [0, 1, 2, 3, 4, 5, 6, 7]},
+  &#39;header&#39;: {&#39;serial&#39;: 1,
+   &#39;datetime&#39;: &#39;2024-12-11 21:12:16&#39;,
+   &#39;summoner&#39;: None,
+   &#39;log&#39;: {}}},
+ {&#39;purityCells&#39;: {35: 1.4950008392333984,
+   61: 0.9680404663085938,
+   96: 0.6557826995849609,
+   68: 0.6895370483398438,
+   30: 0.6042842864990234,
+   82: 1.5580062866210938,
+   10: 1.890737533569336,
+   52: 0.5249252319335938,
+   8: 1.504568099975586,
+   17: 0.7000942230224609,
+   11: 1.3525619506835938,
+   41: 1.930511474609375,
+   48: 0.511077880859375,
+   49: 1.6484375,
+   23: 1.747915267944336,
+   50: 1.401845932006836,
+   56: 1.3525619506835938,
+   16: 0.6304683685302734,
+   38: 0.6576766967773438,
+   7: 0.6712551116943359,
+   55: 0.7620468139648438,
+   62: 1.130706787109375,
+   73: 0.935882568359375,
+   14: 0.7694454193115234,
+   47: 1.5629329681396484,
+   77: 1.3481502532958984,
+   45: 1.6128292083740234,
+   54: 1.0641708374023438,
+   90: 1.6178817749023438,
+   93: 1.8626708984375,
+   64: 0.5705013275146484,
+   28: 0.5538387298583984,
+   21: 0.5148830413818359,
+   22: 0.5212917327880859,
+   9: 1.075002670288086,
+   26: 0.53662109375,
+   36: 0.7744350433349609,
+   39: 1.5580062866210938,
+   69: 0.5692367553710938,
+   91: 0.9171371459960938,
+   60: 1.7747802734375,
+   46: 1.361419677734375,
+   89: 1.8626708984375,
+   80: 0.7794704437255859,
+   94: 0.67724609375,
+   3: 0.738128662109375,
+   6: 1.0641708374023438,
+   0: 1.6846065521240234,
+   20: 0.7645015716552734,
+   33: 0.8547725677490234,
+   79: 0.5865688323974609,
+   81: 1.509368896484375,
+   58: 0.7523422241210938,
+   72: 0.7744350433349609,
+   37: 0.797454833984375,
+   78: 0.7620468139648438,
+   95: 0.5078334808349609,
+   15: 0.5035762786865234,
+   83: 1.3349838256835938,
+   51: 1.429311752319336,
+   12: 1.4571895599365234,
+   85: 0.7428207397460938,
+   24: 0.910980224609375,
+   43: 1.075002670288086,
+   65: 1.4063949584960938,
+   25: 1.5777816772460938,
+   84: 1.1193599700927734,
+   42: 1.9477291107177734,
+   29: 1.2170639038085938,
+   59: 0.8604946136474609,
+   71: 0.5241756439208984,
+   86: 0.6979598999023438,
+   63: 1.014984130859375,
+   66: 1.845968246459961,
+   13: 0.6236476898193359,
+   87: 1.096975326538086,
+   31: 0.5595321655273438,
+   34: 1.4431991577148438,
+   97: 0.557220458984375,
+   70: 0.7620468139648438,
+   18: 0.6595821380615234,
+   75: 1.7266292572021484,
+   27: 1.705526351928711,
+   57: 1.2833480834960938,
+   2: 0.507415771484375,
+   5: 1.633108139038086,
+   88: 0.9202327728271484,
+   98: 1.2009506225585938,
+   92: 1.7213363647460938,
+   4: 1.3349838256835938,
+   44: 0.7596035003662109,
+   74: 1.046346664428711,
+   19: 1.287588119506836,
+   99: 0.57177734375,
+   1: 1.4478511810302734,
+   40: 1.890737533569336,
+   32: 1.5580062866210938,
+   53: 0.5115871429443359,
+   67: 1.1731929779052734,
+   76: 0.5692367553710938},
+  &#39;purityCellsAllSys&#39;: {3: 0.6557960510253906,
+   29: 2.1635208129882812,
+   48: 1.3619308471679688,
+   0: 0.3750152587890625,
+   54: 0.7730693817138672,
+   28: 0.45421409606933594,
+   50: 1.5803642272949219,
+   57: 0.750335693359375,
+   51: 4.004583358764648,
+   60: 1.9539680480957031,
+   61: 3.405576705932617,
+   12: 3.159574508666992,
+   38: 0.342010498046875,
+   42: 0.35265350341796875,
+   35: 0.7799472808837891,
+   63: 1.666412353515625,
+   47: 2.0664005279541016,
+   64: 0.8325099945068359,
+   66: 4.619743347167969,
+   9: 1.315399169921875,
+   22: 0.4371337890625,
+   70: 0.9321823120117188,
+   75: 0.8399600982666016,
+   78: 0.8124370574951172,
+   79: 2.291889190673828,
+   31: 0.6767559051513672,
+   33: 0.9737186431884766,
+   23: 0.9206066131591797,
+   41: 0.7750892639160156,
+   73: 0.8246421813964844,
+   77: 5.9458160400390625,
+   86: 0.3029632568359375,
+   91: 2.140655517578125,
+   94: 0.8143825531005859,
+   95: 0.4366645812988281,
+   45: 21.698104858398438,
+   25: 3.3241806030273438,
+   30: 0.3423881530761719,
+   7: 0.3596687316894531,
+   71: 0.9337100982666016,
+   76: 1.301992416381836,
+   52: 0.9938888549804688,
+   5: 0.7931766510009766,
+   44: 0.36787986755371094,
+   24: 2.085735321044922,
+   90: 0.9047737121582031,
+   10: 1.3204059600830078,
+   21: 0.5166072845458984,
+   98: 1.0301551818847656,
+   99: 0.9080696105957031,
+   11: 1.3683738708496094,
+   40: 0.2328166961669922,
+   82: 4.106870651245117,
+   87: 1.7151241302490234,
+   46: 0.4822807312011719,
+   59: 1.2905197143554688,
+   49: 5.708065032958984,
+   56: 0.8574810028076172,
+   19: 0.925018310546875,
+   80: 0.3842449188232422,
+   88: 2.417144775390625,
+   27: 4.02849006652832,
+   89: 0.9672641754150391,
+   96: 1.2462310791015625,
+   83: 0.3149452209472656,
+   16: 0.6412849426269531,
+   69: 0.7923526763916016,
+   92: 2.5947799682617188,
+   4: 0.789337158203125,
+   65: 3.1662979125976562,
+   97: 0.5063705444335938,
+   6: 0.42825889587402344,
+   1: 1.1223945617675781,
+   74: 1.2261123657226562,
+   17: 0.8029556274414062,
+   32: 1.5366649627685547,
+   15: 0.5182266235351562,
+   81: 0.9239368438720703,
+   20: 0.2533416748046875,
+   36: 0.8913383483886719,
+   18: 0.39804649353027344,
+   37: 0.5180435180664062,
+   55: 2.7072525024414062,
+   85: 0.5538063049316406,
+   53: 1.8447227478027344,
+   93: 0.38930320739746094,
+   43: 0.7409801483154297,
+   13: 0.5199489593505859,
+   26: 0.4301929473876953,
+   62: 1.3544635772705078,
+   2: 0.4332141876220703,
+   34: 0.5606555938720703,
+   67: 2.8736839294433594,
+   8: 0.4884490966796875,
+   84: 1.0118961334228516,
+   14: 0.4635639190673828,
+   72: 0.5654335021972656,
+   39: 1.867462158203125,
+   58: 0.7235507965087891,
+   68: 0.8107490539550781}})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">exp1_report1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exp1_report1</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EntropyMeasureRandomizedAnalysis with serial=0, AnalysisInput(num_qubits=8, selected_qubits=[3, 4], registers_mapping={0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}, shots=1024, unitary_located=[0, 1, 2, 3, 4, 5, 6, 7]), AnalysisContent(purity=1.1075820159912109, entropy=-0.1474135337082948, and others), 0 unused arguments
+AnalysisHeader(serial=0, datetime=&#39;2024-12-11 21:12:16&#39;, summoner=None, log={})
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>It can also be found in the attribute <code class="docutils literal notranslate"><span class="pre">.reports</span></code> of <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> object.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">reports</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnalysisContainer(length=2, {0{...}, 1{...}})
+EntropyMeasureRandomizedAnalysis with serial=0, AnalysisInput(num_qubits=8, selected_qubits=[3, 4], registers_mapping={0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}, shots=1024, unitary_located=[0, 1, 2, 3, 4, 5, 6, 7]), AnalysisContent(purity=1.1075820159912109, entropy=-0.1474135337082948, and others), 0 unused arguments
+AnalysisHeader(serial=0, datetime=&#39;2024-12-11 21:12:16&#39;, summoner=None, log={})
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">.export()</span></code> to get the result of this analysis.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">,</span> <span class="n">side_prodct</span> <span class="o">=</span> <span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>And there is it</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">main</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;purity&#39;: np.float64(1.1075820159912109),
+ &#39;entropy&#39;: np.float64(-0.1474135337082948),
+ &#39;puritySD&#39;: np.float64(0.7292002291341851),
+ &#39;entropySD&#39;: np.float64(0.9498290322504956),
+ &#39;num_classical_registers&#39;: 8,
+ &#39;classical_registers&#39;: [3, 4],
+ &#39;classical_registers_actually&#39;: [3, 4],
+ &#39;all_system_source&#39;: &#39;independent&#39;,
+ &#39;purityAllSys&#39;: np.float64(1.5011260223388672),
+ &#39;entropyAllSys&#39;: np.float64(-0.5860450989915066),
+ &#39;puritySDAllSys&#39;: np.float64(2.334989538154578),
+ &#39;entropySDAllSys&#39;: np.float64(2.2441006132013936),
+ &#39;num_classical_registers_all_sys&#39;: 8,
+ &#39;classical_registers_all_sys&#39;: None,
+ &#39;classical_registers_actually_all_sys&#39;: [0, 1, 2, 3, 4, 5, 6, 7],
+ &#39;errorRate&#39;: np.float64(-0.22600620815168412),
+ &#39;mitigatedPurity&#39;: np.float64(0.8205455551838027),
+ &#39;mitigatedEntropy&#39;: np.float64(0.2853446631430896),
+ &#39;counts_num&#39;: 100,
+ &#39;taking_time&#39;: 0.000957705,
+ &#39;taking_time_all_sys&#39;: 0.012570397,
+ &#39;counts_used&#39;: None,
+ &#39;input&#39;: {&#39;num_qubits&#39;: 8,
+  &#39;selected_qubits&#39;: [3, 4],
+  &#39;registers_mapping&#39;: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7},
+  &#39;shots&#39;: 1024,
+  &#39;unitary_located&#39;: [0, 1, 2, 3, 4, 5, 6, 7]},
+ &#39;header&#39;: {&#39;serial&#39;: 0,
+  &#39;datetime&#39;: &#39;2024-12-11 21:12:16&#39;,
+  &#39;summoner&#39;: None,
+  &#39;log&#39;: {}}}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Also, <code class="docutils literal notranslate"><span class="pre">sideProdct</span></code> will record the data of each circuit, and you can use it to do more analysis.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">side_prodct</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;purityCells&#39;: {92: 2.0571136474609375,
+  94: 2.039043426513672,
+  24: 1.4261322021484375,
+  82: 1.9536476135253906,
+  15: 0.5650901794433594,
+  39: 1.0450553894042969,
+  37: 1.9813251495361328,
+  29: 1.2827033996582031,
+  4: 0.8160591125488281,
+  62: 1.9952583312988281,
+  89: 0.5123271942138672,
+  65: 2.017528533935547,
+  93: 0.2694091796875,
+  40: 0.3345146179199219,
+  19: 2.125978469848633,
+  52: 1.3906326293945312,
+  2: 0.7223663330078125,
+  33: 0.6560420989990234,
+  63: 0.4095420837402344,
+  55: 0.9393177032470703,
+  30: 1.0394134521484375,
+  54: 1.1493110656738281,
+  71: 1.2547740936279297,
+  49: 0.9683341979980469,
+  76: 1.8015155792236328,
+  78: 0.8706817626953125,
+  50: 1.0918388366699219,
+  80: 0.45308685302734375,
+  95: 0.2768592834472656,
+  20: 0.2706336975097656,
+  43: 2.601806640625,
+  77: 1.5621681213378906,
+  85: 0.6660442352294922,
+  87: 2.973705291748047,
+  74: 0.823211669921875,
+  17: 2.595552444458008,
+  81: 0.3455352783203125,
+  90: 0.8956756591796875,
+  31: 0.6118507385253906,
+  23: 0.6293601989746094,
+  70: 1.9236011505126953,
+  28: 0.3363456726074219,
+  97: 0.7582836151123047,
+  9: 0.3524017333984375,
+  26: 0.4441547393798828,
+  6: 0.3505821228027344,
+  72: 0.8809127807617188,
+  91: 1.4242210388183594,
+  69: 1.7384529113769531,
+  51: 2.325838088989258,
+  1: 0.7666435241699219,
+  67: 1.2608509063720703,
+  79: 2.4670867919921875,
+  83: 1.0835132598876953,
+  46: 0.5571479797363281,
+  99: 0.75775146484375,
+  35: 1.1174678802490234,
+  25: 0.5204238891601562,
+  14: 0.3939094543457031,
+  61: 1.1923408508300781,
+  68: 0.4032707214355469,
+  10: 2.713106155395508,
+  45: 3.3440818786621094,
+  58: 0.3655853271484375,
+  5: 0.7779388427734375,
+  41: 0.5141067504882812,
+  73: 0.7061843872070312,
+  7: 0.5873374938964844,
+  22: 1.3113536834716797,
+  42: 0.3092803955078125,
+  75: 1.2186279296875,
+  56: 0.2748680114746094,
+  57: 0.9443817138671875,
+  27: 1.154541015625,
+  11: 1.3090877532958984,
+  0: 0.39159202575683594,
+  64: 0.5480613708496094,
+  66: 0.7798042297363281,
+  84: 2.2501068115234375,
+  8: 0.435760498046875,
+  96: 1.4904823303222656,
+  59: 0.6157188415527344,
+  88: 1.6711273193359375,
+  47: 1.1983718872070312,
+  3: 0.9080238342285156,
+  18: 0.7727603912353516,
+  48: 2.0851516723632812,
+  32: 0.7759132385253906,
+  98: 0.7820072174072266,
+  38: 0.8517417907714844,
+  13: 0.2712745666503906,
+  36: 0.7934913635253906,
+  60: 0.2587318420410156,
+  86: 0.7893028259277344,
+  16: 0.3621864318847656,
+  34: 0.9716873168945312,
+  53: 3.386516571044922,
+  44: 0.9111480712890625,
+  12: 1.6681861877441406,
+  21: 1.7829246520996094},
+ &#39;purityCellsAllSys&#39;: {3: 0.6557960510253906,
+  29: 2.1635208129882812,
+  48: 1.3619308471679688,
+  0: 0.3750152587890625,
+  54: 0.7730693817138672,
+  28: 0.45421409606933594,
+  50: 1.5803642272949219,
+  57: 0.750335693359375,
+  51: 4.004583358764648,
+  60: 1.9539680480957031,
+  61: 3.405576705932617,
+  12: 3.159574508666992,
+  38: 0.342010498046875,
+  42: 0.35265350341796875,
+  35: 0.7799472808837891,
+  63: 1.666412353515625,
+  47: 2.0664005279541016,
+  64: 0.8325099945068359,
+  66: 4.619743347167969,
+  9: 1.315399169921875,
+  22: 0.4371337890625,
+  70: 0.9321823120117188,
+  75: 0.8399600982666016,
+  78: 0.8124370574951172,
+  79: 2.291889190673828,
+  31: 0.6767559051513672,
+  33: 0.9737186431884766,
+  23: 0.9206066131591797,
+  41: 0.7750892639160156,
+  73: 0.8246421813964844,
+  77: 5.9458160400390625,
+  86: 0.3029632568359375,
+  91: 2.140655517578125,
+  94: 0.8143825531005859,
+  95: 0.4366645812988281,
+  45: 21.698104858398438,
+  25: 3.3241806030273438,
+  30: 0.3423881530761719,
+  7: 0.3596687316894531,
+  71: 0.9337100982666016,
+  76: 1.301992416381836,
+  52: 0.9938888549804688,
+  5: 0.7931766510009766,
+  44: 0.36787986755371094,
+  24: 2.085735321044922,
+  90: 0.9047737121582031,
+  10: 1.3204059600830078,
+  21: 0.5166072845458984,
+  98: 1.0301551818847656,
+  99: 0.9080696105957031,
+  11: 1.3683738708496094,
+  40: 0.2328166961669922,
+  82: 4.106870651245117,
+  87: 1.7151241302490234,
+  46: 0.4822807312011719,
+  59: 1.2905197143554688,
+  49: 5.708065032958984,
+  56: 0.8574810028076172,
+  19: 0.925018310546875,
+  80: 0.3842449188232422,
+  88: 2.417144775390625,
+  27: 4.02849006652832,
+  89: 0.9672641754150391,
+  96: 1.2462310791015625,
+  83: 0.3149452209472656,
+  16: 0.6412849426269531,
+  69: 0.7923526763916016,
+  92: 2.5947799682617188,
+  4: 0.789337158203125,
+  65: 3.1662979125976562,
+  97: 0.5063705444335938,
+  6: 0.42825889587402344,
+  1: 1.1223945617675781,
+  74: 1.2261123657226562,
+  17: 0.8029556274414062,
+  32: 1.5366649627685547,
+  15: 0.5182266235351562,
+  81: 0.9239368438720703,
+  20: 0.2533416748046875,
+  36: 0.8913383483886719,
+  18: 0.39804649353027344,
+  37: 0.5180435180664062,
+  55: 2.7072525024414062,
+  85: 0.5538063049316406,
+  53: 1.8447227478027344,
+  93: 0.38930320739746094,
+  43: 0.7409801483154297,
+  13: 0.5199489593505859,
+  26: 0.4301929473876953,
+  62: 1.3544635772705078,
+  2: 0.4332141876220703,
+  34: 0.5606555938720703,
+  67: 2.8736839294433594,
+  8: 0.4884490966796875,
+  84: 1.0118961334228516,
+  14: 0.4635639190673828,
+  72: 0.5654335021972656,
+  39: 1.867462158203125,
+  58: 0.7235507965087891,
+  68: 0.8107490539550781}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">statesheet</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> # EntropyMeasureRandomizedAnalysis with serial=0
+ - header
+   - serial -------------------------------------- 0
+   - datetime ------------------------------------ 2024-12-11 21:12:16
+   - summoner ------------------------------------ None
+   - log ----------------------------------------- {}
+ - input
+   - num_qubits ---------------------------------- 8
+   - selected_qubits ----------------------------- [3, 4]
+   - registers_mapping --------------------------- {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}
+   - shots --------------------------------------- 1024
+   - unitary_located ----------------------------- [0, 1, 2, 3, 4, 5, 6, 7]
+ - outfields ----------------------------------- 0 ........  # Number of unused arguments.
+ - content
+   - purity -------------------------------------- 1.1075820159912109
+   - entropy ------------------------------------- -0.1474135337082948
+   - puritySD ------------------------------------ 0.7292002291341851
+   - entropySD ----------------------------------- 0.9498290322504956
+   - purityCells --------------------------------- {92: 2.0571136474609375, 94: 2.039043426513672, 24: 1.4261322021484375, 82: 1.9536476135253906, 15: 0.5650901794433594, 39: 1.0450553894042969, 37: 1.9813251495361328, 29: 1.2827033996582031, 4: 0.8160591125488281, 62: 1.9952583312988281, 89: 0.5123271942138672, 65: 2.017528533935547, 93: 0.2694091796875, 40: 0.3345146179199219, 19: 2.125978469848633, 52: 1.3906326293945312, 2: 0.7223663330078125, 33: 0.6560420989990234, 63: 0.4095420837402344, 55: 0.9393177032470703, 30: 1.0394134521484375, 54: 1.1493110656738281, 71: 1.2547740936279297, 49: 0.9683341979980469, 76: 1.8015155792236328, 78: 0.8706817626953125, 50: 1.0918388366699219, 80: 0.45308685302734375, 95: 0.2768592834472656, 20: 0.2706336975097656, 43: 2.601806640625, 77: 1.5621681213378906, 85: 0.6660442352294922, 87: 2.973705291748047, 74: 0.823211669921875, 17: 2.595552444458008, 81: 0.3455352783203125, 90: 0.8956756591796875, 31: 0.6118507385253906, 23: 0.6293601989746094, 70: 1.9236011505126953, 28: 0.3363456726074219, 97: 0.7582836151123047, 9: 0.3524017333984375, 26: 0.4441547393798828, 6: 0.3505821228027344, 72: 0.8809127807617188, 91: 1.4242210388183594, 69: 1.7384529113769531, 51: 2.325838088989258, 1: 0.7666435241699219, 67: 1.2608509063720703, 79: 2.4670867919921875, 83: 1.0835132598876953, 46: 0.5571479797363281, 99: 0.75775146484375, 35: 1.1174678802490234, 25: 0.5204238891601562, 14: 0.3939094543457031, 61: 1.1923408508300781, 68: 0.4032707214355469, 10: 2.713106155395508, 45: 3.3440818786621094, 58: 0.3655853271484375, 5: 0.7779388427734375, 41: 0.5141067504882812, 73: 0.7061843872070312, 7: 0.5873374938964844, 22: 1.3113536834716797, 42: 0.3092803955078125, 75: 1.2186279296875, 56: 0.2748680114746094, 57: 0.9443817138671875, 27: 1.154541015625, 11: 1.3090877532958984, 0: 0.39159202575683594, 64: 0.5480613708496094, 66: 0.7798042297363281, 84: 2.2501068115234375, 8: 0.435760498046875, 96: 1.4904823303222656, 59: 0.6157188415527344, 88: 1.6711273193359375, 47: 1.1983718872070312, 3: 0.9080238342...
+   - num_classical_registers --------------------- 8
+   - classical_registers ------------------------- [3, 4]
+   - classical_registers_actually ---------------- [3, 4]
+   - all_system_source --------------------------- independent
+   - purityAllSys -------------------------------- 1.5011260223388672
+   - entropyAllSys ------------------------------- -0.5860450989915066
+   - puritySDAllSys ------------------------------ 2.334989538154578
+   - entropySDAllSys ----------------------------- 2.2441006132013936
+   - purityCellsAllSys --------------------------- {3: 0.6557960510253906, 29: 2.1635208129882812, 48: 1.3619308471679688, 0: 0.3750152587890625, 54: 0.7730693817138672, 28: 0.45421409606933594, 50: 1.5803642272949219, 57: 0.750335693359375, 51: 4.004583358764648, 60: 1.9539680480957031, 61: 3.405576705932617, 12: 3.159574508666992, 38: 0.342010498046875, 42: 0.35265350341796875, 35: 0.7799472808837891, 63: 1.666412353515625, 47: 2.0664005279541016, 64: 0.8325099945068359, 66: 4.619743347167969, 9: 1.315399169921875, 22: 0.4371337890625, 70: 0.9321823120117188, 75: 0.8399600982666016, 78: 0.8124370574951172, 79: 2.291889190673828, 31: 0.6767559051513672, 33: 0.9737186431884766, 23: 0.9206066131591797, 41: 0.7750892639160156, 73: 0.8246421813964844, 77: 5.9458160400390625, 86: 0.3029632568359375, 91: 2.140655517578125, 94: 0.8143825531005859, 95: 0.4366645812988281, 45: 21.698104858398438, 25: 3.3241806030273438, 30: 0.3423881530761719, 7: 0.3596687316894531, 71: 0.9337100982666016, 76: 1.301992416381836, 52: 0.9938888549804688, 5: 0.7931766510009766, 44: 0.36787986755371094, 24: 2.085735321044922, 90: 0.9047737121582031, 10: 1.3204059600830078, 21: 0.5166072845458984, 98: 1.0301551818847656, 99: 0.9080696105957031, 11: 1.3683738708496094, 40: 0.2328166961669922, 82: 4.106870651245117, 87: 1.7151241302490234, 46: 0.4822807312011719, 59: 1.2905197143554688, 49: 5.708065032958984, 56: 0.8574810028076172, 19: 0.925018310546875, 80: 0.3842449188232422, 88: 2.417144775390625, 27: 4.02849006652832, 89: 0.9672641754150391, 96: 1.2462310791015625, 83: 0.3149452209472656, 16: 0.6412849426269531, 69: 0.7923526763916016, 92: 2.5947799682617188, 4: 0.789337158203125, 65: 3.1662979125976562, 97: 0.5063705444335938, 6: 0.42825889587402344, 1: 1.1223945617675781, 74: 1.2261123657226562, 17: 0.8029556274414062, 32: 1.5366649627685547, 15: 0.5182266235351562, 81: 0.9239368438720703, 20: 0.2533416748046875, 36: 0.8913383483886719, 18: 0.39804649353027344, 37: 0.5180435180664062, 55: 2.7072525024414062, 85: 0.5538063049316406, 53: 1.84...
+   - num_classical_registers_all_sys ------------- 8
+   - classical_registers_all_sys ----------------- None
+   - classical_registers_actually_all_sys -------- [0, 1, 2, 3, 4, 5, 6, 7]
+   - errorRate ----------------------------------- -0.22600620815168412
+   - mitigatedPurity ----------------------------- 0.8205455551838027
+   - mitigatedEntropy ---------------------------- 0.2853446631430896
+   - counts_num ---------------------------------- 100
+   - taking_time --------------------------------- 0.000957705
+   - taking_time_all_sys ------------------------- 0.012570397
+   - counts_used --------------------------------- None
+by &lt;QurryAnalysisSheet&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="export-current-result">
+<h2>1.5 Export Current Result<a class="headerlink" href="#export-current-result" title="Link to this heading">#</a></h2>
+<p>Also, Qurry provides a method to export all results as multiple files in a folder.
+Just use the method <code class="docutils literal notranslate"><span class="pre">write</span></code> of each <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> instance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_randomized</span><span class="o">.</span><span class="n">exps</span><span class="p">[</span><span class="n">exp1</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5&#39;,
+ {&#39;folder&#39;: &#39;experiment.N_U_100.qurrent_randomized.001&#39;,
+  &#39;qurryinfo&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/qurryinfo.json&#39;,
+  &#39;args&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/args/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.args.json&#39;,
+  &#39;advent&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/advent/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.advent.json&#39;,
+  &#39;legacy&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/legacy/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.legacy.json&#39;,
+  &#39;tales.unitaryOP&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/tales/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.unitaryOP.json&#39;,
+  &#39;tales.randomized&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/tales/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.randomized.json&#39;,
+  &#39;reports&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/reports/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.reports.json&#39;,
+  &#39;reports.tales.purityCells&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/tales/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.purityCells.reports.json&#39;,
+  &#39;reports.tales.purityCellsAllSys&#39;: &#39;experiment.N_U_100.qurrent_randomized.001/tales/experiment.N_U_100.qurrent_randomized.001.id=beac4c25-d1a2-4e1f-8757-48b6f8d6c1c5.purityCellsAllSys.reports.json&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="post-process-availablities-and-version-info">
+<h2>Post-Process Availablities and Version Info<a class="headerlink" href="#post-process-availablities-and-version-info" title="Link to this heading">#</a></h2>
+<p>We currently do not support Qsikit 1.0 for we are working on it, and we will support it in the future.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process</span> <span class="kn">import</span> <span class="n">AVAIBILITY_STATESHEET</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">AVAIBILITY_STATESHEET</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.10.1
+--------------------------------------------------------
+ ### Qurry Post-Processing
+   - Backend Availability ................... Python Cython Rust  
+ - randomized_measure
+   - entangled_entropy.entropy_core_2 ....... Yes    Depr.  Yes   
+   - entangle_entropy.purity_cell_2 ......... Yes    Depr.  Yes   
+   - entangled_entropy_v1.entropy_core ...... Yes    Depr.  Yes   
+   - entangle_entropy_v1.purity_cell ........ Yes    Depr.  Yes   
+   - wavefunction_overlap.echo_core_2 ....... Yes    Depr.  Yes   
+   - wavefunction_overlap.echo_cell_2 ....... Yes    Depr.  Yes   
+   - wavefunction_overlap_v1.echo_core ...... Yes    Depr.  Yes   
+   - wavefunction_overlap_v1.echo_cell ...... Yes    Depr.  Yes   
+ - hadamard_test
+   - purity_echo_core ....................... Yes    No     Yes   
+ - magnet_square
+   - magnsq_core ............................ Yes    No     No    
+ - utils
+   - randomized ............................. Yes    Depr.  Yes   
+   - construct .............................. Yes    No     Yes   
+   - dummy .................................. Yes    No     Yes   
+   - test ................................... Yes    No     Yes   
+--------------------------------------------------------
+   + Yes ...... Working normally.
+   + Error .... Exception occurred.
+   + No ....... Not supported.
+   + Depr. .... Deprecated.
+--------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.tools.qiskit_version</span> <span class="kn">import</span> <span class="n">QISKIT_VERSION_STATESHEET</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">QISKIT_VERSION_STATESHEET</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.10.1
+--------------------------------------------
+ ### Qiskit version
+ - main
+   - qiskit-aer .............. 0.15.1
+   - qiskit-ibm-runtime ...... 0.34.0
+ - deprecated
+ - into-community
+--------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./main"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_The_True_Power_of_Qurry.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">02 - The True Power of Qurry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment-and-creat-experiment-executor">1.1 Setup Environment and Creat experiment executor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-quantum-circuits">1.2 Load quantum circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excute-circuits">1.3 Excute Circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">1.4 Post-Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qubit-selction-hint">Qubit Selction Hint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-current-result">1.5 Export Current Result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Huai-Chung Chang (harui2019)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

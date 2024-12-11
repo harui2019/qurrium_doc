@@ -1,0 +1,1651 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Appendix 01 - Backend Wrapper and Backend Manager" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.qurrium.org/appendix/A01_BackendManager.html" />
+<meta property="og:site_name" content="Project name not set" />
+<meta property="og:description" content="In Qiskit, there are several simulator source like BasicAer from qiskit, Aer from qiskit-aer or GPU-based qiskit-aer and IBM Provider from qiskit-ibm-provider, qiskit-ibm-runtime or deprecated qisk..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://docs.qurrium.org/_images/social_previews/summary_appendix_A01_BackendManager_4fd05b76.png" />
+<meta property="og:image:alt" content="In Qiskit, there are several simulator source like BasicAer from qiskit, Aer from qiskit-aer or GPU-based qiskit-aer and IBM Provider from qiskit-ibm-provide..." />
+<meta name="description" content="In Qiskit, there are several simulator source like BasicAer from qiskit, Aer from qiskit-aer or GPU-based qiskit-aer and IBM Provider from qiskit-ibm-provider, qiskit-ibm-runtime or deprecated qisk..." />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- HTML Meta Tags -->
+<title>Qurrium-Qurry🍛 Documentation</title>
+<meta name='description' content='The python package that makes the randomized measurement easy.'>
+
+<!-- Facebook Meta Tags -->
+<meta property='og:url' content='https://docs.qurrium.org'>
+<meta property='og:type' content='website'>
+<meta property='og:title' content='Qurrium-Qurry🍛 Documentation'>
+<meta property='og:description' content='The python package that makes the randomized measurement easy.'>
+<meta property='og:image' content=''>
+
+<!-- Twitter Meta Tags -->
+<meta name='twitter:card' content='summary_large_image'>
+<meta property='twitter:domain' content='docs.qurrium.org'>
+<meta property='twitter:url' content='https://docs.qurrium.org'>
+<meta name='twitter:title' content='Qurrium-Qurry🍛 Documentation'>
+<meta name='twitter:description' content='The python package that makes the randomized measurement easy.'>
+<meta name='twitter:image' content=''>
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+    <title>Appendix 01 - Backend Wrapper and Backend Manager &#8212; Qurry🍛/Qurrium Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NH0TTCC2VZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-NH0TTCC2VZ');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'appendix/A01_BackendManager';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="../installation/01_Installation.html" />
+    <link rel="prev" title="2.3 WaveFunctionOverlap - Randomized Measurement V1" href="../postprocessing/02_WaveFunctionOverlap/3_EchoListenRandomizedV1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Qurry🍛/Qurrium Documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Qurry 🍛 - The python package for measuring quantum entanglement entropy and wave function overlap.
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../main/01_Basic_Usage.html">01 - Basic Usage of Qurry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/02_The_True_Power_of_Qurry.html">02 - The True Power of Qurry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Post Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../postprocessing/00_Just_Post_Processing.html">Just Post-Processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/1a_EntropyRandomizedMeasure.html">1.1a EntropyMeasure - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/1b_EntropyRandomizedMeasure.html">1.1b EntropyMeasure - Randomized Measurement with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/2_EntropyHadamardTest.html">1.2 EntropyMeasure - Hadamard Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/3a_EntropyRandomizedMeasureV1.html">1.3a EntropyMeasure - Randomized Measurement V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/01_EntropyMeasure/3b_EntropyRandomizedMeasureV1.html">1.3b EntropyMeasure - Randomized Measurement V1 with Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/02_WaveFunctionOverlap/1_EchoListenRandomized.html">2.1 WaveFunctionOverlap - Randomized Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/02_WaveFunctionOverlap/2_EchoListenHadamard.html">2.2 WaveFunctionOverlap - Hadamaed Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postprocessing/02_WaveFunctionOverlap/3_EchoListenRandomizedV1.html">2.3 WaveFunctionOverlap - Randomized Measurement V1</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Features</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Appendix 01 - Backend Wrapper and Backend Manager</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation and Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation/01_Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/02_Platform_Support.html">Platform Support</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/01_About_Qurry.html">About</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/appendix/A01_BackendManager.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Appendix 01 - Backend Wrapper and Backend Manager</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-01-all-the-methods-in-qiskit-to-get-a-simulator-backend">A01.01 - All the methods in <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> to get a simulator backend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basicaer-or-basicprovider-from-qiskit-0-46-0">1. <code class="docutils literal notranslate"><span class="pre">BasicAer</span></code> or <code class="docutils literal notranslate"><span class="pre">BasicProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit</span> <span class="pre">&lt;=</span> <span class="pre">0.46.0</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aer-from-qiskit-aer">2. <code class="docutils literal notranslate"><span class="pre">Aer</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-qiskit-aer-gpu">3. Access <code class="docutils literal notranslate"><span class="pre">qiskit-aer-gpu</span></code>:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-02-fackbackend">A01.02 - FackBackend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-qiskit-0-46-0">1. From <code class="docutils literal notranslate"><span class="pre">qiskit</span> <span class="pre">&lt;=</span> <span class="pre">0.46.0</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-qiskit-ibm-runtime">2. From <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code>:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-03-backend-wrapper">A01.03 - Backend Wrapper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-04-all-the-methods-in-qiskit-to-get-a-real-machine-backend">A01.04 - All the methods in <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> to get a real machine backend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibmprovider-from-qiskit-ibm-provider">1. <code class="docutils literal notranslate"><span class="pre">IBMProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-provider</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qiskitruntimeservice-from-qiskit-ibm-runtime">2. <code class="docutils literal notranslate"><span class="pre">QiskitRuntimeService</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecated-ibmqprovider-from-qiskit-ibmq-provider">3. Deprecated <code class="docutils literal notranslate"><span class="pre">IBMQProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibmq-provider</span></code>:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-05-backend-manager">A01.05 - Backend Manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="appendix-01-backend-wrapper-and-backend-manager">
+<h1>Appendix 01 - Backend Wrapper and Backend Manager<a class="headerlink" href="#appendix-01-backend-wrapper-and-backend-manager" title="Link to this heading">#</a></h1>
+<p>In Qiskit, there are several simulator source like <code class="docutils literal notranslate"><span class="pre">BasicAer</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit</span></code>, <code class="docutils literal notranslate"><span class="pre">Aer</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code> or GPU-based <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code> and IBM Provider from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-provider</span></code>, <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code> or deprecated <code class="docutils literal notranslate"><span class="pre">qiskit-ibmq-provider</span></code>. Also, there are fake backends from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code> and deprecated <code class="docutils literal notranslate"><span class="pre">qiskit.provider.fake_provider</span></code>. To make it easier to use, we can create a wrapper for each simulator and real machine from IBM. This notebook will show how to create a wrapper for the simulators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">qurry</span> <span class="kn">import</span> <span class="n">__version__</span>
+
+<span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.9.4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="a01-01-all-the-methods-in-qiskit-to-get-a-simulator-backend">
+<h2>A01.01 - All the methods in <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> to get a simulator backend<a class="headerlink" href="#a01-01-all-the-methods-in-qiskit-to-get-a-simulator-backend" title="Link to this heading">#</a></h2>
+<section id="basicaer-or-basicprovider-from-qiskit-0-46-0">
+<h3>1. <code class="docutils literal notranslate"><span class="pre">BasicAer</span></code> or <code class="docutils literal notranslate"><span class="pre">BasicProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit</span> <span class="pre">&lt;=</span> <span class="pre">0.46.0</span></code>:<a class="headerlink" href="#basicaer-or-basicprovider-from-qiskit-0-46-0" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ref: <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/0.19/providers_basicaer">https://docs.quantum.ibm.com/api/qiskit/0.19/providers_basicaer</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span>
+    <span class="kn">from</span> <span class="nn">qiskit.providers.basicaer</span> <span class="kn">import</span> <span class="n">QasmSimulatorPy</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| BasicAer, which can call by &#39;.get_backend&#39;:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">backend_wrapper</span> <span class="ow">in</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">backends</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;| - &quot;</span>
+            <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+            <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+            <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| QasmSimulatorPy, which is a direct call:&quot;</span><span class="p">)</span>
+    <span class="n">qasm_simulator</span> <span class="o">=</span> <span class="n">QasmSimulatorPy</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">qasm_simulator</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">qasm_simulator</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">qasm_simulator</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Your qiskit version does not support BasicAer.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - Your qiskit version does not support BasicAer.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit.providers.basic_provider</span> <span class="kn">import</span> <span class="n">BasicProvider</span><span class="p">,</span> <span class="n">BasicSimulator</span>
+
+    <span class="n">basic_provider</span> <span class="o">=</span> <span class="n">BasicProvider</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| BasicProvider, which can call by &#39;.get_backend&#39;:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">backend_wrapper</span> <span class="ow">in</span> <span class="n">basic_provider</span><span class="o">.</span><span class="n">backends</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| BasicSimulator, which is a direct call:&quot;</span><span class="p">)</span>
+    <span class="n">basic_simulator</span> <span class="o">=</span> <span class="n">BasicSimulator</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">basic_simulator</span><span class="p">))</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">basic_simulator</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Your qiskit version does not support BasicProvider.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| BasicProvider, which can call by &#39;.get_backend&#39;:
+| - &lt;qiskit.providers.basic_provider.basic_simulator.BasicSimulator object at 0x7b88fe97bce0&gt;
+| BasicSimulator, which is a direct call:
+| - &lt;qiskit.providers.basic_provider.basic_simulator.BasicSimulator object at 0x7b88b6b76f00&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.providers.basic_provider.basic_simulator.BasicSimulator at 0x7b88b6b76f00&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="aer-from-qiskit-aer">
+<h3>2. <code class="docutils literal notranslate"><span class="pre">Aer</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code>:<a class="headerlink" href="#aer-from-qiskit-aer" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ref: <a class="reference external" href="https://qiskit.github.io/qiskit-aer/getting_started.html">https://qiskit.github.io/qiskit-aer/getting_started.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">AerProvider</span><span class="p">,</span> <span class="n">AerSimulator</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| Via AerProvider, which can call by &#39;.get_backend&#39;:&quot;</span><span class="p">)</span>
+    <span class="n">aer_provider</span> <span class="o">=</span> <span class="n">AerProvider</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">backend_wrapper</span> <span class="ow">in</span> <span class="n">aer_provider</span><span class="o">.</span><span class="n">backends</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;| - &quot;</span>
+            <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+            <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+            <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| Via AerSimulator, which is a direct call:&quot;</span><span class="p">)</span>
+    <span class="n">aer_simulator</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">aer_simulator</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">aer_simulator</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">aer_simulator</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - You do not install qiskit_aer yet, install by using &#39;pip install qiskit-aer&#39;.&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Via AerProvider, which can call by &#39;.get_backend&#39;:
+| - AerSimulator(&#39;aer_simulator&#39;) ........ AerSimulator(&#39;aer_simulator&#39;)
+| - AerSimulator(&#39;aer_simulator_statevector&#39;)  AerSimulator(&#39;aer_simulator_statevector&#39;)
+| - AerSimulator(&#39;aer_simulator_density_matrix&#39;)  AerSimulator(&#39;aer_simulator_density_matrix&#39;)
+| - AerSimulator(&#39;aer_simulator_stabilizer&#39;)  AerSimulator(&#39;aer_simulator_stabilizer&#39;)
+| - AerSimulator(&#39;aer_simulator_matrix_product_state&#39;)  AerSimulator(&#39;aer_simulator_matrix_product_state&#39;)
+| - AerSimulator(&#39;aer_simulator_extended_stabilizer&#39;)  AerSimulator(&#39;aer_simulator_extended_stabilizer&#39;)
+| - AerSimulator(&#39;aer_simulator_unitary&#39;)  AerSimulator(&#39;aer_simulator_unitary&#39;)
+| - AerSimulator(&#39;aer_simulator_superop&#39;)  AerSimulator(&#39;aer_simulator_superop&#39;)
+| - QasmSimulator(&#39;qasm_simulator&#39;) ...... QasmSimulator(&#39;qasm_simulator&#39;)
+| - StatevectorSimulator(&#39;statevector_simulator&#39;)  StatevectorSimulator(&#39;statevector_simulator&#39;)
+| - UnitarySimulator(&#39;unitary_simulator&#39;)  UnitarySimulator(&#39;unitary_simulator&#39;)
+| Via AerSimulator, which is a direct call:
+| - AerSimulator(&#39;aer_simulator&#39;) ........ AerSimulator(&#39;aer_simulator&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AerSimulator(&#39;aer_simulator&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="access-qiskit-aer-gpu">
+<h3>3. Access <code class="docutils literal notranslate"><span class="pre">qiskit-aer-gpu</span></code>:<a class="headerlink" href="#access-qiskit-aer-gpu" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ref: <a class="reference external" href="https://qiskit.github.io/qiskit-aer/getting_started.html">https://qiskit.github.io/qiskit-aer/getting_started.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">AerSimulator</span>
+
+    <span class="n">aer_simulator_gpu</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Check the available devices:&quot;</span><span class="p">,</span> <span class="n">aer_simulator_gpu</span><span class="o">.</span><span class="n">available_devices</span><span class="p">())</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Then set option as GPU&quot;</span><span class="p">)</span>
+    <span class="n">aer_simulator_gpu</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s2">&quot;GPU&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - And check again:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - &quot;</span>
+        <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">aer_simulator_gpu</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+        <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">aer_simulator_gpu</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">aer_simulator_gpu</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - You do not install qiskit_aer yet, install by using &#39;pip install qiskit-aer&#39;.&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - Check the available devices: (&#39;CPU&#39;,)
+| - Then set option as GPU
+| - And check again:
+| - AerSimulator(&#39;aer_simulator&#39;) ........ AerSimulator(&#39;aer_simulator&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AerSimulator(&#39;aer_simulator&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a01-02-fackbackend">
+<h2>A01.02 - FackBackend<a class="headerlink" href="#a01-02-fackbackend" title="Link to this heading">#</a></h2>
+<section id="from-qiskit-0-46-0">
+<h3>1. From <code class="docutils literal notranslate"><span class="pre">qiskit</span> <span class="pre">&lt;=</span> <span class="pre">0.46.0</span></code>:<a class="headerlink" href="#from-qiskit-0-46-0" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit.providers.fake_provider</span> <span class="kn">import</span><span class="p">(</span>
+        <span class="n">FakeProvider</span> <span class="k">as</span> <span class="n">FakeProviderDep</span><span class="p">,</span>
+        <span class="n">FakeProviderForBackendV2</span> <span class="k">as</span> <span class="n">FakeProviderForBackendV2Dep</span><span class="p">,</span>  
+    <span class="p">)</span>
+    <span class="n">fake_provider_v1_old</span> <span class="o">=</span> <span class="n">FakeProviderDep</span><span class="p">()</span>
+    <span class="n">fake_provider_v2_old</span> <span class="o">=</span> <span class="n">FakeProviderForBackendV2Dep</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Fake Backend from &#39;qiskit&#39;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - BackendV1&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">fake_provider_v1_old</span><span class="o">.</span><span class="n">backends</span><span class="p">()])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - BackendV2&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">fake_provider_v2_old</span><span class="o">.</span><span class="n">backends</span><span class="p">()])</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Your qiskit version does not support fake_provider.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - Your qiskit version does not support fake_provider.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="from-qiskit-ibm-runtime">
+<h3>2. From <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code>:<a class="headerlink" href="#from-qiskit-ibm-runtime" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In version <code class="docutils literal notranslate"><span class="pre">0.17.0</span></code>, due to <a class="reference external" href="https://github.com/Qiskit/qiskit-ibm-runtime/issues/1318">this issue #1318</a>, <code class="docutils literal notranslate"><span class="pre">FakeBackend</span></code> is not available.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit_ibm_runtime.fake_provider</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">FakeProviderForBackendV2</span> <span class="k">as</span> <span class="n">FakeProviderForBackendV2Indep</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">fake_provider_v2_new</span> <span class="o">=</span> <span class="n">FakeProviderForBackendV2Indep</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - BackendV2&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">fake_provider_v2_new</span><span class="o">.</span><span class="n">backends</span><span class="p">()])</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Your qiskit version does not support fake_provider.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - The version of &#39;qiskit-ibm-runtime&#39; may be 0.17.0&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - Fake Backend is not available in this version, consider to use other version.&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - For more detail, see: https://github.com/Qiskit/qiskit-ibm-runtime/issues/1318&quot;</span>
+    <span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit_ibm_runtime.fake_provider</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">FakeProvider</span> <span class="k">as</span> <span class="n">FakeProviderIndep</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">fake_provider_v1_new</span> <span class="o">=</span> <span class="n">FakeProviderIndep</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Fake Backend from &#39;qiskit-ibm-runtime&#39;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - BackendV1&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">fake_provider_v1_new</span><span class="o">.</span><span class="n">backends</span><span class="p">()])</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Since 0.33.0, FakeProvider for BackendV! has been deprecated.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - Or your qiskit version does not support fake_provider.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - The version of &#39;qiskit-ibm-runtime&#39; may be 0.17.0&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - Fake Backend is not available in this version, consider to use other version.&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - For more detail, see: https://github.com/Qiskit/qiskit-ibm-runtime/issues/1318&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - BackendV2
+[&#39;fake_algiers&#39;, &#39;fake_almaden&#39;, &#39;fake_armonk&#39;, &#39;fake_athens&#39;, &#39;fake_auckland&#39;, &#39;fake_belem&#39;, &#39;fake_boeblingen&#39;, &#39;fake_bogota&#39;, &#39;fake_brisbane&#39;, &#39;fake_brooklyn&#39;, &#39;fake_burlington&#39;, &#39;fake_cairo&#39;, &#39;fake_cambridge&#39;, &#39;fake_casablanca&#39;, &#39;fake_cusco&#39;, &#39;fake_essex&#39;, &#39;fake_fractional&#39;, &#39;fake_geneva&#39;, &#39;fake_guadalupe&#39;, &#39;fake_hanoi&#39;, &#39;fake_jakarta&#39;, &#39;fake_johannesburg&#39;, &#39;fake_kawasaki&#39;, &#39;fake_kolkata&#39;, &#39;fake_kyiv&#39;, &#39;fake_kyoto&#39;, &#39;fake_lagos&#39;, &#39;fake_lima&#39;, &#39;fake_london&#39;, &#39;fake_manhattan&#39;, &#39;fake_manila&#39;, &#39;fake_melbourne&#39;, &#39;fake_montreal&#39;, &#39;fake_mumbai&#39;, &#39;fake_nairobi&#39;, &#39;fake_osaka&#39;, &#39;fake_oslo&#39;, &#39;fake_ourense&#39;, &#39;fake_paris&#39;, &#39;fake_peekskill&#39;, &#39;fake_perth&#39;, &#39;fake_prague&#39;, &#39;fake_poughkeepsie&#39;, &#39;fake_quebec&#39;, &#39;fake_quito&#39;, &#39;fake_rochester&#39;, &#39;fake_rome&#39;, &#39;fake_santiago&#39;, &#39;fake_sherbrooke&#39;, &#39;fake_singapore&#39;, &#39;fake_sydney&#39;, &#39;fake_torino&#39;, &#39;fake_toronto&#39;, &#39;fake_valencia&#39;, &#39;fake_vigo&#39;, &#39;fake_washington&#39;, &#39;fake_yorktown&#39;]
+| - Since 0.33.0, FakeProvider for BackendV! has been deprecated.
+| - Or your qiskit version does not support fake_provider.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a01-03-backend-wrapper">
+<h2>A01.03 - Backend Wrapper<a class="headerlink" href="#a01-03-backend-wrapper" title="Link to this heading">#</a></h2>
+<p>As previously mentioned, getting a simulator backend is complicated. So <code class="docutils literal notranslate"><span class="pre">Qurry</span></code> introduce a wrapper to make it easier to get a simulator backend.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry</span> <span class="kn">import</span> <span class="n">BackendWrapper</span>
+
+<span class="n">backend_wrapper</span> <span class="o">=</span> <span class="n">BackendWrapper</span><span class="p">()</span>
+<span class="n">backend_wrapper</span><span class="p">(</span><span class="s2">&quot;aer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AerSimulator(&#39;aer_simulator&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If your environment includes the GPU acceleration, <code class="docutils literal notranslate"><span class="pre">qiskit-aer-gpu</span></code>, it will be check the availability to access, if does, the GPU backend will also be available.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| Does we have GPU backend to access:&quot;</span><span class="p">,</span> <span class="n">backend_wrapper</span><span class="o">.</span><span class="n">is_aer_gpu</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># If you have GPU, you can use this backend.</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="p">(</span><span class="s2">&quot;aer_gpu&quot;</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - There is not GPU backend to access:&quot;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Does we have GPU backend to access: False
+| - There is not GPU backend to access: &#39;aer_gpu&#39; unknown backend or backend callsign.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">backend_wrapper</span><span class="o">.</span><span class="n">statesheet</span><span class="p">())</span>
+<span class="n">backend_wrapper</span><span class="o">.</span><span class="n">available_backends</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+ ### BackendWrapper Statesheet
+------------------------------------------------------------
+ #### Simulator
+ - Aer GPU ........................... False
+ - Simulator Provider by ............. qiskit_aer
+   aer, aer_statevector, aer_density_matrix,
+   aer_stabilizer, aer_matrix_product_state, aer_extended_stabilizer,
+   aer_unitary, aer_superop
+ - Available Simulator Backends Callsign
+   - state ............................. statevector
+   - aer_state ......................... aer_statevector
+   - aer_density ....................... aer_density_matrix
+   - aer_state_gpu ..................... aer_statevector_gpu
+   - aer_density_gpu ................... aer_density_matrix_gpu
+------------------------------------------------------------
+ #### IBM
+   No Backends Available. Real backends need to be loaded by &#39;BackendManager&#39; instead of &#39;BackendWrapper&#39;.
+   No Callsign Added
+------------------------------------------------------------
+ #### Fake
+ - Available Fake Backends
+   No Backends Available. Choose fake version when initializing the backend wrapper.
+   No Callsign Added
+------------------------------------------------------------
+ #### Extra
+   No Backends Available.
+   No Callsign Added
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sim&#39;: {&#39;aer&#39;: AerSimulator(&#39;aer_simulator&#39;),
+  &#39;aer_statevector&#39;: AerSimulator(&#39;aer_simulator_statevector&#39;),
+  &#39;aer_density_matrix&#39;: AerSimulator(&#39;aer_simulator_density_matrix&#39;),
+  &#39;aer_stabilizer&#39;: AerSimulator(&#39;aer_simulator_stabilizer&#39;),
+  &#39;aer_matrix_product_state&#39;: AerSimulator(&#39;aer_simulator_matrix_product_state&#39;),
+  &#39;aer_extended_stabilizer&#39;: AerSimulator(&#39;aer_simulator_extended_stabilizer&#39;),
+  &#39;aer_unitary&#39;: AerSimulator(&#39;aer_simulator_unitary&#39;),
+  &#39;aer_superop&#39;: AerSimulator(&#39;aer_simulator_superop&#39;)},
+ &#39;real&#39;: {},
+ &#39;fake&#39;: {},
+ &#39;extra&#39;: {}}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Also, the wrapper can import the fake backend, choosing the fake backend version than it will be imported.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend_wrapper_with_fake</span> <span class="o">=</span> <span class="n">BackendWrapper</span><span class="p">(</span><span class="n">fake_version</span><span class="o">=</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">backend_wrapper_with_fake</span><span class="o">.</span><span class="n">statesheet</span><span class="p">())</span>
+<span class="n">backend_wrapper_with_fake</span><span class="o">.</span><span class="n">available_backends</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+ ### BackendWrapper Statesheet
+------------------------------------------------------------
+ #### Simulator
+ - Aer GPU ........................... False
+ - Simulator Provider by ............. qiskit_aer
+   aer, aer_statevector, aer_density_matrix,
+   aer_stabilizer, aer_matrix_product_state, aer_extended_stabilizer,
+   aer_unitary, aer_superop
+ - Available Simulator Backends Callsign
+   - state ............................. statevector
+   - aer_state ......................... aer_statevector
+   - aer_density ....................... aer_density_matrix
+   - aer_state_gpu ..................... aer_statevector_gpu
+   - aer_density_gpu ................... aer_density_matrix_gpu
+------------------------------------------------------------
+ #### IBM
+   No Backends Available. Real backends need to be loaded by &#39;BackendManager&#39; instead of &#39;BackendWrapper&#39;.
+   No Callsign Added
+------------------------------------------------------------
+ #### Fake
+ - Fake Provider by .................. FakeProviderV2
+ - Available Fake Backends
+   fake_algiers, fake_almaden, fake_armonk,
+   fake_athens, fake_auckland, fake_belem,
+   fake_boeblingen, fake_bogota, fake_brisbane,
+   fake_brooklyn, fake_burlington, fake_cairo,
+   fake_cambridge, fake_casablanca, fake_cusco,
+   fake_essex, fake_fractional, fake_geneva,
+   fake_guadalupe, fake_hanoi, fake_jakarta,
+   fake_johannesburg, fake_kawasaki, fake_kolkata,
+   fake_kyiv, fake_kyoto, fake_lagos,
+   fake_lima, fake_london, fake_manhattan,
+   fake_manila, fake_melbourne, fake_montreal,
+   fake_mumbai, fake_nairobi, fake_osaka,
+   fake_oslo, fake_ourense, fake_paris,
+   fake_peekskill, fake_perth, fake_prague,
+   fake_poughkeepsie, fake_quebec, fake_quito,
+   fake_rochester, fake_rome, fake_santiago,
+   fake_sherbrooke, fake_singapore, fake_sydney,
+   fake_torino, fake_toronto, fake_valencia,
+   fake_vigo, fake_washington, fake_yorktown,
+ - Available Fake Backends Callsign
+   - fake_algiers ...................... fake_algiers
+   - fake_almaden ...................... fake_almaden
+   - fake_armonk ....................... fake_armonk
+   - fake_athens ....................... fake_athens
+   - fake_auckland ..................... fake_auckland
+   - fake_belem ........................ fake_belem
+   - fake_boeblingen ................... fake_boeblingen
+   - fake_bogota ....................... fake_bogota
+   - fake_brisbane ..................... fake_brisbane
+   - fake_brooklyn ..................... fake_brooklyn
+   - fake_burlington ................... fake_burlington
+   - fake_cairo ........................ fake_cairo
+   - fake_cambridge .................... fake_cambridge
+   - fake_casablanca ................... fake_casablanca
+   - fake_cusco ........................ fake_cusco
+   - fake_essex ........................ fake_essex
+   - fake_fractional ................... fake_fractional
+   - fake_geneva ....................... fake_geneva
+   - fake_guadalupe .................... fake_guadalupe
+   - fake_hanoi ........................ fake_hanoi
+   - fake_jakarta ...................... fake_jakarta
+   - fake_johannesburg ................. fake_johannesburg
+   - fake_kawasaki ..................... fake_kawasaki
+   - fake_kolkata ...................... fake_kolkata
+   - fake_kyiv ......................... fake_kyiv
+   - fake_kyoto ........................ fake_kyoto
+   - fake_lagos ........................ fake_lagos
+   - fake_lima ......................... fake_lima
+   - fake_london ....................... fake_london
+   - fake_manhattan .................... fake_manhattan
+   - fake_manila ....................... fake_manila
+   - fake_melbourne .................... fake_melbourne
+   - fake_montreal ..................... fake_montreal
+   - fake_mumbai ....................... fake_mumbai
+   - fake_nairobi ...................... fake_nairobi
+   - fake_osaka ........................ fake_osaka
+   - fake_oslo ......................... fake_oslo
+   - fake_ourense ...................... fake_ourense
+   - fake_paris ........................ fake_paris
+   - fake_peekskill .................... fake_peekskill
+   - fake_perth ........................ fake_perth
+   - fake_prague ....................... fake_prague
+   - fake_poughkeepsie ................. fake_poughkeepsie
+   - fake_quebec ....................... fake_quebec
+   - fake_quito ........................ fake_quito
+   - fake_rochester .................... fake_rochester
+   - fake_rome ......................... fake_rome
+   - fake_santiago ..................... fake_santiago
+   - fake_sherbrooke ................... fake_sherbrooke
+   - fake_singapore .................... fake_singapore
+   - fake_sydney ....................... fake_sydney
+   - fake_torino ....................... fake_torino
+   - fake_toronto ...................... fake_toronto
+   - fake_valencia ..................... fake_valencia
+   - fake_vigo ......................... fake_vigo
+   - fake_washington ................... fake_washington
+   - fake_yorktown ..................... fake_yorktown
+   - fake_qasm ......................... fake_qasm_simulator
+------------------------------------------------------------
+ #### Extra
+   No Backends Available.
+   No Callsign Added
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sim&#39;: {&#39;aer&#39;: AerSimulator(&#39;aer_simulator&#39;),
+  &#39;aer_statevector&#39;: AerSimulator(&#39;aer_simulator_statevector&#39;),
+  &#39;aer_density_matrix&#39;: AerSimulator(&#39;aer_simulator_density_matrix&#39;),
+  &#39;aer_stabilizer&#39;: AerSimulator(&#39;aer_simulator_stabilizer&#39;),
+  &#39;aer_matrix_product_state&#39;: AerSimulator(&#39;aer_simulator_matrix_product_state&#39;),
+  &#39;aer_extended_stabilizer&#39;: AerSimulator(&#39;aer_simulator_extended_stabilizer&#39;),
+  &#39;aer_unitary&#39;: AerSimulator(&#39;aer_simulator_unitary&#39;),
+  &#39;aer_superop&#39;: AerSimulator(&#39;aer_simulator_superop&#39;)},
+ &#39;real&#39;: {},
+ &#39;fake&#39;: {&#39;fake_algiers&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.algiers.fake_algiers.FakeAlgiers at 0x7b8882958050&gt;,
+  &#39;fake_almaden&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.almaden.fake_almaden.FakeAlmadenV2 at 0x7b888298a270&gt;,
+  &#39;fake_armonk&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.armonk.fake_armonk.FakeArmonkV2 at 0x7b888298a2a0&gt;,
+  &#39;fake_athens&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.athens.fake_athens.FakeAthensV2 at 0x7b8882991cd0&gt;,
+  &#39;fake_auckland&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.auckland.fake_auckland.FakeAuckland at 0x7b88829a80e0&gt;,
+  &#39;fake_belem&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.belem.fake_belem.FakeBelemV2 at 0x7b88829d6510&gt;,
+  &#39;fake_boeblingen&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.boeblingen.fake_boeblingen.FakeBoeblingenV2 at 0x7b88829e48c0&gt;,
+  &#39;fake_bogota&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.bogota.fake_bogota.FakeBogotaV2 at 0x7b8881f08950&gt;,
+  &#39;fake_brisbane&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.brisbane.fake_brisbane.FakeBrisbane at 0x7b8881f0ad20&gt;,
+  &#39;fake_brooklyn&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.brooklyn.fake_brooklyn.FakeBrooklynV2 at 0x7b8881fcd490&gt;,
+  &#39;fake_burlington&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.burlington.fake_burlington.FakeBurlingtonV2 at 0x7b8881545b80&gt;,
+  &#39;fake_cairo&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.cairo.fake_cairo.FakeCairoV2 at 0x7b8881545bb0&gt;,
+  &#39;fake_cambridge&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.cambridge.fake_cambridge.FakeCambridgeV2 at 0x7b888156ab10&gt;,
+  &#39;fake_casablanca&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.casablanca.fake_casablanca.FakeCasablancaV2 at 0x7b888156ab40&gt;,
+  &#39;fake_cusco&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.cusco.fake_cusco.FakeCusco at 0x7b8881585f70&gt;,
+  &#39;fake_essex&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.essex.fake_essex.FakeEssexV2 at 0x7b8880b4c6e0&gt;,
+  &#39;fake_fractional&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.fractional.fake_fractional.FakeFractionalBackend at 0x7b8880b4c710&gt;,
+  &#39;fake_geneva&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.geneva.fake_geneva.FakeGeneva at 0x7b8880b4f080&gt;,
+  &#39;fake_guadalupe&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.guadalupe.fake_guadalupe.FakeGuadalupeV2 at 0x7b8880b85580&gt;,
+  &#39;fake_hanoi&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.hanoi.fake_hanoi.FakeHanoiV2 at 0x7b8880b9b920&gt;,
+  &#39;fake_jakarta&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.jakarta.fake_jakarta.FakeJakartaV2 at 0x7b8880bd5d90&gt;,
+  &#39;fake_johannesburg&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.johannesburg.fake_johannesburg.FakeJohannesburgV2 at 0x7b8880be8ce0&gt;,
+  &#39;fake_kawasaki&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kawasaki.fake_kawasaki.FakeKawasaki at 0x7b8880be8d10&gt;,
+  &#39;fake_kolkata&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kolkata.fake_kolkata.FakeKolkataV2 at 0x7b88801b6240&gt;,
+  &#39;fake_kyiv&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kyiv.fake_kyiv.FakeKyiv at 0x7b88801ec290&gt;,
+  &#39;fake_kyoto&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kyoto.fake_kyoto.FakeKyoto at 0x7b887f79e9c0&gt;,
+  &#39;fake_lagos&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.lagos.fake_lagos.FakeLagosV2 at 0x7b887ed5d130&gt;,
+  &#39;fake_lima&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.lima.fake_lima.FakeLimaV2 at 0x7b887ed6c080&gt;,
+  &#39;fake_london&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.london.fake_london.FakeLondonV2 at 0x7b887ed6e3f0&gt;,
+  &#39;fake_manhattan&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.manhattan.fake_manhattan.FakeManhattanV2 at 0x7b887ed6e420&gt;,
+  &#39;fake_manila&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.manila.fake_manila.FakeManilaV2 at 0x7b887edeaff0&gt;,
+  &#39;fake_melbourne&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.melbourne.fake_melbourne.FakeMelbourneV2 at 0x7b887edf9430&gt;,
+  &#39;fake_montreal&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.montreal.fake_montreal.FakeMontrealV2 at 0x7b887edf9460&gt;,
+  &#39;fake_mumbai&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.mumbai.fake_mumbai.FakeMumbaiV2 at 0x7b887e32fe30&gt;,
+  &#39;fake_nairobi&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.nairobi.fake_nairobi.FakeNairobiV2 at 0x7b887e36e270&gt;,
+  &#39;fake_osaka&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.osaka.fake_osaka.FakeOsaka at 0x7b887e37d1f0&gt;,
+  &#39;fake_oslo&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.oslo.fake_oslo.FakeOslo at 0x7b887d92f920&gt;,
+  &#39;fake_ourense&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.ourense.fake_ourense.FakeOurenseV2 at 0x7b887d93a960&gt;,
+  &#39;fake_paris&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.paris.fake_paris.FakeParisV2 at 0x7b887d93a990&gt;,
+  &#39;fake_peekskill&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.peekskill.fake_peekskill.FakePeekskill at 0x7b887d97d3a0&gt;,
+  &#39;fake_perth&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.perth.fake_perth.FakePerth at 0x7b887d9a1d30&gt;,
+  &#39;fake_prague&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.prague.fake_prague.FakePrague at 0x7b887d9b0cb0&gt;,
+  &#39;fake_poughkeepsie&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.poughkeepsie.fake_poughkeepsie.FakePoughkeepsieV2 at 0x7b887d9db980&gt;,
+  &#39;fake_quebec&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.quebec.fake_quebec.FakeQuebec at 0x7b887d9db9b0&gt;,
+  &#39;fake_quito&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.quito.fake_quito.FakeQuitoV2 at 0x7b887cf9f380&gt;,
+  &#39;fake_rochester&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.rochester.fake_rochester.FakeRochesterV2 at 0x7b887cfad730&gt;,
+  &#39;fake_rome&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.rome.fake_rome.FakeRomeV2 at 0x7b887cfad760&gt;,
+  &#39;fake_santiago&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.santiago.fake_santiago.FakeSantiagoV2 at 0x7b887cfaffb0&gt;,
+  &#39;fake_sherbrooke&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.sherbrooke.fake_sherbrooke.FakeSherbrooke at 0x7b887cfd23c0&gt;,
+  &#39;fake_singapore&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.singapore.fake_singapore.FakeSingaporeV2 at 0x7b887c5bd2b0&gt;,
+  &#39;fake_sydney&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.sydney.fake_sydney.FakeSydneyV2 at 0x7b887c5bd2e0&gt;,
+  &#39;fake_torino&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.torino.fake_torino.FakeTorino at 0x7b887c10a5d0&gt;,
+  &#39;fake_toronto&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.toronto.fake_toronto.FakeTorontoV2 at 0x7b887c1ae870&gt;,
+  &#39;fake_valencia&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.valencia.fake_valencia.FakeValenciaV2 at 0x7b887c1eccb0&gt;,
+  &#39;fake_vigo&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.vigo.fake_vigo.FakeVigoV2 at 0x7b887c1eef30&gt;,
+  &#39;fake_washington&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.washington.fake_washington.FakeWashingtonV2 at 0x7b887c1eef60&gt;,
+  &#39;fake_yorktown&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.yorktown.fake_yorktown.FakeYorktownV2 at 0x7b887c0e20c0&gt;},
+ &#39;extra&#39;: {}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="a01-04-all-the-methods-in-qiskit-to-get-a-real-machine-backend">
+<h2>A01.04 - All the methods in <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> to get a real machine backend<a class="headerlink" href="#a01-04-all-the-methods-in-qiskit-to-get-a-real-machine-backend" title="Link to this heading">#</a></h2>
+<p>In Qiskit, there are also several real machine source. The most common is IBM Provider from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-provider</span></code> and <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code> or deprecated <code class="docutils literal notranslate"><span class="pre">qiskit-ibmq-provider</span></code>. To make it easier to use, we also create a wrapper to import backend and save your accounts.</p>
+<p>But let’s see how to save accounts and import the backend in normal way.</p>
+<section id="ibmprovider-from-qiskit-ibm-provider">
+<h3>1. <code class="docutils literal notranslate"><span class="pre">IBMProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-provider</span></code>:<a class="headerlink" href="#ibmprovider-from-qiskit-ibm-provider" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ref: <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit-ibm-provider/qiskit_ibm_provider.IBMProvider">https://docs.quantum.ibm.com/api/qiskit-ibm-provider/qiskit_ibm_provider.IBMProvider</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IBMProvider.save_account()</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit_ibm_provider</span> <span class="kn">import</span> <span class="n">IBMProvider</span>
+
+    <span class="c1"># IBMProvider.save_account(</span>
+    <span class="c1">#     token=&quot;&lt;INSERT_IBM_QUANTUM_TOKEN&gt;&quot;,</span>
+    <span class="c1">#     overwrite=False,  # If you want to overwrite the existing account, then set it as True</span>
+    <span class="c1"># )</span>
+    
+    <span class="n">provider</span> <span class="o">=</span> <span class="n">IBMProvider</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">backends</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - &#39;qiskit_ibm_provider&#39; is not installed yet.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - &#39;qiskit_ibm_provider&#39; is not installed yet.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="qiskitruntimeservice-from-qiskit-ibm-runtime">
+<h3>2. <code class="docutils literal notranslate"><span class="pre">QiskitRuntimeService</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code>:<a class="headerlink" href="#qiskitruntimeservice-from-qiskit-ibm-runtime" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ref: <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service">https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service</a></p></li>
+<li><p>Ref: <a class="github reference external" href="https://github.com/Qiskit/qiskit-ibm-runtime">Qiskit/qiskit-ibm-runtime</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QiskitRuntimeService.save_account</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit_ibm_runtime</span> <span class="kn">import</span> <span class="n">QiskitRuntimeService</span>
+
+    <span class="c1"># Save an IBM Cloud account.</span>
+    <span class="c1"># QiskitRuntimeService.save_account(</span>
+    <span class="c1">#     channel=&quot;ibm_cloud&quot;, token=&quot;MY_IBM_CLOUD_API_KEY&quot;, instance=&quot;MY_IBM_CLOUD_CRN&quot;</span>
+    <span class="c1"># )</span>
+
+    <span class="c1"># Save an IBM Quantum account.</span>
+    <span class="c1"># QiskitRuntimeService.save_account(channel=&quot;ibm_quantum&quot;, token=&quot;MY_IBM_QUANTUM_TOKEN&quot;)</span>
+    
+    <span class="n">service</span> <span class="o">=</span> <span class="n">QiskitRuntimeService</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">backends</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - &#39;qiskit_ibm_provider&#39; is not installed yet.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;QiskitRuntimeService&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;IBMBackend(&#39;ibm_brisbane&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_brussels&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_fez&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_kyiv&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_nazca&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_sherbrooke&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_strasbourg&#39;)&gt;,
+ &lt;IBMBackend(&#39;ibm_torino&#39;)&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deprecated-ibmqprovider-from-qiskit-ibmq-provider">
+<h3>3. Deprecated <code class="docutils literal notranslate"><span class="pre">IBMQProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibmq-provider</span></code>:<a class="headerlink" href="#deprecated-ibmqprovider-from-qiskit-ibmq-provider" title="Link to this heading">#</a></h3>
+<p>This is the old way to get the backend from IBM. It has been deprecated in current version of Qiskit.
+But there are still some people using it, so we will also show how to use it.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IBMQ.save_account</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">IBMQ</span>
+
+    <span class="c1"># IBMQ.save_account(</span>
+    <span class="c1">#     token=&quot;&lt;INSERT_IBM_QUANTUM_TOKEN&gt;&quot;,</span>
+    <span class="c1">#     overwrite=False,  # If you want to overwrite the existing account, then set it as True</span>
+    <span class="c1"># )</span>
+    
+    <span class="n">IBMQ</span><span class="o">.</span><span class="n">load_account</span><span class="p">()</span>
+    <span class="n">old_provider</span> <span class="o">=</span> <span class="n">IBMQ</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span>
+        <span class="n">hub</span><span class="o">=</span><span class="s2">&quot;ibm-q&quot;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="s2">&quot;main&quot;</span>
+    <span class="p">)</span>  <span class="c1"># You can change the hub, group, and project</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">old_provider</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">old_provider</span><span class="o">.</span><span class="n">backends</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;| - &#39;qiskit_ibmq_provider&#39; is not installed yet, &quot;</span>
+        <span class="s2">&quot;but we recommend you that avoid to use &quot;</span>
+        <span class="s2">&quot;this module for it has been deprecated.&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - &#39;qiskit_ibmq_provider&#39; is not installed yet, but we recommend you that avoid to use this module for it has been deprecated.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a01-05-backend-manager">
+<h2>A01.05 - Backend Manager<a class="headerlink" href="#a01-05-backend-manager" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>So far, we have shown you how to import the backend in the normal way. But it is still complicated to import the backend. So we introduce a more powerful class <code class="docutils literal notranslate"><span class="pre">backendManager</span></code> to import the backend more easily. It basically wraps the <code class="docutils literal notranslate"><span class="pre">backendWrapper</span></code> with <code class="docutils literal notranslate"><span class="pre">IBMProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-provider</span></code> and <code class="docutils literal notranslate"><span class="pre">IBMQProvider</span></code> from deprecated <code class="docutils literal notranslate"><span class="pre">qiskit-ibmq-provider</span></code> for old version user together.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry</span> <span class="kn">import</span> <span class="n">BackendManager</span>
+
+<span class="c1"># BackendManager.save_account(</span>
+<span class="c1">#     token=&quot;&lt;INSERT_IBM_QUANTUM_TOKEN&gt;&quot;,</span>
+<span class="c1">#     overwrite=False,  # If you want to overwrite the existing account, then set it as True</span>
+<span class="c1"># )</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend_manager</span> <span class="o">=</span> <span class="n">BackendManager</span><span class="p">(</span>
+    <span class="n">hub</span><span class="o">=</span><span class="s2">&quot;ibm-q&quot;</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s2">&quot;open&quot;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+    <span class="n">real_provider_source</span><span class="o">=</span><span class="s2">&quot;qiskit_ibm_runtime&quot;</span><span class="p">,</span>
+    <span class="c1"># You can change the provider source between &#39;qiskit_ibm_runtime&#39;, &#39;qiskit_ibmq_provider&#39; and &#39;qiskit_ibm_provider&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Provider by &#39;qiskit_ibm_runtime&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>By using <code class="docutils literal notranslate"><span class="pre">backendManager</span></code>, you can easily import the backend and save your account. It will also check the availability of the backend and the account. If the backend is not available, it will show you the error message.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">backend_manager</span><span class="o">.</span><span class="n">statesheet</span><span class="p">())</span>
+<span class="n">backend_manager</span><span class="o">.</span><span class="n">available_backends</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+ ### BackendWrapper Statesheet
+------------------------------------------------------------
+ #### Simulator
+ - Aer GPU ........................... False
+ - Simulator Provider by ............. qiskit_aer
+   aer, aer_statevector, aer_density_matrix,
+   aer_stabilizer, aer_matrix_product_state, aer_extended_stabilizer,
+   aer_unitary, aer_superop
+ - Available Simulator Backends Callsign
+   - state ............................. statevector
+   - aer_state ......................... aer_statevector
+   - aer_density ....................... aer_density_matrix
+   - aer_state_gpu ..................... aer_statevector_gpu
+   - aer_density_gpu ................... aer_density_matrix_gpu
+------------------------------------------------------------
+ #### IBM
+ - IBM Real Provider by .............. qiskit_ibm_runtime
+   ibm_brisbane, ibm_sherbrooke, ibm_kyiv,
+ - Available IBM Backends Callsign
+   - brisbane .......................... ibm_brisbane
+   - sherbrooke ........................ ibm_sherbrooke
+   - kyiv .............................. ibm_kyiv
+   - ibmq_qasm ......................... ibmq_qasm_simulator
+------------------------------------------------------------
+ #### Fake
+ - Available Fake Backends
+   No Backends Available. Choose fake version when initializing the backend wrapper.
+   No Callsign Added
+------------------------------------------------------------
+ #### Extra
+   No Backends Available.
+   No Callsign Added
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sim&#39;: {&#39;aer&#39;: AerSimulator(&#39;aer_simulator&#39;),
+  &#39;aer_statevector&#39;: AerSimulator(&#39;aer_simulator_statevector&#39;),
+  &#39;aer_density_matrix&#39;: AerSimulator(&#39;aer_simulator_density_matrix&#39;),
+  &#39;aer_stabilizer&#39;: AerSimulator(&#39;aer_simulator_stabilizer&#39;),
+  &#39;aer_matrix_product_state&#39;: AerSimulator(&#39;aer_simulator_matrix_product_state&#39;),
+  &#39;aer_extended_stabilizer&#39;: AerSimulator(&#39;aer_simulator_extended_stabilizer&#39;),
+  &#39;aer_unitary&#39;: AerSimulator(&#39;aer_simulator_unitary&#39;),
+  &#39;aer_superop&#39;: AerSimulator(&#39;aer_simulator_superop&#39;)},
+ &#39;real&#39;: {&#39;ibm_brisbane&#39;: &lt;IBMBackend(&#39;ibm_brisbane&#39;)&gt;,
+  &#39;ibm_sherbrooke&#39;: &lt;IBMBackend(&#39;ibm_sherbrooke&#39;)&gt;,
+  &#39;ibm_kyiv&#39;: &lt;IBMBackend(&#39;ibm_kyiv&#39;)&gt;},
+ &#39;fake&#39;: {},
+ &#39;extra&#39;: {}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend_manager</span><span class="p">(</span><span class="s2">&quot;aer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AerSimulator(&#39;aer_simulator&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">backend_manager</span><span class="p">(</span><span class="s2">&quot;ibmq_x2&quot;</span><span class="p">)</span>  <span class="c1"># ibmq_x2 is a retired real quantum device</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| - There is no backend to access:&quot;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| - There is no backend to access: &#39;ibmq_x2&#39; unknown backend or backend callsign.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Of course, you can also import fake backend by choosing the fake backend version.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend_manager_with_fake</span> <span class="o">=</span> <span class="n">BackendManager</span><span class="p">(</span>
+    <span class="n">fake_version</span><span class="o">=</span><span class="s2">&quot;v2&quot;</span><span class="p">,</span>
+    <span class="n">hub</span><span class="o">=</span><span class="s2">&quot;ibm-q&quot;</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s2">&quot;open&quot;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Provider by &#39;qiskit_ibm_runtime&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">backend_manager_with_fake</span><span class="o">.</span><span class="n">statesheet</span><span class="p">())</span>
+<span class="n">backend_manager_with_fake</span><span class="o">.</span><span class="n">available_backends</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+ ### BackendWrapper Statesheet
+------------------------------------------------------------
+ #### Simulator
+ - Aer GPU ........................... False
+ - Simulator Provider by ............. qiskit_aer
+   aer, aer_statevector, aer_density_matrix,
+   aer_stabilizer, aer_matrix_product_state, aer_extended_stabilizer,
+   aer_unitary, aer_superop
+ - Available Simulator Backends Callsign
+   - state ............................. statevector
+   - aer_state ......................... aer_statevector
+   - aer_density ....................... aer_density_matrix
+   - aer_state_gpu ..................... aer_statevector_gpu
+   - aer_density_gpu ................... aer_density_matrix_gpu
+------------------------------------------------------------
+ #### IBM
+ - IBM Real Provider by .............. qiskit_ibm_runtime
+   ibm_brisbane, ibm_sherbrooke, ibm_kyiv,
+ - Available IBM Backends Callsign
+   - brisbane .......................... ibm_brisbane
+   - sherbrooke ........................ ibm_sherbrooke
+   - kyiv .............................. ibm_kyiv
+   - ibmq_qasm ......................... ibmq_qasm_simulator
+------------------------------------------------------------
+ #### Fake
+ - Fake Provider by .................. FakeProviderV2
+ - Available Fake Backends
+   fake_algiers, fake_almaden, fake_armonk,
+   fake_athens, fake_auckland, fake_belem,
+   fake_boeblingen, fake_bogota, fake_brisbane,
+   fake_brooklyn, fake_burlington, fake_cairo,
+   fake_cambridge, fake_casablanca, fake_cusco,
+   fake_essex, fake_fractional, fake_geneva,
+   fake_guadalupe, fake_hanoi, fake_jakarta,
+   fake_johannesburg, fake_kawasaki, fake_kolkata,
+   fake_kyiv, fake_kyoto, fake_lagos,
+   fake_lima, fake_london, fake_manhattan,
+   fake_manila, fake_melbourne, fake_montreal,
+   fake_mumbai, fake_nairobi, fake_osaka,
+   fake_oslo, fake_ourense, fake_paris,
+   fake_peekskill, fake_perth, fake_prague,
+   fake_poughkeepsie, fake_quebec, fake_quito,
+   fake_rochester, fake_rome, fake_santiago,
+   fake_sherbrooke, fake_singapore, fake_sydney,
+   fake_torino, fake_toronto, fake_valencia,
+   fake_vigo, fake_washington, fake_yorktown,
+ - Available Fake Backends Callsign
+   - fake_algiers ...................... fake_algiers
+   - fake_almaden ...................... fake_almaden
+   - fake_armonk ....................... fake_armonk
+   - fake_athens ....................... fake_athens
+   - fake_auckland ..................... fake_auckland
+   - fake_belem ........................ fake_belem
+   - fake_boeblingen ................... fake_boeblingen
+   - fake_bogota ....................... fake_bogota
+   - fake_brisbane ..................... fake_brisbane
+   - fake_brooklyn ..................... fake_brooklyn
+   - fake_burlington ................... fake_burlington
+   - fake_cairo ........................ fake_cairo
+   - fake_cambridge .................... fake_cambridge
+   - fake_casablanca ................... fake_casablanca
+   - fake_cusco ........................ fake_cusco
+   - fake_essex ........................ fake_essex
+   - fake_fractional ................... fake_fractional
+   - fake_geneva ....................... fake_geneva
+   - fake_guadalupe .................... fake_guadalupe
+   - fake_hanoi ........................ fake_hanoi
+   - fake_jakarta ...................... fake_jakarta
+   - fake_johannesburg ................. fake_johannesburg
+   - fake_kawasaki ..................... fake_kawasaki
+   - fake_kolkata ...................... fake_kolkata
+   - fake_kyiv ......................... fake_kyiv
+   - fake_kyoto ........................ fake_kyoto
+   - fake_lagos ........................ fake_lagos
+   - fake_lima ......................... fake_lima
+   - fake_london ....................... fake_london
+   - fake_manhattan .................... fake_manhattan
+   - fake_manila ....................... fake_manila
+   - fake_melbourne .................... fake_melbourne
+   - fake_montreal ..................... fake_montreal
+   - fake_mumbai ....................... fake_mumbai
+   - fake_nairobi ...................... fake_nairobi
+   - fake_osaka ........................ fake_osaka
+   - fake_oslo ......................... fake_oslo
+   - fake_ourense ...................... fake_ourense
+   - fake_paris ........................ fake_paris
+   - fake_peekskill .................... fake_peekskill
+   - fake_perth ........................ fake_perth
+   - fake_prague ....................... fake_prague
+   - fake_poughkeepsie ................. fake_poughkeepsie
+   - fake_quebec ....................... fake_quebec
+   - fake_quito ........................ fake_quito
+   - fake_rochester .................... fake_rochester
+   - fake_rome ......................... fake_rome
+   - fake_santiago ..................... fake_santiago
+   - fake_sherbrooke ................... fake_sherbrooke
+   - fake_singapore .................... fake_singapore
+   - fake_sydney ....................... fake_sydney
+   - fake_torino ....................... fake_torino
+   - fake_toronto ...................... fake_toronto
+   - fake_valencia ..................... fake_valencia
+   - fake_vigo ......................... fake_vigo
+   - fake_washington ................... fake_washington
+   - fake_yorktown ..................... fake_yorktown
+   - fake_qasm ......................... fake_qasm_simulator
+------------------------------------------------------------
+ #### Extra
+   No Backends Available.
+   No Callsign Added
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sim&#39;: {&#39;aer&#39;: AerSimulator(&#39;aer_simulator&#39;),
+  &#39;aer_statevector&#39;: AerSimulator(&#39;aer_simulator_statevector&#39;),
+  &#39;aer_density_matrix&#39;: AerSimulator(&#39;aer_simulator_density_matrix&#39;),
+  &#39;aer_stabilizer&#39;: AerSimulator(&#39;aer_simulator_stabilizer&#39;),
+  &#39;aer_matrix_product_state&#39;: AerSimulator(&#39;aer_simulator_matrix_product_state&#39;),
+  &#39;aer_extended_stabilizer&#39;: AerSimulator(&#39;aer_simulator_extended_stabilizer&#39;),
+  &#39;aer_unitary&#39;: AerSimulator(&#39;aer_simulator_unitary&#39;),
+  &#39;aer_superop&#39;: AerSimulator(&#39;aer_simulator_superop&#39;)},
+ &#39;real&#39;: {&#39;ibm_brisbane&#39;: &lt;IBMBackend(&#39;ibm_brisbane&#39;)&gt;,
+  &#39;ibm_sherbrooke&#39;: &lt;IBMBackend(&#39;ibm_sherbrooke&#39;)&gt;,
+  &#39;ibm_kyiv&#39;: &lt;IBMBackend(&#39;ibm_kyiv&#39;)&gt;},
+ &#39;fake&#39;: {&#39;fake_algiers&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.algiers.fake_algiers.FakeAlgiers at 0x7b88772c68d0&gt;,
+  &#39;fake_almaden&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.almaden.fake_almaden.FakeAlmadenV2 at 0x7b88772fcce0&gt;,
+  &#39;fake_armonk&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.armonk.fake_armonk.FakeArmonkV2 at 0x7b88772fcd10&gt;,
+  &#39;fake_athens&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.athens.fake_athens.FakeAthensV2 at 0x7b887710c7a0&gt;,
+  &#39;fake_auckland&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.auckland.fake_auckland.FakeAuckland at 0x7b887710eb70&gt;,
+  &#39;fake_belem&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.belem.fake_belem.FakeBelemV2 at 0x7b887714cfe0&gt;,
+  &#39;fake_boeblingen&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.boeblingen.fake_boeblingen.FakeBoeblingenV2 at 0x7b887714f350&gt;,
+  &#39;fake_bogota&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.bogota.fake_bogota.FakeBogotaV2 at 0x7b88771733e0&gt;,
+  &#39;fake_brisbane&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.brisbane.fake_brisbane.FakeBrisbane at 0x7b88771857f0&gt;,
+  &#39;fake_brooklyn&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.brooklyn.fake_brooklyn.FakeBrooklynV2 at 0x7b887703bf20&gt;,
+  &#39;fake_burlington&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.burlington.fake_burlington.FakeBurlingtonV2 at 0x7b887b8e6b40&gt;,
+  &#39;fake_cairo&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.cairo.fake_cairo.FakeCairoV2 at 0x7b887b8e4530&gt;,
+  &#39;fake_cambridge&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.cambridge.fake_cambridge.FakeCambridgeV2 at 0x7b88770d7410&gt;,
+  &#39;fake_casablanca&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.casablanca.fake_casablanca.FakeCasablancaV2 at 0x7b88770d7440&gt;,
+  &#39;fake_cusco&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.cusco.fake_cusco.FakeCusco at 0x7b88770ea870&gt;,
+  &#39;fake_essex&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.essex.fake_essex.FakeEssexV2 at 0x7b8876fa8fe0&gt;,
+  &#39;fake_fractional&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.fractional.fake_fractional.FakeFractionalBackend at 0x7b8876fa9010&gt;,
+  &#39;fake_geneva&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.geneva.fake_geneva.FakeGeneva at 0x7b8876fab980&gt;,
+  &#39;fake_guadalupe&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.guadalupe.fake_guadalupe.FakeGuadalupeV2 at 0x7b8876fe9e80&gt;,
+  &#39;fake_hanoi&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.hanoi.fake_hanoi.FakeHanoiV2 at 0x7b8876e0c230&gt;,
+  &#39;fake_jakarta&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.jakarta.fake_jakarta.FakeJakartaV2 at 0x7b8876e3a660&gt;,
+  &#39;fake_johannesburg&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.johannesburg.fake_johannesburg.FakeJohannesburgV2 at 0x7b8876e455e0&gt;,
+  &#39;fake_kawasaki&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kawasaki.fake_kawasaki.FakeKawasaki at 0x7b8876e45610&gt;,
+  &#39;fake_kolkata&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kolkata.fake_kolkata.FakeKolkataV2 at 0x7b8876d12b40&gt;,
+  &#39;fake_kyiv&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kyiv.fake_kyiv.FakeKyiv at 0x7b8876d45010&gt;,
+  &#39;fake_kyoto&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.kyoto.fake_kyoto.FakeKyoto at 0x7b8876dfb740&gt;,
+  &#39;fake_lagos&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.lagos.fake_lagos.FakeLagosV2 at 0x7b8876cb5eb0&gt;,
+  &#39;fake_lima&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.lima.fake_lima.FakeLimaV2 at 0x7b8876cc8e30&gt;,
+  &#39;fake_london&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.london.fake_london.FakeLondonV2 at 0x7b8876ccb1a0&gt;,
+  &#39;fake_manhattan&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.manhattan.fake_manhattan.FakeManhattanV2 at 0x7b8876ccb1d0&gt;,
+  &#39;fake_manila&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.manila.fake_manila.FakeManilaV2 at 0x7b8876b47da0&gt;,
+  &#39;fake_melbourne&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.melbourne.fake_melbourne.FakeMelbourneV2 at 0x7b8876b561e0&gt;,
+  &#39;fake_montreal&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.montreal.fake_montreal.FakeMontrealV2 at 0x7b8876b56210&gt;,
+  &#39;fake_mumbai&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.mumbai.fake_mumbai.FakeMumbaiV2 at 0x7b8876b90c20&gt;,
+  &#39;fake_nairobi&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.nairobi.fake_nairobi.FakeNairobiV2 at 0x7b8876bc2ff0&gt;,
+  &#39;fake_osaka&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.osaka.fake_osaka.FakeOsaka at 0x7b8876bd1f70&gt;,
+  &#39;fake_oslo&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.oslo.fake_oslo.FakeOslo at 0x7b8876a906e0&gt;,
+  &#39;fake_ourense&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.ourense.fake_ourense.FakeOurenseV2 at 0x7b8876a936e0&gt;,
+  &#39;fake_paris&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.paris.fake_paris.FakeParisV2 at 0x7b8876a93710&gt;,
+  &#39;fake_peekskill&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.peekskill.fake_peekskill.FakePeekskill at 0x7b8876ada120&gt;,
+  &#39;fake_perth&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.perth.fake_perth.FakePerth at 0x7b8876afaab0&gt;,
+  &#39;fake_prague&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.prague.fake_prague.FakePrague at 0x7b887690da30&gt;,
+  &#39;fake_poughkeepsie&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.poughkeepsie.fake_poughkeepsie.FakePoughkeepsieV2 at 0x7b887693c740&gt;,
+  &#39;fake_quebec&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.quebec.fake_quebec.FakeQuebec at 0x7b887b8e6810&gt;,
+  &#39;fake_quito&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.quito.fake_quito.FakeQuitoV2 at 0x7b88768080e0&gt;,
+  &#39;fake_rochester&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.rochester.fake_rochester.FakeRochesterV2 at 0x7b887680a450&gt;,
+  &#39;fake_rome&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.rome.fake_rome.FakeRomeV2 at 0x7b887680a480&gt;,
+  &#39;fake_santiago&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.santiago.fake_santiago.FakeSantiagoV2 at 0x7b8876828d40&gt;,
+  &#39;fake_sherbrooke&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.sherbrooke.fake_sherbrooke.FakeSherbrooke at 0x7b887682b110&gt;,
+  &#39;fake_singapore&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.singapore.fake_singapore.FakeSingaporeV2 at 0x7b887671a000&gt;,
+  &#39;fake_sydney&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.sydney.fake_sydney.FakeSydneyV2 at 0x7b887671a030&gt;,
+  &#39;fake_torino&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.torino.fake_torino.FakeTorino at 0x7b887675b350&gt;,
+  &#39;fake_toronto&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.toronto.fake_toronto.FakeTorontoV2 at 0x7b88766035f0&gt;,
+  &#39;fake_valencia&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.valencia.fake_valencia.FakeValenciaV2 at 0x7b8876641a30&gt;,
+  &#39;fake_vigo&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.vigo.fake_vigo.FakeVigoV2 at 0x7b8876643ce0&gt;,
+  &#39;fake_washington&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.washington.fake_washington.FakeWashingtonV2 at 0x7b887b8e6870&gt;,
+  &#39;fake_yorktown&#39;: &lt;qiskit_ibm_runtime.fake_provider.backends.yorktown.fake_yorktown.FakeYorktownV2 at 0x7b8876536e10&gt;},
+ &#39;extra&#39;: {}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="post-process-availablities-and-version-info">
+<h2>Post-Process Availablities and Version Info<a class="headerlink" href="#post-process-availablities-and-version-info" title="Link to this heading">#</a></h2>
+<p>We currently do not support Qsikit 1.0 for we are working on it, and we will support it in the future.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qurry.process</span> <span class="kn">import</span> <span class="n">AVAIBILITY_STATESHEET</span>
+<span class="kn">from</span> <span class="nn">qurry.tools.qiskit_version</span> <span class="kn">import</span> <span class="n">QISKIT_VERSION_STATESHEET</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">AVAIBILITY_STATESHEET</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">QISKIT_VERSION_STATESHEET</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> | Qurry version: 0.9.4
+--------------------------------------------------------
+ ### Qurry Post-Processing
+   - Backend Availability ................... Python Cython Rust  
+ - randomized_measure
+   - entangled_entropy.entropy_core_2 ....... Yes    Depr.  Yes   
+   - entangle_entropy.purity_cell_2 ......... Yes    Depr.  Yes   
+   - wavefunction_overlap ................... Yes    Depr.  Yes   
+   - echo_cell .............................. Yes    Depr.  Error 
+ - utils
+   - randomized ............................. Yes    Depr.  Yes   
+   - construct .............................. Yes    No     Yes   
+   - dummy .................................. Yes    No     Yes   
+   - test ................................... Yes    No     Yes   
+ - hadamard_test
+   - purity_echo_core ....................... Yes    No     Yes   
+ - magnet_square
+   - magnsq_core ............................ Yes    No     No    
+--------------------------------------------------------
+   + Yes ...... Working normally.
+   + Error .... Exception occurred.
+   + No ....... Not supported.
+   + Depr. .... Deprecated.
+--------------------------------------------------------
+
+ | Qurry version: 0.9.4
+--------------------------------------------
+ ### Qiskit version
+ - main
+   - qiskit-aer .............. 0.15.1
+   - qiskit-aer-gpu .......... 0.14.2
+   - qiskit-ibm-runtime ...... 0.33.2
+ - deprecated
+ - into-community
+--------------------------------------------
+ + qiskit-aer-gpu should have the same version as qiskit-aer.
+--------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../postprocessing/02_WaveFunctionOverlap/3_EchoListenRandomizedV1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.3 WaveFunctionOverlap - Randomized Measurement V1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../installation/01_Installation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-01-all-the-methods-in-qiskit-to-get-a-simulator-backend">A01.01 - All the methods in <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> to get a simulator backend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basicaer-or-basicprovider-from-qiskit-0-46-0">1. <code class="docutils literal notranslate"><span class="pre">BasicAer</span></code> or <code class="docutils literal notranslate"><span class="pre">BasicProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit</span> <span class="pre">&lt;=</span> <span class="pre">0.46.0</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aer-from-qiskit-aer">2. <code class="docutils literal notranslate"><span class="pre">Aer</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-aer</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-qiskit-aer-gpu">3. Access <code class="docutils literal notranslate"><span class="pre">qiskit-aer-gpu</span></code>:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-02-fackbackend">A01.02 - FackBackend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-qiskit-0-46-0">1. From <code class="docutils literal notranslate"><span class="pre">qiskit</span> <span class="pre">&lt;=</span> <span class="pre">0.46.0</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-qiskit-ibm-runtime">2. From <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code>:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-03-backend-wrapper">A01.03 - Backend Wrapper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-04-all-the-methods-in-qiskit-to-get-a-real-machine-backend">A01.04 - All the methods in <code class="docutils literal notranslate"><span class="pre">qiskit</span></code> to get a real machine backend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibmprovider-from-qiskit-ibm-provider">1. <code class="docutils literal notranslate"><span class="pre">IBMProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-provider</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qiskitruntimeservice-from-qiskit-ibm-runtime">2. <code class="docutils literal notranslate"><span class="pre">QiskitRuntimeService</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibm-runtime</span></code>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecated-ibmqprovider-from-qiskit-ibmq-provider">3. Deprecated <code class="docutils literal notranslate"><span class="pre">IBMQProvider</span></code> from <code class="docutils literal notranslate"><span class="pre">qiskit-ibmq-provider</span></code>:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a01-05-backend-manager">A01.05 - Backend Manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-process-availablities-and-version-info">Post-Process Availablities and Version Info</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Huai-Chung Chang (harui2019)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
